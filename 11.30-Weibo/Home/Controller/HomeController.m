@@ -7,6 +7,7 @@
 //
 
 #import "HomeController.h"
+#import "UIBarButtonItem+ItemByImage.h"
 
 @interface HomeController ()
 
@@ -20,8 +21,19 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // 左边按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_friendsearch" hightedImageName:@"navigationbar_friendsearch_highlighted" target:self action:@selector(friendsSearch)];
+    
+    // 右边按钮
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_pop" hightedImageName:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+}
+
+- (void)friendsSearch {
+    NSLog(@"索索好友");
+}
+
+- (void)pop {
+    NSLog(@"pop");
 }
 
 - (void)didReceiveMemoryWarning {
