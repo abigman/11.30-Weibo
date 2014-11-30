@@ -18,6 +18,7 @@
 		F276506A1A2B63A30031325A /* MessageCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650691A2B63A30031325A /* MessageCenterController.m */; };
 		F276506D1A2B641D0031325A /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506C1A2B641D0031325A /* ProfileController.m */; };
 		F27650701A2B64370031325A /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506F1A2B64370031325A /* DiscoverController.m */; };
+		F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		F276506C1A2B641D0031325A /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
 		F276506E1A2B64370031325A /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
 		F276506F1A2B64370031325A /* DiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverController.m; sourceTree = "<group>"; };
+		F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ItemByImage.h"; sourceTree = "<group>"; };
+		F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ItemByImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 		F276501D1A2B5D5E0031325A /* 11.30-Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				F27650711A2B7CEB0031325A /* Category */,
 				F27650551A2B609B0031325A /* Discover */,
 				F27650591A2B609B0031325A /* Home */,
 				F276505D1A2B609B0031325A /* MessageCenter */,
@@ -309,6 +313,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F27650711A2B7CEB0031325A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */,
+				F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -413,6 +426,7 @@
 				F27650701A2B64370031325A /* DiscoverController.m in Sources */,
 				F27650671A2B60B70031325A /* HomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
+				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F276506D1A2B641D0031325A /* ProfileController.m in Sources */,
 				F27650531A2B5E7C0031325A /* MainTabBarController.m in Sources */,
 				F27650501A2B5E620031325A /* MainNavigationController.m in Sources */,
