@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DiscoverController.h
 //  11.30-Weibo
 //
 //  Created by Chenglin Yu on 14/11/30.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface DiscoverController : UITableViewController
 
 @end
-
