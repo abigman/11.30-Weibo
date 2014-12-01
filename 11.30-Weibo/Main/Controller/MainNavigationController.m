@@ -29,7 +29,8 @@
 /** 自定义push操作 */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
-    
+    // 第一次调用的时候，子控制器个数为0，调用父类控制器，添加rootViewController
+    // 如果再次调用，自控制器个数大于0，会对push的控制器进行自定义
     if (self.viewControllers.count > 0) {
         // 调转后，自动隐藏底部bar
         viewController.hidesBottomBarWhenPushed = YES;
