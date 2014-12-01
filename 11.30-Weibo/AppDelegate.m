@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MainTabBarController.h"
+#import "YCLMainTabBarController.h"
 
 
 @interface AppDelegate ()
@@ -21,7 +21,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [[MainTabBarController alloc] init];
+    self.window.rootViewController = [[YCLMainTabBarController alloc] init];
     
     
     

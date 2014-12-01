@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
-#import "MainNavigationController.h"
+#import "YCLMainNavigationController.h"
 #import "UIBarButtonItem+ItemByImage.h"
 
-@interface MainNavigationController ()
+@interface YCLMainNavigationController ()
 
 @end
 
-@implementation MainNavigationController
+@implementation YCLMainNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

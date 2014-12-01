@@ -12,12 +12,12 @@
 		F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276502B1A2B5D5E0031325A /* Images.xcassets */; };
 		F276502F1A2B5D5E0031325A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F276502D1A2B5D5E0031325A /* LaunchScreen.xib */; };
 		F276503B1A2B5D5E0031325A /* _1_30_WeiboTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F276503A1A2B5D5E0031325A /* _1_30_WeiboTests.m */; };
-		F27650501A2B5E620031325A /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276504F1A2B5E620031325A /* MainNavigationController.m */; };
-		F27650531A2B5E7C0031325A /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650521A2B5E7C0031325A /* MainTabBarController.m */; };
-		F27650671A2B60B70031325A /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650661A2B60B70031325A /* HomeController.m */; };
-		F276506A1A2B63A30031325A /* MessageCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650691A2B63A30031325A /* MessageCenterController.m */; };
+		F27650501A2B5E620031325A /* YCLMainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276504F1A2B5E620031325A /* YCLMainNavigationController.m */; };
+		F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650521A2B5E7C0031325A /* YCLMainTabBarController.m */; };
+		F27650671A2B60B70031325A /* YCLHomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650661A2B60B70031325A /* YCLHomeController.m */; };
+		F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650691A2B63A30031325A /* YCLMessageCenterController.m */; };
 		F276506D1A2B641D0031325A /* ProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506C1A2B641D0031325A /* ProfileController.m */; };
-		F27650701A2B64370031325A /* DiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506F1A2B64370031325A /* DiscoverController.m */; };
+		F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506F1A2B64370031325A /* YCLDiscoverController.m */; };
 		F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */; };
 /* End PBXBuildFile section */
 
@@ -42,18 +42,18 @@
 		F27650341A2B5D5E0031325A /* 11.30-WeiboTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "11.30-WeiboTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F27650391A2B5D5E0031325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F276503A1A2B5D5E0031325A /* _1_30_WeiboTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _1_30_WeiboTests.m; sourceTree = "<group>"; };
-		F276504E1A2B5E620031325A /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
-		F276504F1A2B5E620031325A /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
-		F27650511A2B5E7C0031325A /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
-		F27650521A2B5E7C0031325A /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
-		F27650651A2B60B70031325A /* HomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
-		F27650661A2B60B70031325A /* HomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
-		F27650681A2B63A30031325A /* MessageCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCenterController.h; sourceTree = "<group>"; };
-		F27650691A2B63A30031325A /* MessageCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCenterController.m; sourceTree = "<group>"; };
+		F276504E1A2B5E620031325A /* YCLMainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLMainNavigationController.h; sourceTree = "<group>"; };
+		F276504F1A2B5E620031325A /* YCLMainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLMainNavigationController.m; sourceTree = "<group>"; };
+		F27650511A2B5E7C0031325A /* YCLMainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLMainTabBarController.h; sourceTree = "<group>"; };
+		F27650521A2B5E7C0031325A /* YCLMainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLMainTabBarController.m; sourceTree = "<group>"; };
+		F27650651A2B60B70031325A /* YCLHomeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHomeController.h; sourceTree = "<group>"; };
+		F27650661A2B60B70031325A /* YCLHomeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHomeController.m; sourceTree = "<group>"; };
+		F27650681A2B63A30031325A /* YCLMessageCenterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLMessageCenterController.h; sourceTree = "<group>"; };
+		F27650691A2B63A30031325A /* YCLMessageCenterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLMessageCenterController.m; sourceTree = "<group>"; };
 		F276506B1A2B641D0031325A /* ProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileController.h; sourceTree = "<group>"; };
 		F276506C1A2B641D0031325A /* ProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileController.m; sourceTree = "<group>"; };
-		F276506E1A2B64370031325A /* DiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverController.h; sourceTree = "<group>"; };
-		F276506F1A2B64370031325A /* DiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverController.m; sourceTree = "<group>"; };
+		F276506E1A2B64370031325A /* YCLDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLDiscoverController.h; sourceTree = "<group>"; };
+		F276506F1A2B64370031325A /* YCLDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLDiscoverController.m; sourceTree = "<group>"; };
 		F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ItemByImage.h"; sourceTree = "<group>"; };
 		F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ItemByImage.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,10 +150,10 @@
 		F276504B1A2B5E4A0031325A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F276504E1A2B5E620031325A /* MainNavigationController.h */,
-				F276504F1A2B5E620031325A /* MainNavigationController.m */,
-				F27650511A2B5E7C0031325A /* MainTabBarController.h */,
-				F27650521A2B5E7C0031325A /* MainTabBarController.m */,
+				F276504E1A2B5E620031325A /* YCLMainNavigationController.h */,
+				F276504F1A2B5E620031325A /* YCLMainNavigationController.m */,
+				F27650511A2B5E7C0031325A /* YCLMainTabBarController.h */,
+				F27650521A2B5E7C0031325A /* YCLMainTabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -194,8 +194,8 @@
 		F27650561A2B609B0031325A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F276506E1A2B64370031325A /* DiscoverController.h */,
-				F276506F1A2B64370031325A /* DiscoverController.m */,
+				F276506E1A2B64370031325A /* YCLDiscoverController.h */,
+				F276506F1A2B64370031325A /* YCLDiscoverController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,8 +227,8 @@
 		F276505A1A2B609B0031325A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F27650651A2B60B70031325A /* HomeController.h */,
-				F27650661A2B60B70031325A /* HomeController.m */,
+				F27650651A2B60B70031325A /* YCLHomeController.h */,
+				F27650661A2B60B70031325A /* YCLHomeController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 		F276505E1A2B609B0031325A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F27650681A2B63A30031325A /* MessageCenterController.h */,
-				F27650691A2B63A30031325A /* MessageCenterController.m */,
+				F27650681A2B63A30031325A /* YCLMessageCenterController.h */,
+				F27650691A2B63A30031325A /* YCLMessageCenterController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -421,15 +421,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F276506A1A2B63A30031325A /* MessageCenterController.m in Sources */,
+				F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */,
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
-				F27650701A2B64370031325A /* DiscoverController.m in Sources */,
-				F27650671A2B60B70031325A /* HomeController.m in Sources */,
+				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
+				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
 				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F276506D1A2B641D0031325A /* ProfileController.m in Sources */,
-				F27650531A2B5E7C0031325A /* MainTabBarController.m in Sources */,
-				F27650501A2B5E620031325A /* MainNavigationController.m in Sources */,
+				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
+				F27650501A2B5E620031325A /* YCLMainNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -612,6 +612,7 @@
 				F27650401A2B5D5E0031325A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F27650411A2B5D5E0031325A /* Build configuration list for PBXNativeTarget "11.30-WeiboTests" */ = {
 			isa = XCConfigurationList;
@@ -620,6 +621,7 @@
 				F27650431A2B5D5E0031325A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

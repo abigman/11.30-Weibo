@@ -1,5 +1,5 @@
 //
-//  DiscoverController.h
+//  HomeController.h
 //  11.30-Weibo
 //
 //  Created by Chenglin Yu on 14/11/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoverController : UITableViewController
+@interface YCLHomeController : UITableViewController
 
 @end

@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
-#import "MessageCenterController.h"
+#import "YCLMessageCenterController.h"
 
-@interface MessageCenterController ()
+@interface YCLMessageCenterController ()
 
 @end
 
-@implementation MessageCenterController
+@implementation YCLMessageCenterController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

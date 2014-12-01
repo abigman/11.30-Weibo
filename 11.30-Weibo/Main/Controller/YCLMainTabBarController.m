@@ -6,18 +6,18 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
-#import "MainTabBarController.h"
-#import "HomeController.h"
-#import "MessageCenterController.h"
-#import "DiscoverController.h"
+#import "YCLMainTabBarController.h"
+#import "YCLHomeController.h"
+#import "YCLMessageCenterController.h"
+#import "YCLDiscoverController.h"
 #import "ProfileController.h"
-#import "MainNavigationController.h"
+#import "YCLMainNavigationController.h"
 
-@interface MainTabBarController ()
+@interface YCLMainTabBarController ()
 
 @end
 
-@implementation MainTabBarController
+@implementation YCLMainTabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,11 +36,11 @@
  *  一次性添加所需子控制器
  */
 - (void)addChildViewControllers {
-    HomeController *homeVC = [[HomeController alloc] init];
+    YCLHomeController *homeVC = [[YCLHomeController alloc] init];
     [self addChildController:homeVC title:@"首页" normalImage:@"tabbar_home" selectedImage:@"tabbar_home_selected"];
-    MessageCenterController *messageCenterVC = [[MessageCenterController alloc] init];
+    YCLMessageCenterController *messageCenterVC = [[YCLMessageCenterController alloc] init];
     [self addChildController:messageCenterVC title:@"消息" normalImage:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
-    DiscoverController *discoverVC = [[DiscoverController alloc] init];
+    YCLDiscoverController *discoverVC = [[YCLDiscoverController alloc] init];
     [self addChildController:discoverVC title:@"发现" normalImage:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
     ProfileController *profileFileVC = [[ProfileController alloc] init];
     [self addChildController:profileFileVC title:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
@@ -55,7 +55,7 @@
     childVC.tabBarItem.selectedImage = [UIImage imageNamed:selected];
     childVC.title = title;
     
-    MainNavigationController *mainNC = [[MainNavigationController alloc] initWithRootViewController:childVC];
+    YCLMainNavigationController *mainNC = [[YCLMainNavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:mainNC];
 }
 

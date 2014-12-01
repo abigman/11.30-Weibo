@@ -1,5 +1,5 @@
 //
-//  MainTabBarController.h
+//  MessageCenterController.h
 //  11.30-Weibo
 //
 //  Created by Chenglin Yu on 14/11/30.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainTabBarController : UITabBarController
+@interface YCLMessageCenterController : UITableViewController
 
 @end

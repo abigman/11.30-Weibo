@@ -6,13 +6,13 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
-#import "DiscoverController.h"
+#import "YCLDiscoverController.h"
 
-@interface DiscoverController ()
+@interface YCLDiscoverController ()
 
 @end
 
-@implementation DiscoverController
+@implementation YCLDiscoverController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

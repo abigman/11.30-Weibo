@@ -6,14 +6,14 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
-#import "HomeController.h"
+#import "YCLHomeController.h"
 #import "UIBarButtonItem+ItemByImage.h"
 
-@interface HomeController ()
+@interface YCLHomeController ()
 
 @end
 
-@implementation HomeController
+@implementation YCLHomeController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
