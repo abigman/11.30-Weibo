@@ -28,9 +28,9 @@
 
 /** 自定义push操作 */
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    [super pushViewController:viewController animated:YES];
-    NSLog(@"%@", self.viewControllers);
-    if (self.viewControllers.count > 1) {
+    
+    
+    if (self.viewControllers.count > 0) {
         // 调转后，自动隐藏底部bar
         viewController.hidesBottomBarWhenPushed = YES;
         
@@ -38,6 +38,11 @@
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_back" hightedImageName:@"navigationbar_back_highlighted" target:self action:@selector(back)];
         viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_more" hightedImageName:@"navigationbar_more_highlighted" target:self action:@selector(more)];
     }
+    NSLog(@"开始调用父类push");
+    NSLog(@"%@", self.viewControllers);
+    [super pushViewController:viewController animated:YES];
+    NSLog(@"结束调用父类push");
+    NSLog(@"%@\n\n", self.viewControllers);
 }
 
 - (void)back {

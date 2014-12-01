@@ -66,7 +66,7 @@
     vc.view.backgroundColor = [UIColor redColor];
     vc.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     // push 时，隐藏底部bar
-    vc.hidesBottomBarWhenPushed = YES;
+//    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
