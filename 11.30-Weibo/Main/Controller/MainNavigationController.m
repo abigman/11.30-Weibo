@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self customizeUIBarButtonItemAppearance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,7 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/** 自定义push操作 */
+#pragma mark - 自定义push操作
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
     // 第一次调用的时候，子控制器个数为0，调用父类控制器，添加rootViewController
@@ -52,6 +53,23 @@
 
 - (void)more {
     [self popToRootViewControllerAnimated:YES];
+}
+
+#pragma mark - 自定义 UIBarButtonItem 外观
+
+- (void)customizeUIBarButtonItemAppearance {
+    UIBarButtonItem *appearance = [UIBarButtonItem appearance];
+    // normal 状态
+    NSMutableDictionary *normalAttributes = [NSMutableDictionary dictionary];
+    normalAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    normalAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [appearance setTitleTextAttributes:normalAttributes forState:UIControlStateNormal];
+    
+    // highlighted 状态
+    NSMutableDictionary *highlightedAttributes = [NSMutableDictionary dictionary];
+    highlightedAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    highlightedAttributes[NSForegroundColorAttributeName] = [UIColor redColor];
+    [appearance setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
 }
 
 
