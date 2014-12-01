@@ -70,6 +70,12 @@
     highlightedAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     highlightedAttributes[NSForegroundColorAttributeName] = [UIColor redColor];
     [appearance setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
+    
+    // disable 状态
+    NSMutableDictionary *disabledAttributes = [NSMutableDictionary dictionary];
+    disabledAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    disabledAttributes[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
+    [appearance setTitleTextAttributes:disabledAttributes forState:UIControlStateDisabled];
 }
 
 
