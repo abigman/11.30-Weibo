@@ -26,6 +26,8 @@
     
     // 设置主题，只需要调用一次就行了，如果放在 -viewDidLoad 方法总，会多次调用
     [self customizeUIBarButtonItemAppearance];
+    
+    [self customizeUINavigationBarAppearance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -62,7 +64,6 @@
 }
 
 #pragma mark - 自定义 UIBarButtonItem 外观
-
 + (void)customizeUIBarButtonItemAppearance {
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     // normal 状态
@@ -72,16 +73,25 @@
     [appearance setTitleTextAttributes:normalAttributes forState:UIControlStateNormal];
     
     // highlighted 状态
-    NSMutableDictionary *highlightedAttributes = [NSMutableDictionary dictionary];
-    highlightedAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    NSMutableDictionary *highlightedAttributes = [NSMutableDictionary dictionaryWithDictionary:normalAttributes];
     highlightedAttributes[NSForegroundColorAttributeName] = [UIColor redColor];
     [appearance setTitleTextAttributes:highlightedAttributes forState:UIControlStateHighlighted];
     
     // disable 状态
-    NSMutableDictionary *disabledAttributes = [NSMutableDictionary dictionary];
-    disabledAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    NSMutableDictionary *disabledAttributes = [NSMutableDictionary dictionaryWithDictionary:normalAttributes];
     disabledAttributes[NSForegroundColorAttributeName] = [UIColor lightGrayColor];
     [appearance setTitleTextAttributes:disabledAttributes forState:UIControlStateDisabled];
+}
+
+#pragma mark - 自定义 UIBarButtonItem 外观
++ (void)customizeUINavigationBarAppearance {
+    UINavigationBar *appearance = [UINavigationBar appearance];
+//    [appearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background_os7"] forBarMetrics:UIBarMetricsDefault];
+
+    NSMutableDictionary *normalAttributes = [NSMutableDictionary dictionary];
+    normalAttributes[NSFontAttributeName] = [UIFont boldSystemFontOfSize:17];
+    normalAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [appearance setTitleTextAttributes:normalAttributes];
 }
 
 
