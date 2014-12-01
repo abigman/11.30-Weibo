@@ -18,7 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+}
+
+// 该方法只在第一次使用该类的时候才调用
++ (void)initialize {
     
+    // 设置主题，只需要调用一次就行了，如果放在 -viewDidLoad 方法总，会多次调用
     [self customizeUIBarButtonItemAppearance];
 }
 
@@ -57,7 +63,7 @@
 
 #pragma mark - 自定义 UIBarButtonItem 外观
 
-- (void)customizeUIBarButtonItemAppearance {
++ (void)customizeUIBarButtonItemAppearance {
     UIBarButtonItem *appearance = [UIBarButtonItem appearance];
     // normal 状态
     NSMutableDictionary *normalAttributes = [NSMutableDictionary dictionary];
