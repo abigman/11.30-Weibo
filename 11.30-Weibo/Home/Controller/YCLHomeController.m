@@ -50,6 +50,8 @@
     UISwitch *sw = [[UISwitch alloc] init];
     YCLPopMenu *popMenu = [YCLPopMenu popMenuWithContentView:sw];
     [popMenu showInRect:CGRectMake(200, 55, 100, 200)];
+    popMenu.dimBackground = NO;
+    popMenu.popMenuType = YCLPopMenuTypeLeft;
     popMenu.delegate = self;
 }
 

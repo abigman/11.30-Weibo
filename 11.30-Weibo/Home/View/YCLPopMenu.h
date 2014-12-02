@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+    YCLPopMenuTypeLeft = 0,
+    YCLPopMenuTypeMiddle,
+    YCLPopMenuTypeRight,
+} YCLPopMenuType;
+
 @class YCLPopMenu;
 @protocol YCLPopMenuDelegate <NSObject>
 @optional
@@ -18,6 +24,10 @@
 @interface YCLPopMenu : UIView
 /** 代理 */
 @property (weak, nonatomic) id<YCLPopMenuDelegate> delegate;
+/** 是否遮盖 */
+@property (assign, getter=isDimBackground, nonatomic) BOOL dimBackground;
+/** 背景样式 */
+@property (assign, nonatomic) YCLPopMenuType popMenuType;
 
 - (instancetype)initWithContentView:(UIView *)contentView;
 + (instancetype)popMenuWithContentView:(UIView *)contentView;

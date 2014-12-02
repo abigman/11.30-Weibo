@@ -27,12 +27,12 @@
         
         // 遮盖按钮
         UIButton *cover = [[UIButton alloc] init];
-        cover.backgroundColor = [UIColor blackColor];
-        cover.alpha = 0.5;
+        cover.backgroundColor = [UIColor clearColor];
         [cover addTarget:self action:@selector(coverOnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cover];
         self.cover = cover;
         
+        // 添加容器
         UIImageView *container = [[UIImageView alloc] init];
         container.userInteractionEnabled = YES;
         container.image = [UIImage resizableImageNamed:@"popover_background"];
@@ -83,6 +83,34 @@
     }
     
     [self removeFromSuperview];
+}
+
+- (void)setDimBackground:(BOOL)dimBackground {
+    _dimBackground = dimBackground;
+    
+    if (_dimBackground) {
+        self.cover.backgroundColor = [UIColor blackColor];
+        self.cover.alpha = 0.4;
+    } else {
+        self.cover.backgroundColor = [UIColor clearColor];
+        self.cover.alpha = 1.0;
+    }
+}
+
+- (void)setPopMenuType:(YCLPopMenuType)popMenuType {
+    _popMenuType = popMenuType;
+    
+    switch (_popMenuType) {
+        case YCLPopMenuTypeLeft:
+            self.container.image = [UIImage resizableImageNamed:@"popover_background_left"];
+            break;
+        case YCLPopMenuTypeRight:
+            self.container.image = [UIImage resizableImageNamed:@"popover_background_right"];
+            break;
+        default:
+            self.container.image = [UIImage resizableImageNamed:@"popover_background"];
+            break;
+    }
 }
 
 @end
