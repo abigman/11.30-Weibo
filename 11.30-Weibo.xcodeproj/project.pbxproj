@@ -22,6 +22,8 @@
 		F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */; };
 		F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */; };
 		F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */; };
+		F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */; };
+		F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,10 @@
 		F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YCLGeometry.m"; sourceTree = "<group>"; };
 		F2B9E22E1A2C475F00A87B7A /* UIImage+YCLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YCLImage.h"; sourceTree = "<group>"; };
 		F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YCLImage.m"; sourceTree = "<group>"; };
+		F2B9E2311A2C59AE00A87B7A /* YCLHomeTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHomeTitleButton.h; sourceTree = "<group>"; };
+		F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHomeTitleButton.m; sourceTree = "<group>"; };
+		F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCLTextSize.h"; sourceTree = "<group>"; };
+		F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCLTextSize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +260,8 @@
 		F276505C1A2B609B0031325A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F2B9E2311A2C59AE00A87B7A /* YCLHomeTitleButton.h */,
+				F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -327,6 +335,8 @@
 		F27650711A2B7CEB0031325A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */,
+				F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */,
 				F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */,
 				F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */,
 				F2B9E2281A2C416700A87B7A /* UIView+YCLGeometry.h */,
@@ -438,6 +448,7 @@
 			files = (
 				F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */,
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
+				F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */,
 				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
 				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
@@ -446,6 +457,7 @@
 				F276506D1A2B641D0031325A /* ProfileController.m in Sources */,
 				F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */,
 				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
+				F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */,
 				F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */,
 				F27650501A2B5E620031325A /* YCLMainNavigationController.m in Sources */,
 			);
