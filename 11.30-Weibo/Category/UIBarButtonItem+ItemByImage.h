@@ -10,6 +10,6 @@
 
 @interface UIBarButtonItem (ItemByImage)
 
-/** 更具传入图片尺寸，创建同等尺寸的item */
+/** 更具传入图片尺寸，创建同等尺寸的barItem */
 + (instancetype)itemWithImageName:(NSString *)normal hightedImageName:(NSString *)highlighted target:(id)target action:(SEL)action;
 @end
