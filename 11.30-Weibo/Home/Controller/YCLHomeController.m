@@ -8,6 +8,9 @@
 
 #import "YCLHomeController.h"
 #import "UIBarButtonItem+ItemByImage.h"
+#import "UIImage+YCLImage.h"
+#import "UIView+YCLGeometry.h"
+#import "YCLHomeTitleButton.h"
 
 @interface YCLHomeController ()
 
@@ -26,6 +29,27 @@
     
     // 右边按钮
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_pop" hightedImageName:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    
+    // 中间标题按钮
+    YCLHomeTitleButton *titleButton = [[YCLHomeTitleButton alloc] init];
+    titleButton.frameW = 100;
+    titleButton.frameH = 44;
+    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    [titleButton setBackgroundImage:[UIImage resizableImageNamed:@"navigationbar_title_highlighted"] forState:UIControlStateHighlighted];
+    
+    [titleButton addTarget:self action:@selector(titleButtonOnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleButton;
+}
+
+- (void)titleButtonOnClicked:(UIButton *)sender {
+    if (sender.tag == 0 ) {
+        sender.tag = 10; // 默认是0，表示向下；非零，变成向上
+        [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    } else {
+        sender.tag = 0;
+        [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)friendsSearch {
