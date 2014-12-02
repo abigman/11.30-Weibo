@@ -17,6 +17,10 @@
 @property (assign, nonatomic) CGFloat frameW;
 /** height */
 @property (assign, nonatomic) CGFloat frameH;
+/** centerX */
+@property (assign, nonatomic) CGFloat centerX;
+/** centerY */
+@property (assign, nonatomic) CGFloat centerY;
 /** size */
-//@property (assign, nonatomic) CGSize size;
+@property (assign, nonatomic) CGSize frameS;
 @end

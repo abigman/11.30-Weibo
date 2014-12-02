@@ -48,14 +48,24 @@
     self.frame = currentFrame;
 }
 
-//- (CGSize)size {
-//    return self.frame.size;
-//}
-//
-//- (void)setSize:(CGSize)size {
-//    CGRect currentFrame = self.frame;
-//    currentFrame.size = size;
-//    self.frame = currentFrame;
-//}
+- (void)setCenterX:(CGFloat)centerX {
+    CGPoint currentCenter = self.center;
+    currentCenter.x = centerX;
+    self.center = currentCenter;
+}
+
+- (CGFloat)centerX {
+    return self.center.x;
+}
+
+- (CGSize)frameS {
+    return self.frame.size;
+}
+
+- (void)setFrameS:(CGSize)size {
+    CGRect currentFrame = self.frame;
+    currentFrame.size = size;
+    self.frame = currentFrame;
+}
 
 @end
