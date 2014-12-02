@@ -25,7 +25,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     YCLSearchBar *searchBar = [YCLSearchBar searchBar];
-    searchBar.frame = CGRectMake(0, 0, 355, 44);
+    searchBar.frame = CGRectMake(0, 0, 355, 30);
     self.navigationItem.titleView = searchBar;
 }
 
