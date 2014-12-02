@@ -10,13 +10,13 @@
 
 @interface UIView (YCLGeometry)
 /** x */
-@property (assign, nonatomic) CGFloat x;
+@property (assign, nonatomic) CGFloat frameX;
 /** y */
-@property (assign, nonatomic) CGFloat y;
+@property (assign, nonatomic) CGFloat frameY;
 /** width */
-@property (assign, nonatomic) CGFloat width;
+@property (assign, nonatomic) CGFloat frameW;
 /** height */
-@property (assign, nonatomic) CGFloat height;
+@property (assign, nonatomic) CGFloat frameH;
 /** size */
-@property (assign, nonatomic) CGSize size;
+//@property (assign, nonatomic) CGSize size;
 @end

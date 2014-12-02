@@ -10,52 +10,52 @@
 
 @implementation UIView (YCLGeometry)
 
-- (CGFloat)x {
+- (CGFloat)frameX {
     return self.frame.origin.x;
 }
-- (void)setX:(CGFloat)x {
+- (void)setFrameX:(CGFloat)x {
     CGRect currentFrame = self.frame;
     currentFrame.origin.x = x;
     self.frame = currentFrame;
 }
 
-- (CGFloat)y {
+- (CGFloat)frameY {
     return self.frame.origin.y;
 }
-- (void)setY:(CGFloat)y {
+- (void)setFrameY:(CGFloat)y {
     CGRect currentFrame = self.frame;
     currentFrame.origin.y = y;
     self.frame = currentFrame;
 }
 
-- (CGFloat)width {
+- (CGFloat)frameW {
     return self.frame.size.width;
 }
 
-- (void)setWidth:(CGFloat)width {
+- (void)setFrameW:(CGFloat)width {
     CGRect currentFrame = self.frame;
     currentFrame.size.width = width;
     self.frame = currentFrame;
 }
 
-- (CGFloat)height {
+- (CGFloat)frameH {
     return self.frame.size.height;
 }
 
-- (void)setHeight:(CGFloat)height {
+- (void)setFrameH:(CGFloat)height {
     CGRect currentFrame = self.frame;
     currentFrame.size.height = height;
     self.frame = currentFrame;
 }
 
-- (CGSize)size {
-    return self.frame.size;
-}
-
-- (void)setSize:(CGSize)size {
-    CGRect currentFrame = self.frame;
-    currentFrame.size = size;
-    self.frame = currentFrame;
-}
+//- (CGSize)size {
+//    return self.frame.size;
+//}
+//
+//- (void)setSize:(CGSize)size {
+//    CGRect currentFrame = self.frame;
+//    currentFrame.size = size;
+//    self.frame = currentFrame;
+//}
 
 @end
