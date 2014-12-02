@@ -11,8 +11,9 @@
 #import "UIImage+YCLImage.h"
 #import "UIView+YCLGeometry.h"
 #import "YCLHomeTitleButton.h"
+#import "YCLPopMenu.h"
 
-@interface YCLHomeController ()
+@interface YCLHomeController ()<YCLPopMenuDelegate>
 
 @end
 
@@ -43,13 +44,21 @@
 }
 
 - (void)titleButtonOnClicked:(UIButton *)sender {
-    if (sender.tag == 0 ) {
-        sender.tag = 10; // 默认是0，表示向下；非零，变成向上
-        [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-    } else {
-        sender.tag = 0;
-        [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    }
+    [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+    
+    // 创建弹出菜单
+    UISwitch *sw = [[UISwitch alloc] init];
+    YCLPopMenu *popMenu = [YCLPopMenu popMenuWithContentView:sw];
+    [popMenu showInRect:CGRectMake(200, 55, 100, 200)];
+    popMenu.delegate = self;
+}
+
+#pragma mark - YCLPopMenuDelegate
+- (void)popMenuDidDismiss:(YCLPopMenu *)popMenu {
+    // 获取 标题按钮
+    YCLHomeTitleButton *titleButton = (YCLHomeTitleButton *)self.navigationItem.titleView;
+    // 设置箭头向下
+    [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
 }
 
 - (void)friendsSearch {
