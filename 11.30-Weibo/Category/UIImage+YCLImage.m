@@ -13,10 +13,23 @@
 @implementation UIImage (YCLImage)
 
 + (UIImage *)imageWithName:(NSString *)imageName {
+    NSString *imageName_os7 = nil;
+    UIImage *image = nil;
+    
+    // 如果有 _os7 后缀的图片，使用
     if (iOS7) {
-        imageName = [imageName stringByAppendingString:@"_os7"];
+        imageName_os7 = [imageName stringByAppendingString:@"_os7"];
+        image = [UIImage imageNamed:imageName_os7];
     }
-    return [UIImage imageNamed:imageName];
+    
+    // 如果没有，算了
+    if (!image) {
+        image = [UIImage imageNamed:imageName];
+    }
+    
+    // 使用原图，不渲染
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    return image;
 }
 
 + (UIImage *)resizableImageNamed:(NSString *)imageName {
