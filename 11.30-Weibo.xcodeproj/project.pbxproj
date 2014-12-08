@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */; };
+		F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA651A35D7C80063AFB8 /* YCLComposeController.m */; };
 		F27650211A2B5D5E0031325A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650201A2B5D5E0031325A /* main.m */; };
 		F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650231A2B5D5E0031325A /* AppDelegate.m */; };
 		F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276502B1A2B5D5E0031325A /* Images.xcassets */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		F225BA5D1A35C83F0063AFB8 /* YCLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLTabBar.h; sourceTree = "<group>"; };
 		F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLTabBar.m; sourceTree = "<group>"; };
+		F225BA641A35D7C80063AFB8 /* YCLComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLComposeController.h; sourceTree = "<group>"; };
+		F225BA651A35D7C80063AFB8 /* YCLComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLComposeController.m; sourceTree = "<group>"; };
 		F276501B1A2B5D5E0031325A /* 11.30-Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "11.30-Weibo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F276501F1A2B5D5E0031325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27650201A2B5D5E0031325A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -97,6 +100,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F225BA601A35D7920063AFB8 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				F225BA611A35D7920063AFB8 /* Controller */,
+				F225BA621A35D7920063AFB8 /* Model */,
+				F225BA631A35D7920063AFB8 /* View */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		F225BA611A35D7920063AFB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F225BA641A35D7C80063AFB8 /* YCLComposeController.h */,
+				F225BA651A35D7C80063AFB8 /* YCLComposeController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F225BA621A35D7920063AFB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F225BA631A35D7920063AFB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F27650121A2B5D5E0031325A = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +154,7 @@
 		F276501D1A2B5D5E0031325A /* 11.30-Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				F225BA601A35D7920063AFB8 /* Compose */,
 				F27650711A2B7CEB0031325A /* Category */,
 				F27650551A2B609B0031325A /* Discover */,
 				F27650591A2B609B0031325A /* Home */,
@@ -457,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */,
+				F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */,
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
 				F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */,
 				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
