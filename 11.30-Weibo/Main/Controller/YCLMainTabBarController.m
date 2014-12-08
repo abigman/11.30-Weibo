@@ -10,8 +10,10 @@
 #import "YCLHomeController.h"
 #import "YCLMessageCenterController.h"
 #import "YCLDiscoverController.h"
-#import "ProfileController.h"
+#import "YCLProfileController.h"
 #import "YCLMainNavigationController.h"
+#import "UIImage+YCLImage.h"
+#import "YCLTabBar.h"
 
 @interface YCLMainTabBarController ()
 
@@ -25,6 +27,13 @@
     
     // 添加所需控制器
     [self addChildViewControllers];
+    
+    YCLTabBar *myTabBar = [YCLTabBar tabBar];
+    [self setValue:myTabBar forKey:@"tabBar"];
+    
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +51,7 @@
     [self addChildController:messageCenterVC title:@"消息" normalImage:@"tabbar_message_center" selectedImage:@"tabbar_message_center_selected"];
     YCLDiscoverController *discoverVC = [[YCLDiscoverController alloc] init];
     [self addChildController:discoverVC title:@"发现" normalImage:@"tabbar_discover" selectedImage:@"tabbar_discover_selected"];
-    ProfileController *profileFileVC = [[ProfileController alloc] init];
+    YCLProfileController *profileFileVC = [[YCLProfileController alloc] init];
     [self addChildController:profileFileVC title:@"我" normalImage:@"tabbar_profile" selectedImage:@"tabbar_profile_selected"];
 }
 
@@ -51,9 +60,18 @@
  */
 - (void)addChildController:(UIViewController *)childVC title:(NSString *)title normalImage:(NSString *)normal selectedImage:(NSString *)selected {
     childVC.tabBarItem.title = title;
-    childVC.tabBarItem.image = [UIImage imageNamed:normal];
-    childVC.tabBarItem.selectedImage = [UIImage imageNamed:selected];
+    childVC.tabBarItem.image = [UIImage imageWithName:normal];
+    childVC.tabBarItem.selectedImage = [UIImage imageWithName:selected];
     childVC.title = title;
+    
+    NSMutableDictionary *normalTitleTextAttributes = [NSMutableDictionary dictionary];
+    normalTitleTextAttributes[NSForegroundColorAttributeName] = [UIColor blackColor];
+    normalTitleTextAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:12];
+    [childVC.tabBarItem setTitleTextAttributes:normalTitleTextAttributes forState:UIControlStateNormal];
+    
+    NSMutableDictionary *selectedTitleTextAttributes = [NSMutableDictionary dictionaryWithDictionary:normalTitleTextAttributes];
+    selectedTitleTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    [childVC.tabBarItem setTitleTextAttributes:selectedTitleTextAttributes forState:UIControlStateSelected];
     
     YCLMainNavigationController *mainNC = [[YCLMainNavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:mainNC];

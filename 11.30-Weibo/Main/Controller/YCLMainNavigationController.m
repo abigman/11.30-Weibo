@@ -48,11 +48,11 @@
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_back" hightedImageName:@"navigationbar_back_highlighted" target:self action:@selector(back)];
         viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_more" hightedImageName:@"navigationbar_more_highlighted" target:self action:@selector(more)];
     }
-    NSLog(@"开始调用父类push");
-    NSLog(@"%@", self.viewControllers);
+//    NSLog(@"开始调用父类push");
+//    NSLog(@"%@", self.viewControllers);
     [super pushViewController:viewController animated:YES];
-    NSLog(@"结束调用父类push");
-    NSLog(@"%@\n\n", self.viewControllers);
+//    NSLog(@"结束调用父类push");
+//    NSLog(@"%@\n\n", self.viewControllers);
 }
 
 - (void)back {
