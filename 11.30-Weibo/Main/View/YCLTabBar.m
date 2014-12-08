@@ -32,7 +32,9 @@
 }
 
 - (void)addButtonOnClicked {
-    NSLog(@"-----");
+    if ([self.delegate respondsToSelector:@selector(tabBarDidClickedAddButton:)]) {
+        [self.delegate tabBarDidClickedAddButton:self];
+    }
 }
 
 - (void)layoutSubviews {

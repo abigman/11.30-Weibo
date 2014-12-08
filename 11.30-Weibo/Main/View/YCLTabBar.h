@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+@class YCLTabBar;
+
+@protocol YCLTabBarDelegate <NSObject>
+
+@optional
+- (void)tabBarDidClickedAddButton:(YCLTabBar *)tabBar;
+
+@end
 
 @interface YCLTabBar : UITabBar
+/** 代理 */
+@property (weak, nonatomic) id<YCLTabBarDelegate, UITabBarDelegate> delegate;
+
 + (instancetype)tabBar;
 @end
