@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */; };
 		F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA651A35D7C80063AFB8 /* YCLComposeController.m */; };
+		F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */; };
 		F27650211A2B5D5E0031325A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650201A2B5D5E0031325A /* main.m */; };
 		F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650231A2B5D5E0031325A /* AppDelegate.m */; };
 		F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276502B1A2B5D5E0031325A /* Images.xcassets */; };
@@ -44,6 +45,8 @@
 		F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLTabBar.m; sourceTree = "<group>"; };
 		F225BA641A35D7C80063AFB8 /* YCLComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLComposeController.h; sourceTree = "<group>"; };
 		F225BA651A35D7C80063AFB8 /* YCLComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLComposeController.m; sourceTree = "<group>"; };
+		F225BA6B1A35DFE80063AFB8 /* YCLNewfeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLNewfeatureController.h; sourceTree = "<group>"; };
+		F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLNewfeatureController.m; sourceTree = "<group>"; };
 		F276501B1A2B5D5E0031325A /* 11.30-Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "11.30-Weibo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F276501F1A2B5D5E0031325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27650201A2B5D5E0031325A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -133,6 +136,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F225BA671A35DFC60063AFB8 /* Newfeatrue */ = {
+			isa = PBXGroup;
+			children = (
+				F225BA681A35DFC60063AFB8 /* Controller */,
+				F225BA691A35DFC60063AFB8 /* Model */,
+				F225BA6A1A35DFC60063AFB8 /* View */,
+			);
+			path = Newfeatrue;
+			sourceTree = "<group>";
+		};
+		F225BA681A35DFC60063AFB8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F225BA6B1A35DFE80063AFB8 /* YCLNewfeatureController.h */,
+				F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F225BA691A35DFC60063AFB8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F225BA6A1A35DFC60063AFB8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F27650121A2B5D5E0031325A = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +190,7 @@
 		F276501D1A2B5D5E0031325A /* 11.30-Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				F225BA671A35DFC60063AFB8 /* Newfeatrue */,
 				F225BA601A35D7920063AFB8 /* Compose */,
 				F27650711A2B7CEB0031325A /* Category */,
 				F27650551A2B609B0031325A /* Discover */,
@@ -503,6 +540,7 @@
 				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */,
 				F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */,
+				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
 				F28DEFE61A2D9B11001124B8 /* YCLPopMenu.m in Sources */,
 				F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */,
 				F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */,
