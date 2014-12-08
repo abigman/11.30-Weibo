@@ -22,7 +22,7 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-    self.window.rootViewController = [[YCLMainTabBarController alloc] init];
+//    self.window.rootViewController = [[YCLMainTabBarController alloc] init];
     
     
     // 从沙盒取出当前版本号
