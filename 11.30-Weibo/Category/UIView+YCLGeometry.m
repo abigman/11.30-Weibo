@@ -58,6 +58,16 @@
     return self.center.x;
 }
 
+- (void)setCenterY:(CGFloat)centerY {
+    CGPoint currentCenter = self.center;
+    currentCenter.y = centerY;
+    self.center = currentCenter;
+}
+
+- (CGFloat)centerY {
+    return self.center.y;
+}
+
 - (CGSize)frameS {
     return self.frame.size;
 }

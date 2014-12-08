@@ -13,12 +13,10 @@
 @implementation UIImage (YCLImage)
 
 + (UIImage *)imageWithName:(NSString *)imageName {
-    NSString *imageName_os7 = nil;
     UIImage *image = nil;
-    
     // 如果有 _os7 后缀的图片，使用
     if (iOS7) {
-        imageName_os7 = [imageName stringByAppendingString:@"_os7"];
+        NSString *imageName_os7 = [imageName stringByAppendingString:@"_os7"];
         image = [UIImage imageNamed:imageName_os7];
     }
     
@@ -33,7 +31,6 @@
 }
 
 + (UIImage *)resizableImageNamed:(NSString *)imageName {
-    
     UIImage *image = [UIImage imageWithName:imageName];
     CGSize imageSize = image.size;
     CGFloat capW = imageSize.width * 0.5;
