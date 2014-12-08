@@ -210,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				F276501F1A2B5D5E0031325A /* Info.plist */,
-				F27650201A2B5D5E0031325A /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -272,6 +271,7 @@
 		F27650541A2B5E930031325A /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				F27650201A2B5D5E0031325A /* main.m */,
 				F27650221A2B5D5E0031325A /* AppDelegate.h */,
 				F27650231A2B5D5E0031325A /* AppDelegate.m */,
 			);

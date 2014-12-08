@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YCLMainTabBarController.h"
+#import "YCLNewfeatureController.h"
 
 
 @interface AppDelegate ()
@@ -24,10 +25,24 @@
     self.window.rootViewController = [[YCLMainTabBarController alloc] init];
     
     
+    // 从沙盒取出当前版本号
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
     
+    // 获取当前版本号
+    NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     
-    
-    
+    if ([currentVersion isEqualToString:lastVersion]) {
+        // 版本号相同，直接进入
+        self.window.rootViewController = [[YCLMainTabBarController alloc] init];
+        
+    } else {
+        // 版本号不同，展示新特性
+        self.window.rootViewController = [[YCLNewfeatureController alloc] init];
+        // 存储版本号
+        [userDefaults setValue:currentVersion forKey:@"lastVersion"];
+        [userDefaults synchronize];
+    }
     
     [self.window makeKeyAndVisible];
     return YES;
