@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "YCLMainTabBarController.h"
 #import "YCLNewfeatureController.h"
+#import "YCLOAuthController.h"
 
 
 @interface AppDelegate ()
@@ -34,7 +35,8 @@
     
     if ([currentVersion isEqualToString:lastVersion]) {
         // 版本号相同，直接进入
-        self.window.rootViewController = [[YCLMainTabBarController alloc] init];
+//        self.window.rootViewController = [[YCLMainTabBarController alloc] init];
+        self.window.rootViewController = [[YCLOAuthController alloc] init];
         
     } else {
         // 版本号不同，展示新特性
