@@ -10,6 +10,7 @@
 		F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */; };
 		F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA651A35D7C80063AFB8 /* YCLComposeController.m */; };
 		F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */; };
+		F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = F251454F1A36DFC100D3EB4E /* YCLOAuthController.m */; };
 		F27650211A2B5D5E0031325A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650201A2B5D5E0031325A /* main.m */; };
 		F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650231A2B5D5E0031325A /* AppDelegate.m */; };
 		F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276502B1A2B5D5E0031325A /* Images.xcassets */; };
@@ -47,6 +48,8 @@
 		F225BA651A35D7C80063AFB8 /* YCLComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLComposeController.m; sourceTree = "<group>"; };
 		F225BA6B1A35DFE80063AFB8 /* YCLNewfeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLNewfeatureController.h; sourceTree = "<group>"; };
 		F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLNewfeatureController.m; sourceTree = "<group>"; };
+		F251454E1A36DFC100D3EB4E /* YCLOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLOAuthController.h; sourceTree = "<group>"; };
+		F251454F1A36DFC100D3EB4E /* YCLOAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLOAuthController.m; sourceTree = "<group>"; };
 		F276501B1A2B5D5E0031325A /* 11.30-Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "11.30-Weibo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F276501F1A2B5D5E0031325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27650201A2B5D5E0031325A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +172,39 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		F251454A1A36DFA300D3EB4E /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				F251454B1A36DFA300D3EB4E /* Controller */,
+				F251454C1A36DFA300D3EB4E /* Model */,
+				F251454D1A36DFA300D3EB4E /* View */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		F251454B1A36DFA300D3EB4E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F251454E1A36DFC100D3EB4E /* YCLOAuthController.h */,
+				F251454F1A36DFC100D3EB4E /* YCLOAuthController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F251454C1A36DFA300D3EB4E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F251454D1A36DFA300D3EB4E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F27650121A2B5D5E0031325A = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +226,7 @@
 		F276501D1A2B5D5E0031325A /* 11.30-Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				F251454A1A36DFA300D3EB4E /* OAuth */,
 				F225BA671A35DFC60063AFB8 /* Newfeatrue */,
 				F225BA601A35D7920063AFB8 /* Compose */,
 				F27650711A2B7CEB0031325A /* Category */,
@@ -546,6 +583,7 @@
 				F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */,
 				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
 				F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */,
+				F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */,
 				F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */,
 				F27650501A2B5E620031325A /* YCLMainNavigationController.m in Sources */,
 			);
