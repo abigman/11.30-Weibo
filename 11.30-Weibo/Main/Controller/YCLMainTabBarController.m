@@ -87,11 +87,13 @@
     childVC.tabBarItem.selectedImage = [UIImage imageWithName:selected];
     childVC.title = title;
     
+    // 设置正常状态 tabBarItem 文字样式
     NSMutableDictionary *normalTitleTextAttributes = [NSMutableDictionary dictionary];
     normalTitleTextAttributes[NSForegroundColorAttributeName] = [UIColor blackColor];
     normalTitleTextAttributes[NSFontAttributeName] = [UIFont systemFontOfSize:12];
     [childVC.tabBarItem setTitleTextAttributes:normalTitleTextAttributes forState:UIControlStateNormal];
     
+    // 设置选中状态 tabBarItem 文字样式
     NSMutableDictionary *selectedTitleTextAttributes = [NSMutableDictionary dictionaryWithDictionary:normalTitleTextAttributes];
     selectedTitleTextAttributes[NSForegroundColorAttributeName] = [UIColor orangeColor];
     [childVC.tabBarItem setTitleTextAttributes:selectedTitleTextAttributes forState:UIControlStateSelected];
