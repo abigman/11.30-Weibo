@@ -17,6 +17,7 @@
 #import "YCLAccountTool.h"
 #import "YCLStatus.h"
 #import "YCLUser.h"
+#import "UIImageView+WebCache.h"
 
 // 微博数据请求连接
 #define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
@@ -151,16 +152,7 @@
     YCLStatus *status = self.statuses[indexPath.row];
     YCLUser *user = status.user;
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // 异步并发获取头像
-        NSURL *avatarURL = [NSURL URLWithString:user.profile_image_url];
-        NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
-        UIImage *avatar = [UIImage imageWithData:avatarData];
-        // 货到主线程设置头像
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            cell.imageView.image = avatar;
-        });
-    });
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:nil];
     
     cell.textLabel.text = user.name;
 //    cell.detailTextLabel.numberOfLines = 0;
