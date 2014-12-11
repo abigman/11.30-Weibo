@@ -18,6 +18,7 @@
 #import "YCLStatus.h"
 #import "YCLUser.h"
 #import "UIImageView+WebCache.h"
+#import "MJExtension.h"
 
 // 微博数据请求连接
 #define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
@@ -102,13 +103,15 @@
 //        NSLog(@"请求成功  --- %@", responseObject);
         
         // 保存微博数据
-        NSArray *statusesDict = responseObject[@"statuses"];
-        NSMutableArray *statusesM = [NSMutableArray arrayWithCapacity:0];
-        for (NSDictionary *statusDict in statusesDict) {
-            YCLStatus *status = [YCLStatus statusWithDictionary:statusDict];
-            [statusesM addObject:status];
-        }
-        self.statuses = [statusesM copy];
+//        NSArray *statusesDict = responseObject[@"statuses"];
+//        NSMutableArray *statusesM = [NSMutableArray arrayWithCapacity:0];
+//        for (NSDictionary *statusDict in statusesDict) {
+//            YCLStatus *status = [YCLStatus objectWithKeyValues:statusDict];
+//            [statusesM addObject:status];
+//        }
+//        self.statuses = [statusesM copy];
+        // 字典数组转换成模型数组
+        self.statuses = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         [self.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败  --- %@", error);
@@ -152,7 +155,7 @@
     YCLStatus *status = self.statuses[indexPath.row];
     YCLUser *user = status.user;
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:nil];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"navigationbar_account_check"]];
     
     cell.textLabel.text = user.name;
 //    cell.detailTextLabel.numberOfLines = 0;

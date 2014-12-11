@@ -67,5 +67,5 @@
 @property (strong, nonatomic) NSArray *pic_ids;
 
 
-+ (instancetype)statusWithDictionary:(NSDictionary *)dict;
+//+ (instancetype)statusWithDictionary:(NSDictionary *)dict;
 @end
