@@ -11,6 +11,8 @@
 #import "YCLControllerTools.h"
 #import "YCLAccountTool.h"
 #import "YCLAccount.h"
+#import "AFNetworking.h"
+#import "MBProgressHUD.h"
 
 
 @interface AppDelegate ()
@@ -45,7 +47,34 @@
         self.window.rootViewController = [[YCLOAuthController alloc] init];
     }
     
-    
+    // 监控网络
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.dimBackground = YES;
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"网络异常");
+                hud.labelText = @"网络异常";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"无线网络");
+                hud.labelText = @"无线网络";
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"手机网络");
+                hud.labelText = @"手机网络";
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知网络");
+                hud.labelText = @"未知网络";
+                break;
+        }
+        [hud hide:YES afterDelay:1.5];
+    }];
+    [manager startMonitoring];
     return YES;
 }
 
