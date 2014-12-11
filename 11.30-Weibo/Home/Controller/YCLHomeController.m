@@ -25,6 +25,14 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+    // 设置导航栏按钮
+    [self setupNavigationBarItem];
+}
+
+/**
+ *    设置导航栏按钮
+ */
+- (void)setupNavigationBarItem {
     // 左边按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithImageName:@"navigationbar_friendsearch" hightedImageName:@"navigationbar_friendsearch_highlighted" target:self action:@selector(friendsSearch)];
     
@@ -43,6 +51,11 @@
     self.navigationItem.titleView = titleButton;
 }
 
+/**
+ *    监听标题按钮点击
+ *
+ *    @param sender 标题按钮
+ */
 - (void)titleButtonOnClicked:(UIButton *)sender {
     [sender setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
     
