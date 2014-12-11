@@ -7,20 +7,28 @@
 //
 
 #import "YCLAccountTool.h"
+#import "YCLAccount.h"
+
+#define kFilePath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.plist"]
 
 @implementation YCLAccountTool
 + (void)saveAccount:(YCLAccount *)account {
-    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:@"account.plist"];
-    
     // 使用改方法的前提是， 对象的类必须遵守 NSCoding 协议
-    [NSKeyedArchiver archiveRootObject:account toFile:filePath];
+    [NSKeyedArchiver archiveRootObject:account toFile:kFilePath];
 }
 
 + (YCLAccount *)readAccount {
-    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:@"account.plist"];
-    YCLAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    return account;
+    YCLAccount *account = [NSKeyedUnarchiver unarchiveObjectWithFile:kFilePath];
+    
+    // 授权信息有过期日期， 需要判断是否过期
+    
+    if (NSOrderedAscending == [[NSDate date] compare:account.expires_at]) {
+        NSLog(@"很好，账户授权还没有过期哦 过期日期：%@", account.expires_at);
+        return account;
+    } else {
+        NSLog(@"账户授权已经过期 过期日期：%@", account.expires_at);
+        return nil;
+    }
+
 }
 @end

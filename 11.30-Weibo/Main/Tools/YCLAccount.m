@@ -23,6 +23,7 @@
         self.access_token = [aDecoder decodeObjectForKey:@"access_token"];
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
+        self.expires_at = [aDecoder decodeObjectForKey:@"expires_at"];
     }
     return self;
 }
@@ -36,6 +37,7 @@
     [aCoder encodeObject:self.access_token forKey:@"access_token"];
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
+    [aCoder encodeObject:self.expires_at forKey:@"expires_at"];
 }
 
 
@@ -47,6 +49,9 @@
         self.access_token = dict[@"access_token"];
         self.expires_in = dict[@"expires_in"];
         self.uid = dict[@"uid"];
+        
+        // 保存账号过期日期： 过期日期=过期时间+当前日期
+        self.expires_at = [[NSDate date] dateByAddingTimeInterval:self.expires_in.doubleValue];
     }
     return self;
 }
