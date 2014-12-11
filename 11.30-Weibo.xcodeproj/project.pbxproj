@@ -20,6 +20,9 @@
 		F251456C1A36F0E100D3EB4E /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F25145611A36F0E100D3EB4E /* AFURLRequestSerialization.m */; };
 		F251456D1A36F0E100D3EB4E /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = F25145631A36F0E100D3EB4E /* AFURLResponseSerialization.m */; };
 		F251456E1A36F0E100D3EB4E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25145651A36F0E100D3EB4E /* AFURLSessionManager.m */; };
+		F260D5EE1A39BC6C008338C4 /* YCLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D5ED1A39BC6C008338C4 /* YCLUser.m */; };
+		F260D5F11A39BEB8008338C4 /* YCLStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D5F01A39BEB8008338C4 /* YCLStatus.m */; };
+		F260D5F71A39C502008338C4 /* YCLPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = F260D5F61A39C502008338C4 /* YCLPicture.m */; };
 		F27650211A2B5D5E0031325A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650201A2B5D5E0031325A /* main.m */; };
 		F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650231A2B5D5E0031325A /* AppDelegate.m */; };
 		F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F276502B1A2B5D5E0031325A /* Images.xcassets */; };
@@ -81,6 +84,12 @@
 		F25145631A36F0E100D3EB4E /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		F25145641A36F0E100D3EB4E /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		F25145651A36F0E100D3EB4E /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		F260D5EC1A39BC6C008338C4 /* YCLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLUser.h; sourceTree = "<group>"; };
+		F260D5ED1A39BC6C008338C4 /* YCLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLUser.m; sourceTree = "<group>"; };
+		F260D5EF1A39BEB8008338C4 /* YCLStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatus.h; sourceTree = "<group>"; };
+		F260D5F01A39BEB8008338C4 /* YCLStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatus.m; sourceTree = "<group>"; };
+		F260D5F51A39C502008338C4 /* YCLPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLPicture.h; sourceTree = "<group>"; };
+		F260D5F61A39C502008338C4 /* YCLPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLPicture.m; sourceTree = "<group>"; };
 		F276501B1A2B5D5E0031325A /* 11.30-Weibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "11.30-Weibo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F276501F1A2B5D5E0031325A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F27650201A2B5D5E0031325A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -445,6 +454,12 @@
 		F276505B1A2B609B0031325A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F260D5EC1A39BC6C008338C4 /* YCLUser.h */,
+				F260D5ED1A39BC6C008338C4 /* YCLUser.m */,
+				F260D5EF1A39BEB8008338C4 /* YCLStatus.h */,
+				F260D5F01A39BEB8008338C4 /* YCLStatus.m */,
+				F260D5F51A39C502008338C4 /* YCLPicture.h */,
+				F260D5F61A39C502008338C4 /* YCLPicture.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -664,7 +679,9 @@
 				F25145681A36F0E100D3EB4E /* AFHTTPSessionManager.m in Sources */,
 				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
+				F260D5EE1A39BC6C008338C4 /* YCLUser.m in Sources */,
 				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
+				F260D5F71A39C502008338C4 /* YCLPicture.m in Sources */,
 				F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */,
 				F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */,
 				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
@@ -681,6 +698,7 @@
 				F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */,
 				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
 				F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */,
+				F260D5F11A39BEB8008338C4 /* YCLStatus.m in Sources */,
 				F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */,
 				F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */,
 				F27650501A2B5E620031325A /* YCLMainNavigationController.m in Sources */,

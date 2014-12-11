@@ -12,12 +12,28 @@
 #import "UIView+YCLGeometry.h"
 #import "YCLHomeTitleButton.h"
 #import "YCLPopMenu.h"
+#import "AFNetworking.h"
+#import "YCLAccount.h"
+#import "YCLAccountTool.h"
+#import "YCLStatus.h"
+#import "YCLUser.h"
+
+// 微博数据请求连接
+#define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
 
 @interface YCLHomeController ()<YCLPopMenuDelegate>
-
+/** 微博数据 */
+@property (strong, nonatomic) NSArray *statuses;
 @end
 
 @implementation YCLHomeController
+
+- (NSArray *)statuses {
+    if (!_statuses) {
+        _statuses = [NSArray array];
+    }
+    return _statuses;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -27,6 +43,9 @@
     
     // 设置导航栏按钮
     [self setupNavigationBarItem];
+    
+    // 加载微博数据
+    [self loadStatus];
 }
 
 /**
@@ -68,6 +87,33 @@
     popMenu.delegate = self;
 }
 
+/**
+ *    加载微博数据
+ */
+- (void)loadStatus {
+
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
+    YCLAccount *account = [YCLAccountTool readAccount];
+    requestParas[@"access_token"] = account.access_token;
+    requestParas[@"count"] = @10;
+    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"请求成功  --- %@", responseObject);
+        
+        // 保存微博数据
+        NSArray *statusesDict = responseObject[@"statuses"];
+        NSMutableArray *statusesM = [NSMutableArray arrayWithCapacity:0];
+        for (NSDictionary *statusDict in statusesDict) {
+            YCLStatus *status = [YCLStatus statusWithDictionary:statusDict];
+            [statusesM addObject:status];
+        }
+        self.statuses = [statusesM copy];
+        [self.tableView reloadData];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"请求失败  --- %@", error);
+    }];
+}
+
 #pragma mark - YCLPopMenuDelegate
 - (void)popMenuDidDismiss:(YCLPopMenu *)popMenu {
     // 获取 标题按钮
@@ -92,19 +138,35 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 20;
+    return self.statuses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *identifier = @"HomeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
+
+    YCLStatus *status = self.statuses[indexPath.row];
+    YCLUser *user = status.user;
     
-    cell.textLabel.text = [NSString stringWithFormat:@"HomeCell-%2ld", indexPath.row];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        // 异步并发获取头像
+        NSURL *avatarURL = [NSURL URLWithString:user.profile_image_url];
+        NSData *avatarData = [NSData dataWithContentsOfURL:avatarURL];
+        UIImage *avatar = [UIImage imageWithData:avatarData];
+        // 货到主线程设置头像
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            cell.imageView.image = avatar;
+        });
+    });
+    
+    cell.textLabel.text = user.name;
+//    cell.detailTextLabel.numberOfLines = 0;
+    cell.detailTextLabel.text = status.text;
+    
+//    cell.textLabel.text = [NSString stringWithFormat:@"HomeCell-%2ld", indexPath.row];
     
     return cell;
 }
