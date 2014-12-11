@@ -25,14 +25,14 @@
 
 @interface YCLHomeController ()<YCLPopMenuDelegate>
 /** 微博数据 */
-@property (strong, nonatomic) NSArray *statuses;
+@property (strong, nonatomic) NSMutableArray *statuses;
 @end
 
 @implementation YCLHomeController
 
-- (NSArray *)statuses {
+- (NSMutableArray *)statuses {
     if (!_statuses) {
-        _statuses = [NSArray array];
+        _statuses = [NSMutableArray arrayWithCapacity:0];
     }
     return _statuses;
 }
@@ -45,9 +45,9 @@
     
     // 设置导航栏按钮
     [self setupNavigationBarItem];
-    
-    // 加载微博数据
-    [self loadStatus];
+
+    // 添加下拉刷新
+    [self addRefreshControl];
 }
 
 /**
@@ -89,34 +89,53 @@
     popMenu.delegate = self;
 }
 
+
 /**
  *    加载微博数据
  */
-- (void)loadStatus {
-
+- (void)loadMoreStatus:(UIRefreshControl *)refreshControl {
+    NSLog(@"刷新微博");
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
+    YCLStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        // 只获取比上一条微博的 id 大的微博
+        requestParas[@"since_id"] = firstStatus.idstr;
+    }
     requestParas[@"count"] = @10;
+    
     [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSLog(@"请求成功  --- %@", responseObject);
-        
-        // 保存微博数据
-//        NSArray *statusesDict = responseObject[@"statuses"];
-//        NSMutableArray *statusesM = [NSMutableArray arrayWithCapacity:0];
-//        for (NSDictionary *statusDict in statusesDict) {
-//            YCLStatus *status = [YCLStatus objectWithKeyValues:statusDict];
-//            [statusesM addObject:status];
-//        }
-//        self.statuses = [statusesM copy];
         // 字典数组转换成模型数组
-        self.statuses = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *addedNewStatus = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        // 新微博应该添加到最前面
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, addedNewStatus.count)];
+        [self.statuses insertObjects:addedNewStatus atIndexes:indexSet];
         [self.tableView reloadData];
+        // 停止刷新
+        [refreshControl endRefreshing];
+        NSLog(@"新增%lu条微博", addedNewStatus.count);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败  --- %@", error);
+        // 停止刷新
+        [refreshControl endRefreshing];
     }];
 }
+
+
+
+/**
+ *    添加刷新控件
+ */
+- (void)addRefreshControl {
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [self.tableView addSubview:refreshControl];
+    [refreshControl addTarget:self action:@selector(loadMoreStatus:) forControlEvents:UIControlEventValueChanged];
+}
+
+
 
 #pragma mark - YCLPopMenuDelegate
 - (void)popMenuDidDismiss:(YCLPopMenu *)popMenu {
@@ -156,12 +175,8 @@
     YCLUser *user = status.user;
     
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"navigationbar_account_check"]];
-    
     cell.textLabel.text = user.name;
-//    cell.detailTextLabel.numberOfLines = 0;
     cell.detailTextLabel.text = status.text;
-    
-//    cell.textLabel.text = [NSString stringWithFormat:@"HomeCell-%2ld", indexPath.row];
     
     return cell;
 }

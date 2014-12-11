@@ -47,6 +47,8 @@
 @interface YCLStatus : NSObject
 /** 微博创建时间 */
 @property (copy, nonatomic) NSString *created_at;
+/** 字符串型的微博ID */
+@property (copy, nonatomic) NSString *idstr;
 /** 微博信息内容 */
 @property (copy, nonatomic) NSString *text;
 /** 微博来源 */
