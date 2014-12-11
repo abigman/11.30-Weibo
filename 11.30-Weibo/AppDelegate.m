@@ -23,27 +23,23 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
-//    self.window.rootViewController = [[YCLMainTabBarController alloc] init];
-    
-    
-    // 从沙盒取出当前版本号
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
-    
-    // 获取当前版本号
-    NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-    
-    
-    // 判断时候已经授权
+    /* 判断是否已经授权 */
     
     // 获取授权信息
-    
     NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [documentPath stringByAppendingPathComponent:@"accessToken.bak"];
     NSDictionary *accessToken = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    
     if (accessToken) {
         // 有授权信息
-        // 判断版本
+        
+        /* 判断是否展示新特性 */
+        
+        // 从沙盒取出上一次保存的版本号
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
+        // 获取当前版本号
+        NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
         
         if ([currentVersion isEqualToString:lastVersion]) {
             // 版本号相同， 进入微博
@@ -56,12 +52,12 @@
             [userDefaults setValue:currentVersion forKey:@"lastVersion"];
             [userDefaults synchronize];
         }
-        
     } else {
-        // 没有授权，进入授权页
+        // 没有授权
+        
+        // 进入授权页
         self.window.rootViewController = [[YCLOAuthController alloc] init];
     }
-
     
     [self.window makeKeyAndVisible];
     return YES;

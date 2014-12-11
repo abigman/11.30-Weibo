@@ -11,12 +11,15 @@
 #import "YCLMainTabBarController.h"
 #import "YCLNewfeatureController.h"
 
-#define kAuthorize_url      @"https://api.weibo.com/oauth2/authorize"
+// 应用相关
 #define kAppKey             @"1223967393"
 #define kRedirect_uri       @"http://yclzone.github.io"
-
-#define kAccessToken_url    @"https://api.weibo.com/oauth2/access_token"
 #define kAppSecret          @"948d5ba9945b0ce55347b659e7e7c5af"
+
+// api相关
+#define kAuthorize_url      @"https://api.weibo.com/oauth2/authorize"
+#define kAccessToken_url    @"https://api.weibo.com/oauth2/access_token"
+
 
 @interface YCLOAuthController () <UIWebViewDelegate>
 
@@ -98,7 +101,7 @@
 
 
 /**
- *  <#Description#>
+ *  通过 AuthorizationCode 获取 accessToken
  *
  *  @param code <#code description#>
  */
@@ -116,15 +119,15 @@
         // 请求成功
         NSLog(@"成功 --- %@", responseObject);
         
-        // 判断进入新特性 还是 主页
+        /* 判断是否展示新特性 */
         
-        // 从沙盒取出当前版本号
+        // 从沙盒取出上一次保存的版本号
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
         NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
-        
         // 获取当前版本号
         NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
         
+        // 当前主窗口
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         
         if ([currentVersion isEqualToString:lastVersion]) {
