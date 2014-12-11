@@ -8,6 +8,8 @@
 
 #import "YCLOAuthController.h"
 #import "AFNetworking.h"
+#import "YCLMainTabBarController.h"
+#import "YCLNewfeatureController.h"
 
 #define kAuthorize_url      @"https://api.weibo.com/oauth2/authorize"
 #define kAppKey             @"1223967393"
@@ -113,6 +115,36 @@
     [manager POST:kAccessToken_url parameters:paramateters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // 请求成功
         NSLog(@"成功 --- %@", responseObject);
+        
+        // 判断进入新特性 还是 主页
+        
+        // 从沙盒取出当前版本号
+        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+        NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
+        
+        // 获取当前版本号
+        NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
+        
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        
+        if ([currentVersion isEqualToString:lastVersion]) {
+            // 版本号相同， 进入微博
+            window.rootViewController = [[YCLMainTabBarController alloc] init];
+            
+        } else {
+            // 版本号不同，展示新特性
+            window.rootViewController = [[YCLNewfeatureController alloc] init];
+            // 存储版本号
+            [userDefaults setValue:currentVersion forKey:@"lastVersion"];
+            [userDefaults synchronize];
+        }
+
+        
+        // 保存授权信息
+        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *filePath = [documentPath stringByAppendingPathComponent:@"accessToken.bak"];
+        NSDictionary *accessToken = responseObject;
+        [accessToken writeToFile:filePath atomically:YES];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 请求失败

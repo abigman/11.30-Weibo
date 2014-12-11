@@ -33,18 +33,35 @@
     // 获取当前版本号
     NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
     
-    if ([currentVersion isEqualToString:lastVersion]) {
-        // 版本号相同，直接进入
-//        self.window.rootViewController = [[YCLMainTabBarController alloc] init];
-        self.window.rootViewController = [[YCLOAuthController alloc] init];
+    
+    // 判断时候已经授权
+    
+    // 获取授权信息
+    
+    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [documentPath stringByAppendingPathComponent:@"accessToken.bak"];
+    NSDictionary *accessToken = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    if (accessToken) {
+        // 有授权信息
+        // 判断版本
+        
+        if ([currentVersion isEqualToString:lastVersion]) {
+            // 版本号相同， 进入微博
+            self.window.rootViewController = [[YCLMainTabBarController alloc] init];
+            
+        } else {
+            // 版本号不同，展示新特性
+            self.window.rootViewController = [[YCLNewfeatureController alloc] init];
+            // 存储版本号
+            [userDefaults setValue:currentVersion forKey:@"lastVersion"];
+            [userDefaults synchronize];
+        }
         
     } else {
-        // 版本号不同，展示新特性
-        self.window.rootViewController = [[YCLNewfeatureController alloc] init];
-        // 存储版本号
-        [userDefaults setValue:currentVersion forKey:@"lastVersion"];
-        [userDefaults synchronize];
+        // 没有授权，进入授权页
+        self.window.rootViewController = [[YCLOAuthController alloc] init];
     }
+
     
     [self.window makeKeyAndVisible];
     return YES;
