@@ -7,9 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "YCLMainTabBarController.h"
-#import "YCLNewfeatureController.h"
 #import "YCLOAuthController.h"
+#import "YCLControllerTools.h"
 
 
 @interface AppDelegate ()
@@ -23,6 +22,9 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
+    // 控制器选择的工具，需要获取主窗口，所以需要先设置主窗口
+    [self.window makeKeyAndVisible];
+    
     /* 判断是否已经授权 */
     
     // 获取授权信息
@@ -34,24 +36,8 @@
         // 有授权信息
         
         /* 判断是否展示新特性 */
+        [YCLControllerTools choseController];
         
-        // 从沙盒取出上一次保存的版本号
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
-        // 获取当前版本号
-        NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-        
-        if ([currentVersion isEqualToString:lastVersion]) {
-            // 版本号相同， 进入微博
-            self.window.rootViewController = [[YCLMainTabBarController alloc] init];
-            
-        } else {
-            // 版本号不同，展示新特性
-            self.window.rootViewController = [[YCLNewfeatureController alloc] init];
-            // 存储版本号
-            [userDefaults setValue:currentVersion forKey:@"lastVersion"];
-            [userDefaults synchronize];
-        }
     } else {
         // 没有授权
         
@@ -59,7 +45,7 @@
         self.window.rootViewController = [[YCLOAuthController alloc] init];
     }
     
-    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

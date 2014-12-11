@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "YCLMainTabBarController.h"
 #import "YCLNewfeatureController.h"
+#import "YCLControllerTools.h"
 
 // 应用相关
 #define kAppKey             @"1223967393"
@@ -120,27 +121,7 @@
         NSLog(@"成功 --- %@", responseObject);
         
         /* 判断是否展示新特性 */
-        
-        // 从沙盒取出上一次保存的版本号
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastVersion = [userDefaults objectForKey:@"lastVersion"];
-        // 获取当前版本号
-        NSString *currentVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"];
-        
-        // 当前主窗口
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        
-        if ([currentVersion isEqualToString:lastVersion]) {
-            // 版本号相同， 进入微博
-            window.rootViewController = [[YCLMainTabBarController alloc] init];
-            
-        } else {
-            // 版本号不同，展示新特性
-            window.rootViewController = [[YCLNewfeatureController alloc] init];
-            // 存储版本号
-            [userDefaults setValue:currentVersion forKey:@"lastVersion"];
-            [userDefaults synchronize];
-        }
+        [YCLControllerTools choseController];
 
         
         // 保存授权信息
