@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "YCLOAuthController.h"
 #import "YCLControllerTools.h"
+#import "YCLAccountTool.h"
+#import "YCLAccount.h"
 
 
 @interface AppDelegate ()
@@ -28,11 +30,9 @@
     /* 判断是否已经授权 */
     
     // 获取授权信息
-    NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *filePath = [documentPath stringByAppendingPathComponent:@"accessToken.bak"];
-    NSDictionary *accessToken = [NSDictionary dictionaryWithContentsOfFile:filePath];
+    YCLAccount *account = [YCLAccountTool readAccount];
     
-    if (accessToken) {
+    if (account) {
         // 有授权信息
         
         /* 判断是否展示新特性 */

@@ -8,9 +8,11 @@
 
 #import "YCLOAuthController.h"
 #import "AFNetworking.h"
-#import "YCLMainTabBarController.h"
-#import "YCLNewfeatureController.h"
+//#import "YCLMainTabBarController.h"
+//#import "YCLNewfeatureController.h"
 #import "YCLControllerTools.h"
+#import "YCLAccount.h"
+#import "YCLAccountTool.h"
 
 // 应用相关
 #define kAppKey             @"1223967393"
@@ -119,17 +121,14 @@
     [manager POST:kAccessToken_url parameters:paramateters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // 请求成功
         NSLog(@"成功 --- %@", responseObject);
+        // 账号信息
+        YCLAccount *account = [YCLAccount accountWithDictionary:responseObject];
+        // 保存授权信息
+        [YCLAccountTool saveAccount:account];
         
         /* 判断是否展示新特性 */
         [YCLControllerTools choseController];
 
-        
-        // 保存授权信息
-        NSString *documentPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [documentPath stringByAppendingPathComponent:@"accessToken.bak"];
-        NSDictionary *accessToken = responseObject;
-        [accessToken writeToFile:filePath atomically:YES];
-        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // 请求失败
         NSLog(@"失败 --- %@", error);

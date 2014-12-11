@@ -34,6 +34,8 @@
 		F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */; };
 		F28DEFE61A2D9B11001124B8 /* YCLPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F28DEFE51A2D9B11001124B8 /* YCLPopMenu.m */; };
 		F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578311A3979AB00D70ACC /* YCLControllerTools.m */; };
+		F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578341A397E5700D70ACC /* YCLAccount.m */; };
+		F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578371A3981BA00D70ACC /* YCLAccountTool.m */; };
 		F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */; };
 		F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */; };
 		F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */; };
@@ -107,6 +109,10 @@
 		F28DEFE51A2D9B11001124B8 /* YCLPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLPopMenu.m; sourceTree = "<group>"; };
 		F2A578301A3979AB00D70ACC /* YCLControllerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLControllerTools.h; sourceTree = "<group>"; };
 		F2A578311A3979AB00D70ACC /* YCLControllerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLControllerTools.m; sourceTree = "<group>"; };
+		F2A578331A397E5700D70ACC /* YCLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLAccount.h; sourceTree = "<group>"; };
+		F2A578341A397E5700D70ACC /* YCLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLAccount.m; sourceTree = "<group>"; };
+		F2A578361A3981BA00D70ACC /* YCLAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLAccountTool.h; sourceTree = "<group>"; };
+		F2A578371A3981BA00D70ACC /* YCLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLAccountTool.m; sourceTree = "<group>"; };
 		F2B9E2251A2C3E8200A87B7A /* YCLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLSearchBar.h; sourceTree = "<group>"; };
 		F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLSearchBar.m; sourceTree = "<group>"; };
 		F2B9E2281A2C416700A87B7A /* UIView+YCLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YCLGeometry.h"; sourceTree = "<group>"; };
@@ -540,6 +546,10 @@
 			children = (
 				F2A578301A3979AB00D70ACC /* YCLControllerTools.h */,
 				F2A578311A3979AB00D70ACC /* YCLControllerTools.m */,
+				F2A578331A397E5700D70ACC /* YCLAccount.h */,
+				F2A578341A397E5700D70ACC /* YCLAccount.m */,
+				F2A578361A3981BA00D70ACC /* YCLAccountTool.h */,
+				F2A578371A3981BA00D70ACC /* YCLAccountTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -647,6 +657,7 @@
 				F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */,
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
 				F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */,
+				F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */,
 				F251456B1A36F0E100D3EB4E /* AFURLConnectionOperation.m in Sources */,
 				F251456A1A36F0E100D3EB4E /* AFSecurityPolicy.m in Sources */,
 				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
@@ -663,6 +674,7 @@
 				F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */,
 				F251456E1A36F0E100D3EB4E /* AFURLSessionManager.m in Sources */,
 				F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */,
+				F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */,
 				F25145691A36F0E100D3EB4E /* AFNetworkReachabilityManager.m in Sources */,
 				F251456D1A36F0E100D3EB4E /* AFURLResponseSerialization.m in Sources */,
 				F251456C1A36F0E100D3EB4E /* AFURLRequestSerialization.m in Sources */,
