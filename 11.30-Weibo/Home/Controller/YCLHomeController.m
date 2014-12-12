@@ -93,7 +93,7 @@
 /**
  *    加载微博数据
  */
-- (void)loadMoreStatus:(UIRefreshControl *)refreshControl {
+- (void)loadMoreNewerStatus:(UIRefreshControl *)refreshControl {
     NSLog(@"刷新微博");
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -116,7 +116,8 @@
         [self.tableView reloadData];
         // 停止刷新
         [refreshControl endRefreshing];
-        NSLog(@"新增%lu条微博", addedNewStatus.count);
+//        NSLog(@"新增%lu条微博", addedNewStatus.count);
+        [self showNewStatusCount:(int)addedNewStatus.count];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"请求失败  --- %@", error);
         // 停止刷新
@@ -132,7 +133,119 @@
 - (void)addRefreshControl {
     UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
     [self.tableView addSubview:refreshControl];
-    [refreshControl addTarget:self action:@selector(loadMoreStatus:) forControlEvents:UIControlEventValueChanged];
+    [refreshControl addTarget:self action:@selector(loadMoreNewerStatus:) forControlEvents:UIControlEventValueChanged];
+}
+
+
+/**
+ *    显示新微博数
+ *
+ *    @param count 微博数
+ */
+- (void)showNewStatusCount:(int)count {
+    UILabel *label = [[UILabel alloc] init];
+    label.frameX = 0;
+    label.frameY = self.navigationController.navigationBar.frameH;
+    label.frameW = self.tableView.frameW;
+    label.frameH = 22;
+    if (count) {
+        label.text = [NSString stringWithFormat:@"新增了%d条新微博",count];
+    } else {
+        label.text = @"目前还没有新微薄，再来一次？";
+    }
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:18];
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor orangeColor];
+    label.alpha = 0;
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    [UIView animateWithDuration:1 animations:^{
+        label.alpha = 1;
+        label.frameY += 22;
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:1 delay:3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            label.frameY -= 22;
+            label.alpha = 0;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+
+    }];
+}
+
+
+/**
+ *    加载微博数据
+ */
+- (void)loadMoreOlderStatus:(UIRefreshControl *)refreshControl {
+    NSLog(@"刷新微博");
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
+    YCLAccount *account = [YCLAccountTool readAccount];
+    requestParas[@"access_token"] = account.access_token;
+    YCLStatus *lastStatus = [self.statuses lastObject];
+    if (lastStatus) {
+        // 只获取比上一条微博的 id 大的微博
+        requestParas[@"since_id"] = lastStatus.idstr;
+    }
+    requestParas[@"count"] = @10;
+    
+    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        // 字典数组转换成模型数组
+        NSArray *addedOldStatuses = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        // 新微博应该添加到最后面
+        [self.statuses addObjectsFromArray:addedOldStatuses];
+        [self.tableView reloadData];
+        // 停止刷新
+        [refreshControl endRefreshing];
+        //        NSLog(@"新增%lu条微博", addedNewStatus.count);
+        [self showOldStatusCount:(int)addedOldStatuses.count];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"请求失败  --- %@", error);
+        // 停止刷新
+        [refreshControl endRefreshing];
+    }];
+}
+
+/**
+ *    显示旧微博数
+ *
+ *    @param count 微博数
+ */
+- (void)showOldStatusCount:(int)count {
+    UILabel *label = [[UILabel alloc] init];
+    label.frameX = 0;
+    label.frameY = self.tabBarController.tabBar.frameY;
+    label.frameW = self.tableView.frameW;
+    label.frameH = 22;
+    if (count) {
+        label.text = [NSString stringWithFormat:@"新增了%d条旧微博",count];
+    } else {
+        label.text = @"貌似没刷出来啊，再来一次？";
+    }
+    
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:18];
+    label.textColor = [UIColor blackColor];
+    label.backgroundColor = [UIColor orangeColor];
+    label.alpha = 0;
+    [self.tabBarController.view insertSubview:label belowSubview:self.tabBarController.tabBar];
+    [UIView animateWithDuration:1 animations:^{
+        label.alpha = 1;
+        label.frameY -= 22;
+    } completion:^(BOOL finished) {
+        
+        [UIView animateWithDuration:1 delay:3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+            label.frameY += 22;
+            label.alpha = 0;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
+        
+    }];
 }
 
 
