@@ -9,6 +9,14 @@
 #import "NSString+YCLTextSize.h"
 
 @implementation NSString (YCLTextSize)
+/**
+ *    根据字体计算占用矩形的尺寸
+ *
+ *    @param font 字体
+ *    @param size 限制最大尺寸
+ *
+ *    @return 文字占据矩形的尺寸
+ */
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)size {
     NSDictionary *attributes = @{NSFontAttributeName: font};
     return [self boundingRectWithSize:size options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
