@@ -19,6 +19,7 @@
 #import "YCLUser.h"
 #import "UIImageView+WebCache.h"
 #import "MJExtension.h"
+#import "YCLRefreshView.h"
 
 // 微博数据请求连接
 #define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
@@ -48,6 +49,9 @@
 
     // 添加下拉刷新
     [self addRefreshControl];
+    
+    // 添加footerView, 提示上拉可加载微博
+    [self addFooterView];
 }
 
 /**
@@ -105,7 +109,7 @@
         // 只获取比上一条微博的 id 大的微博
         requestParas[@"since_id"] = firstStatus.idstr;
     }
-    requestParas[@"count"] = @10;
+    requestParas[@"count"] = @20;
     
     [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // 字典数组转换成模型数组
@@ -191,7 +195,7 @@
         // 只获取比上一条微博的 id 大的微博
         requestParas[@"since_id"] = lastStatus.idstr;
     }
-    requestParas[@"count"] = @10;
+    requestParas[@"count"] = @20;
     
     [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // 字典数组转换成模型数组
@@ -248,7 +252,27 @@
     }];
 }
 
+// 添加footerView, 提示上拉可加载微博
+- (void)addFooterView {
+    self.tableView.tableFooterView = [YCLRefreshView refreshView];
+}
 
+#pragma mark - UITableViewS
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+//    CGFloat currentY = scrollView.contentOffset.y;scrollView.contentSize.height + RefreshViewHight
+//    if (currentY >= 64) {
+//        [self loadMoreOlderStatus:nil];
+//    }
+    
+    CGFloat y1 = scrollView.contentOffset.y + scrollView.frame.size.height;
+    CGFloat y2 = scrollView.contentSize.height + 49;
+
+    NSLog(@"%.0f", y1 - y2);
+    
+    if (y1 - y2 >= 0) {
+        [self loadMoreOlderStatus:nil];
+    }
+}
 
 #pragma mark - YCLPopMenuDelegate
 - (void)popMenuDidDismiss:(YCLPopMenu *)popMenu {
@@ -274,6 +298,8 @@
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // 当微博数据为空的时候，隐藏；有数据的时候，显示
+//    self.tableView.tableFooterView.hidden = (self.statuses.count == 0);
     return self.statuses.count;
 }
 

@@ -10,6 +10,8 @@
 		F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */; };
 		F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA651A35D7C80063AFB8 /* YCLComposeController.m */; };
 		F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */; };
+		F23668621A3AAFF600D2B603 /* YCLRefreshView.m in Sources */ = {isa = PBXBuildFile; fileRef = F23668611A3AAFF600D2B603 /* YCLRefreshView.m */; };
+		F23668661A3AB8F900D2B603 /* YCLRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F23668651A3AB8F900D2B603 /* YCLRefreshView.xib */; };
 		F23D06B21A39D590004628A5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D06921A39D590004628A5 /* MKAnnotationView+WebCache.m */; };
 		F23D06B31A39D590004628A5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D06941A39D590004628A5 /* NSData+ImageContentType.m */; };
 		F23D06B41A39D590004628A5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F23D06961A39D590004628A5 /* SDImageCache.m */; };
@@ -91,6 +93,9 @@
 		F225BA651A35D7C80063AFB8 /* YCLComposeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLComposeController.m; sourceTree = "<group>"; };
 		F225BA6B1A35DFE80063AFB8 /* YCLNewfeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLNewfeatureController.h; sourceTree = "<group>"; };
 		F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLNewfeatureController.m; sourceTree = "<group>"; };
+		F23668601A3AAFF600D2B603 /* YCLRefreshView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLRefreshView.h; sourceTree = "<group>"; };
+		F23668611A3AAFF600D2B603 /* YCLRefreshView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLRefreshView.m; sourceTree = "<group>"; };
+		F23668651A3AB8F900D2B603 /* YCLRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YCLRefreshView.xib; sourceTree = "<group>"; };
 		F23D06911A39D590004628A5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		F23D06921A39D590004628A5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		F23D06931A39D590004628A5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -639,6 +644,9 @@
 				F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */,
 				F28DEFE41A2D9B11001124B8 /* YCLPopMenu.h */,
 				F28DEFE51A2D9B11001124B8 /* YCLPopMenu.m */,
+				F23668601A3AAFF600D2B603 /* YCLRefreshView.h */,
+				F23668611A3AAFF600D2B603 /* YCLRefreshView.m */,
+				F23668651A3AB8F900D2B603 /* YCLRefreshView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -819,6 +827,7 @@
 			files = (
 				F276502F1A2B5D5E0031325A /* LaunchScreen.xib in Resources */,
 				F276502C1A2B5D5E0031325A /* Images.xcassets in Resources */,
+				F23668661A3AB8F900D2B603 /* YCLRefreshView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -853,6 +862,7 @@
 				F23D06E11A39D6CE004628A5 /* MJTypeEncoding.m in Sources */,
 				F260D5EE1A39BC6C008338C4 /* YCLUser.m in Sources */,
 				F23D06C11A39D590004628A5 /* UIView+WebCacheOperation.m in Sources */,
+				F23668621A3AAFF600D2B603 /* YCLRefreshView.m in Sources */,
 				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F23D06B61A39D590004628A5 /* SDWebImageDecoder.m in Sources */,
 				F260D5F71A39C502008338C4 /* YCLPicture.m in Sources */,
