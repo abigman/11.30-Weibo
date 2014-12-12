@@ -15,8 +15,10 @@
     
     [self setupNavagationBarItem];
     //
-    YCLTextView *textView = [[YCLTextView alloc] initWithFrame:CGRectMake(0, 0, 375, 164)];
+    YCLTextView *textView = [[YCLTextView alloc] initWithFrame:CGRectMake(0, 0, 375, 264)];
     textView.backgroundColor = [UIColor lightGrayColor];
+    textView.font = [UIFont systemFontOfSize:40];
+//    textView.placeholder = @"ABCDE";
     [self.view addSubview:textView];
 }
 
