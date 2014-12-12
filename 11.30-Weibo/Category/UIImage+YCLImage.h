@@ -9,8 +9,21 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (YCLImage)
-// iOS7 选择带 _os7 后缀的图片
+/**
+ *    如果是iOS7系统，自动选取名称带_os7后缀的图片
+ *
+ *    @param imageName 图片名称
+ *
+ *    @return 名称带_os7后缀的图片
+ */
 + (UIImage *)imageWithName:(NSString *)imageName;
-// 可拉伸图片
+
+/**
+ *    返回可拉伸的图片
+ *
+ *    @param imageName 图片名
+ *
+ *    @return 可拉伸的图片
+ */
 + (UIImage *)resizableImageNamed:(NSString *)imageName;
 @end
