@@ -269,7 +269,7 @@
 
     NSLog(@"%.0f", y1 - y2);
     
-    if (y1 - y2 >= 0) {
+    if (y1 - y2 == 0) {
         [self loadMoreOlderStatus:nil];
     }
 }
@@ -299,7 +299,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 当微博数据为空的时候，隐藏；有数据的时候，显示
-//    self.tableView.tableFooterView.hidden = (self.statuses.count == 0);
+    self.tableView.tableFooterView.hidden = (self.statuses.count == 0);
     return self.statuses.count;
 }
 
