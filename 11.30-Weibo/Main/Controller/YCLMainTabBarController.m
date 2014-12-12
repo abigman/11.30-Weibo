@@ -39,23 +39,9 @@
 
 - (void)tabBarDidClickedAddButton:(YCLTabBar *)tabBar {
     YCLComposeController *composeVC = [[YCLComposeController alloc] init];
-    composeVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
-    composeVC.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(send)];
     composeVC.view.backgroundColor = [UIColor whiteColor];
     YCLMainNavigationController *nv = [[YCLMainNavigationController alloc] initWithRootViewController:composeVC];
-    [self presentViewController:nv animated:YES completion:^{
-        
-    }];
-}
-
-- (void)cancel {
-    [self dismissViewControllerAnimated:YES completion:^{
-        //
-    }];
-}
-
-- (void)send {
-    NSLog(@"发送微博");
+    [self presentViewController:nv animated:YES completion:nil];
 }
 
 
