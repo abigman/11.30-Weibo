@@ -37,7 +37,7 @@
         self.font = [UIFont systemFontOfSize:16];
         
         // 注册监听
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChanged) name:UITextViewTextDidChangeNotification object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChanged) name:UITextViewTextDidChangeNotification object:nil];
     }
     return self;
 }

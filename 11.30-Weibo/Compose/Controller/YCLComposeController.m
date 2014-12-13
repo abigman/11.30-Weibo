@@ -25,9 +25,7 @@
 @implementation YCLComposeController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setupNavagationBarItem];
-    
+
     // 设置 textView
     [self setupTextView];
     
@@ -38,8 +36,8 @@
     // 设置 toolBar
     [self setupToolBar];
     
-    // 监听键盘
-    [self observeKeyboard];
+    // 通知
+    [self addObserver];
 }
 
 /**
@@ -73,6 +71,10 @@
     
 }
 
+
+/**
+ *    设置 pictureView
+ */
 - (void)setupPictureView {
     YCLPictureView *pictureView = [[YCLPictureView alloc] init];
 //    pictureView.backgroundColor = [UIColor redColor];
@@ -83,12 +85,18 @@
     self.pictureView = pictureView;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self setupNavagationBarItem];
+}
+
 /**
  *    设置导航栏按钮
  */
 - (void)setupNavagationBarItem {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(send)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 - (void)cancel {
@@ -101,30 +109,20 @@
 }
 
 /**
- *    监听键盘弹出
+ *    通知
  */
-- (void)observeKeyboard {
+- (void)addObserver {
+    // 监听键盘弹出/隐藏
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillhidden:) name:UIKeyboardWillHideNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
+    // 监听textView文字变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewTextDidChange:) name:UITextViewTextDidChangeNotification object:nil];
     
 }
-
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-- (void)keyboardWillChangeFrame:(NSNotification *)notification {
-    CGFloat keyboardYBegin = [notification.userInfo[@"UIKeyboardFrameBeginUserInfoKey"] CGRectValue].origin.y;
-    CGFloat keyboardYEnd = [notification.userInfo[@"UIKeyboardFrameEndUserInfoKey"] CGRectValue].origin.y;
-    
-    CGFloat length = keyboardYBegin - keyboardYEnd;
-    
-    NSLog(@"length = %f", length);
-    self.toolBar.frameY += -length;
-    self.textView.frameY += -length;
-    
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
@@ -158,7 +156,9 @@
     self.toolBar.frameY += boardH;
     self.textView.frameH -= -boardH;
 }
-
+- (void)textViewTextDidChange:(NSNotification *)notification {
+    self.navigationItem.rightBarButtonItem.enabled = self.textView.text.length != 0;
+}
 
 #pragma mark - UIScrollDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
