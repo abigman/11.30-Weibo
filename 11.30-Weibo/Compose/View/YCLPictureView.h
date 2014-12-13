@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface YCLPictureView : UIView
-- (void)addImageWithName:(NSString *)name;
+- (void)addImage:(UIImage *)image;
 @end

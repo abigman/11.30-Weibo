@@ -34,11 +34,11 @@
     }
 }
 
-- (void)addImageWithName:(NSString *)name {
+- (void)addImage:(UIImage *)image {
     UIImageView *imageView = [[UIImageView alloc] init];
-//    imageView.contentMode = UIViewContentModeScaleAspectFill;
-//    imageView.clipsToBounds = YES;
-    imageView.image = [UIImage imageNamed:name];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.image = image;
     [self addSubview:imageView];
 }
 

@@ -12,7 +12,7 @@
 #import "YCLPictureView.h"
 #import "UIView+YCLGeometry.h"
 
-@interface YCLComposeController () <YCLToolBarDelegate, UITextViewDelegate>
+@interface YCLComposeController () <YCLToolBarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** textView */
 @property (weak, nonatomic) UITextView *textView;
 /** toolBar */
@@ -75,11 +75,11 @@
 
 - (void)setupPictureView {
     YCLPictureView *pictureView = [[YCLPictureView alloc] init];
-    pictureView.backgroundColor = [UIColor redColor];
+//    pictureView.backgroundColor = [UIColor redColor];
     pictureView.frameW = self.view.frameW;
     pictureView.frameH = self.view.frameW;
     pictureView.frameY = self.navigationController.navigationBar.frameH + 200;
-    [self.view addSubview:pictureView];
+    [self.textView addSubview:pictureView];
     self.pictureView = pictureView;
 }
 
@@ -92,6 +92,7 @@
 }
 
 - (void)cancel {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -175,6 +176,7 @@
             break;
         case YCLComposeToolBarButtonTypePicture:
             NSLog(@"图片");
+            [self openAlbum];
             break;
         case YCLComposeToolBarButtonTypeTrend:
             NSLog(@"话题");
@@ -189,5 +191,18 @@
             NSLog(@"定位");
             break;
     }
+}
+
+- (void)openAlbum {
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    [self presentViewController:imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    [self.pictureView addImage:image];
 }
 @end
