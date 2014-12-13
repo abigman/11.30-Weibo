@@ -20,13 +20,13 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor orangeColor];
+        self.backgroundColor = [UIColor clearColor];
         self.alwaysBounceVertical = YES;
-        [self becomeFirstResponder];
+//        [self becomeFirstResponder];
         
         // 添加 placeHolder
         UILabel *placeholderLabel = [[UILabel alloc] init];
-        placeholderLabel.backgroundColor = [UIColor blackColor];
+        placeholderLabel.backgroundColor = [UIColor clearColor];
         placeholderLabel.text = @"Share a status...";
         placeholderLabel.numberOfLines = 0;
         placeholderLabel.textColor = [UIColor lightGrayColor];
