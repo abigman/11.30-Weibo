@@ -21,6 +21,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor orangeColor];
+        self.alwaysBounceVertical = YES;
+        [self becomeFirstResponder];
         
         // 添加 placeHolder
         UILabel *placeholderLabel = [[UILabel alloc] init];

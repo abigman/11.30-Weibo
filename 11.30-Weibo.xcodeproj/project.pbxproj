@@ -70,6 +70,7 @@
 		F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578311A3979AB00D70ACC /* YCLControllerTools.m */; };
 		F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578341A397E5700D70ACC /* YCLAccount.m */; };
 		F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578371A3981BA00D70ACC /* YCLAccountTool.m */; };
+		F2A8A8001A3C10AC00ADE667 /* YCLToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A8A7FF1A3C10AC00ADE667 /* YCLToolBar.m */; };
 		F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */; };
 		F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */; };
 		F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */; };
@@ -216,6 +217,8 @@
 		F2A578341A397E5700D70ACC /* YCLAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLAccount.m; sourceTree = "<group>"; };
 		F2A578361A3981BA00D70ACC /* YCLAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLAccountTool.h; sourceTree = "<group>"; };
 		F2A578371A3981BA00D70ACC /* YCLAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLAccountTool.m; sourceTree = "<group>"; };
+		F2A8A7FE1A3C10AC00ADE667 /* YCLToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLToolBar.h; sourceTree = "<group>"; };
+		F2A8A7FF1A3C10AC00ADE667 /* YCLToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLToolBar.m; sourceTree = "<group>"; };
 		F2B9E2251A2C3E8200A87B7A /* YCLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLSearchBar.h; sourceTree = "<group>"; };
 		F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLSearchBar.m; sourceTree = "<group>"; };
 		F2B9E2281A2C416700A87B7A /* UIView+YCLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YCLGeometry.h"; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 			children = (
 				F23668991A3AD83D00D2B603 /* YCLTextView.h */,
 				F236689A1A3AD83D00D2B603 /* YCLTextView.m */,
+				F2A8A7FE1A3C10AC00ADE667 /* YCLToolBar.h */,
+				F2A8A7FF1A3C10AC00ADE667 /* YCLToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -873,6 +878,7 @@
 				F23D06B61A39D590004628A5 /* SDWebImageDecoder.m in Sources */,
 				F260D5F71A39C502008338C4 /* YCLPicture.m in Sources */,
 				F23D06B91A39D590004628A5 /* SDWebImageManager.m in Sources */,
+				F2A8A8001A3C10AC00ADE667 /* YCLToolBar.m in Sources */,
 				F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */,
 				F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */,
 				F23D06BF1A39D590004628A5 /* UIImageView+HighlightedWebCache.m in Sources */,
