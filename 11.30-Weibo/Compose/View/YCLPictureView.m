@@ -42,4 +42,13 @@
     [self addSubview:imageView];
 }
 
+- (NSArray *)images {
+    NSMutableArray *imagesM = [NSMutableArray arrayWithCapacity:self.subviews.count];
+    for (UIImageView *imageView in self.subviews) {
+        UIImage *image = imageView.image;
+        [imagesM addObject:image];
+    }
+    return [imagesM copy];
+}
+
 @end

@@ -9,5 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface YCLPictureView : UIView
+/**
+ *    添加一张图片
+ *
+ *    @param image 图片
+ */
 - (void)addImage:(UIImage *)image;
+/**
+ *    图片数组
+ *
+ *    @return 图片数组
+ */
+- (NSArray *)images;
 @end
