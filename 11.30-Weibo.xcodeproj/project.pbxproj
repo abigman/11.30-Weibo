@@ -77,6 +77,7 @@
 		F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */; };
 		F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */; };
 		F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */; };
+		F2DA9CDB1A3D650400E76F7B /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -232,6 +233,7 @@
 		F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHomeTitleButton.m; sourceTree = "<group>"; };
 		F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCLTextSize.h"; sourceTree = "<group>"; };
 		F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCLTextSize.m"; sourceTree = "<group>"; };
+		F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -735,6 +737,7 @@
 		F27650711A2B7CEB0031325A /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */,
 				F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */,
 				F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */,
 				F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */,
@@ -892,6 +895,7 @@
 				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
 				F25145671A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m in Sources */,
 				F23D06B41A39D590004628A5 /* SDImageCache.m in Sources */,
+				F2DA9CDB1A3D650400E76F7B /* Foundation+Log.m in Sources */,
 				F23D06B21A39D590004628A5 /* MKAnnotationView+WebCache.m in Sources */,
 				F23D06E31A39D6CE004628A5 /* NSObject+MJKeyValue.m in Sources */,
 				F23D06B81A39D590004628A5 /* SDWebImageDownloaderOperation.m in Sources */,
