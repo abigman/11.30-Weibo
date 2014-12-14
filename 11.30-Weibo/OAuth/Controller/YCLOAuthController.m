@@ -54,12 +54,13 @@
 
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"request = %@", request);
     NSString *requestURLString = request.URL.absoluteString;
     
     NSRange range = [requestURLString rangeOfString:kRedirect_uri];
-    NSLog(@"requestURLString = %@", requestURLString);
-    
-    NSLog(@"range = %@", NSStringFromRange(range));
+//    NSLog(@"requestURLString = %@", requestURLString);
+//    
+//    NSLog(@"range = %@", NSStringFromRange(range));
     
     
     if (range.location == 0) {
@@ -71,7 +72,7 @@
         
         NSString *code = [requestURLString substringWithRange:codeRange];
         
-        NSLog(@"%@", code);
+        NSLog(@"code = %@", code);
         
         [self accessTokenWithAuthorizationCode:code];
         
@@ -106,7 +107,7 @@
 /**
  *  通过 AuthorizationCode 获取 accessToken
  *
- *  @param code <#code description#>
+ *  @param code AuthorizationCode
  */
 - (void)accessTokenWithAuthorizationCode:(NSString *)code {
     
@@ -123,6 +124,8 @@
         NSLog(@"成功 --- %@", responseObject);
         // 账号信息
         YCLAccount *account = [YCLAccount accountWithDictionary:responseObject];
+        NSLog(@"access_token = %@", account.access_token);
+        
         // 保存授权信息
         [YCLAccountTool saveAccount:account];
         
