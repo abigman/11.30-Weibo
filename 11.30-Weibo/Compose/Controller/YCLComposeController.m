@@ -11,6 +11,9 @@
 #import "YCLToolBar.h"
 #import "YCLPictureView.h"
 #import "UIView+YCLGeometry.h"
+#import "AFNetworking.h"
+#import "YCLAccount.h"
+#import "YCLAccountTool.h"
 
 @interface YCLComposeController () <YCLToolBarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** textView */
@@ -106,6 +109,22 @@
 
 - (void)send {
     NSLog(@"发送微博");
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
+    
+    YCLAccount *account = [YCLAccountTool readAccount];
+    requestParas[@"access_token"] = account.access_token;
+    requestParas[@"status"] = self.textView.text;
+//    requestParas[@"pic"] = ((UIImageView *)[self.pictureView.subviews firstObject]).image;
+    
+    [manager POST:@"https://upload.api.weibo.com/2/statuses/update.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //
+        NSLog(@"微博发送成功");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        //
+        NSLog(@"微博发送失败 %@", error);
+    }];
 }
 
 /**
