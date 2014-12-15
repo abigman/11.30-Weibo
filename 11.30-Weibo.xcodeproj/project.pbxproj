@@ -71,6 +71,9 @@
 		F2A077561A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0774F1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m */; };
 		F2A077571A3F0E2700982552 /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A077511A3F0E2700982552 /* UIImage+YCLImage.m */; };
 		F2A077581A3F0E2700982552 /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A077531A3F0E2700982552 /* UIView+YCLGeometry.m */; };
+		F2A0775B1A3F1F2600982552 /* YCLStatusRequestParameter.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0775A1A3F1F2600982552 /* YCLStatusRequestParameter.m */; };
+		F2A0775E1A3F218100982552 /* YCLStatusResponseResult.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0775D1A3F218100982552 /* YCLStatusResponseResult.m */; };
+		F2A077611A3F23C800982552 /* YCLStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A077601A3F23C800982552 /* YCLStatusTool.m */; };
 		F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578311A3979AB00D70ACC /* YCLControllerTools.m */; };
 		F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578341A397E5700D70ACC /* YCLAccount.m */; };
 		F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578371A3981BA00D70ACC /* YCLAccountTool.m */; };
@@ -221,6 +224,12 @@
 		F2A077511A3F0E2700982552 /* UIImage+YCLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YCLImage.m"; sourceTree = "<group>"; };
 		F2A077521A3F0E2700982552 /* UIView+YCLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YCLGeometry.h"; sourceTree = "<group>"; };
 		F2A077531A3F0E2700982552 /* UIView+YCLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YCLGeometry.m"; sourceTree = "<group>"; };
+		F2A077591A3F1F2600982552 /* YCLStatusRequestParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusRequestParameter.h; sourceTree = "<group>"; };
+		F2A0775A1A3F1F2600982552 /* YCLStatusRequestParameter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusRequestParameter.m; sourceTree = "<group>"; };
+		F2A0775C1A3F218100982552 /* YCLStatusResponseResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusResponseResult.h; sourceTree = "<group>"; };
+		F2A0775D1A3F218100982552 /* YCLStatusResponseResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusResponseResult.m; sourceTree = "<group>"; };
+		F2A0775F1A3F23C800982552 /* YCLStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusTool.h; sourceTree = "<group>"; };
+		F2A077601A3F23C800982552 /* YCLStatusTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusTool.m; sourceTree = "<group>"; };
 		F2A578301A3979AB00D70ACC /* YCLControllerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLControllerTools.h; sourceTree = "<group>"; };
 		F2A578311A3979AB00D70ACC /* YCLControllerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLControllerTools.m; sourceTree = "<group>"; };
 		F2A578331A397E5700D70ACC /* YCLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLAccount.h; sourceTree = "<group>"; };
@@ -653,6 +662,10 @@
 				F260D5F01A39BEB8008338C4 /* YCLStatus.m */,
 				F260D5F51A39C502008338C4 /* YCLPicture.h */,
 				F260D5F61A39C502008338C4 /* YCLPicture.m */,
+				F2A077591A3F1F2600982552 /* YCLStatusRequestParameter.h */,
+				F2A0775A1A3F1F2600982552 /* YCLStatusRequestParameter.m */,
+				F2A0775C1A3F218100982552 /* YCLStatusResponseResult.h */,
+				F2A0775D1A3F218100982552 /* YCLStatusResponseResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -764,6 +777,8 @@
 				F2A578371A3981BA00D70ACC /* YCLAccountTool.m */,
 				F2F02EC91A3EDE8200654E2E /* YCLHttpTool.h */,
 				F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */,
+				F2A0775F1A3F23C800982552 /* YCLStatusTool.h */,
+				F2A077601A3F23C800982552 /* YCLStatusTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -876,6 +891,7 @@
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
 				F2A077581A3F0E2700982552 /* UIView+YCLGeometry.m in Sources */,
 				F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */,
+				F2A077611A3F23C800982552 /* YCLStatusTool.m in Sources */,
 				F251456B1A36F0E100D3EB4E /* AFURLConnectionOperation.m in Sources */,
 				F251456A1A36F0E100D3EB4E /* AFSecurityPolicy.m in Sources */,
 				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
@@ -884,6 +900,7 @@
 				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
 				F23D06E11A39D6CE004628A5 /* MJTypeEncoding.m in Sources */,
+				F2A0775E1A3F218100982552 /* YCLStatusResponseResult.m in Sources */,
 				F260D5EE1A39BC6C008338C4 /* YCLUser.m in Sources */,
 				F236689B1A3AD83D00D2B603 /* YCLTextView.m in Sources */,
 				F23D06C11A39D590004628A5 /* UIView+WebCacheOperation.m in Sources */,
@@ -894,6 +911,7 @@
 				F2A8A8001A3C10AC00ADE667 /* YCLToolBar.m in Sources */,
 				F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */,
 				F23D06BF1A39D590004628A5 /* UIImageView+HighlightedWebCache.m in Sources */,
+				F2A0775B1A3F1F2600982552 /* YCLStatusRequestParameter.m in Sources */,
 				F23D06BC1A39D590004628A5 /* UIImage+GIF.m in Sources */,
 				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
 				F25145671A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m in Sources */,
