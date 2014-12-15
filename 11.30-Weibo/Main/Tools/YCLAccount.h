@@ -35,6 +35,9 @@
 /** 当前授权用户的UID */
 @property (copy, nonatomic) NSString *uid;
 
+/** 用户名 */
+@property (copy, nonatomic) NSString *name;
+
 /** access_token的过期时间 */
 @property (strong, nonatomic) NSDate *expires_at;
 

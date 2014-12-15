@@ -24,6 +24,7 @@
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
         self.expires_at = [aDecoder decodeObjectForKey:@"expires_at"];
+        self.name = [aDecoder decodeObjectForKey:@"name"];
     }
     return self;
 }
@@ -38,6 +39,7 @@
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
     [aCoder encodeObject:self.expires_at forKey:@"expires_at"];
+    [aCoder encodeObject:self.name forKey:@"name"];
 }
 
 

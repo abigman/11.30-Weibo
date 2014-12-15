@@ -27,6 +27,8 @@
 @interface YCLHomeController ()<YCLPopMenuDelegate>
 /** 微博数据 */
 @property (strong, nonatomic) NSMutableArray *statuses;
+/** 标题按钮 */
+@property (weak, nonatomic) YCLHomeTitleButton *titleButton;
 @end
 
 @implementation YCLHomeController
@@ -43,6 +45,7 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+    [self requestUserInfo];
     
     // 设置导航栏按钮
     [self setupNavigationBarItem];
@@ -66,14 +69,16 @@
     
     // 中间标题按钮
     YCLHomeTitleButton *titleButton = [[YCLHomeTitleButton alloc] init];
-    titleButton.frameW = 100;
-    titleButton.frameH = 44;
-    [titleButton setTitle:@"首页" forState:UIControlStateNormal];
+//    titleButton.frameW = 150;
+    titleButton.frameH = 35;
+    NSString *titleName = [YCLAccountTool readAccount].name ? [YCLAccountTool readAccount].name : @"首页";
+    [titleButton setTitle:titleName forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleButton setBackgroundImage:[UIImage resizableImageNamed:@"navigationbar_title_highlighted"] forState:UIControlStateHighlighted];
     
     [titleButton addTarget:self action:@selector(titleButtonOnClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
+    self.titleButton = titleButton;
 }
 
 /**
@@ -92,6 +97,37 @@
     popMenu.popMenuType = YCLPopMenuTypeLeft;
     popMenu.delegate = self;
 }
+
+/**
+ *    access_token  false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
+ *    uid           false	int64	需要查询的用户ID。
+ *    screen_name   false	string	需要查询的用户昵称。
+ */
+- (void)requestUserInfo {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
+    
+    YCLAccount *account = [YCLAccountTool readAccount];
+    requestParas[@"access_token"] = account.access_token;
+    requestParas[@"uid"] = account.uid;
+    
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        //
+        YCLUser *user = [YCLUser objectWithKeyValues:responseObject];
+        NSLog(@"%@", user.name);
+        // 保存用户名
+        YCLAccount *account = [YCLAccountTool readAccount];
+        if (![account.name isEqualToString:user.name]) {
+            // 保存用户信息
+            account.name = user.name;
+            [YCLAccountTool saveAccount:account];
+        }
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
+
 
 
 /**
