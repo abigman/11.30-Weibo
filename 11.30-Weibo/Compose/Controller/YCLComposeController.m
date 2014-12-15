@@ -14,6 +14,7 @@
 #import "AFNetworking.h"
 #import "YCLAccount.h"
 #import "YCLAccountTool.h"
+#import "MBProgressHUD.h"
 
 @interface YCLComposeController () <YCLToolBarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** textView */
@@ -27,20 +28,35 @@
 
 @implementation YCLComposeController
 - (void)viewDidLoad {
+    NSLog(@"%s", __func__);
     [super viewDidLoad];
+    
+    // 通知
+    [self addObserver];
+    
+    // 设置导航栏按钮
+    [self setupNavagationBarItem];
 
     // 设置 textView
     [self setupTextView];
-    
     
     // 设置 pictureView
     [self setupPictureView];
     
     // 设置 toolBar
     [self setupToolBar];
-    
-    // 通知
-    [self addObserver];
+  
+}
+
+
+/**
+ *    设置导航栏按钮
+ */
+- (void)setupNavagationBarItem {
+    NSLog(@"%s", __func__);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(send)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
 /**
@@ -74,7 +90,6 @@
     
 }
 
-
 /**
  *    设置 pictureView
  */
@@ -88,27 +103,27 @@
     self.pictureView = pictureView;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self setupNavagationBarItem];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    NSLog(@"%s", __func__);
+//    [super viewWillAppear:animated];
+////    [self setupNavagationBarItem];
+//}
+
 
 /**
- *    设置导航栏按钮
+ *    取消发送微博
  */
-- (void)setupNavagationBarItem {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStylePlain target:self action:@selector(send)];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-}
-
 - (void)cancel {
     [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+/**
+ *    发送微博
+ */
 - (void)send {
-    NSLog(@"发送微博");
+    // 先收回键盘
+    [self.view endEditing:YES];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
@@ -116,16 +131,52 @@
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
     requestParas[@"status"] = self.textView.text;
-//    requestParas[@"pic"] = ((UIImageView *)[self.pictureView.subviews firstObject]).image;
+//    requestParas[@"visible"] = @1; // 自己可见
     
-    [manager POST:@"https://upload.api.weibo.com/2/statuses/update.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //
-        NSLog(@"微博发送成功");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        //
-        NSLog(@"微博发送失败 %@", error);
-    }];
+    if (self.pictureView.images.count) {
+        // 有图片
+        NSLog(@"发送有图片微博");
+        [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:requestParas constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+            // 拼接图片
+            NSData *imageData = UIImageJPEGRepresentation([self.pictureView.images firstObject], 1.0);
+            [formData appendPartWithFileData:imageData name:@"pic" fileName:@"pic.jpg" mimeType:@"image/jpg"];
+        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"发送成功");
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"发表微博成功！";
+            [hud hide:YES afterDelay:2];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"发送失败 %@", error);
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"发表微博失败！";
+            [hud hide:YES afterDelay:2];
+        }];
+    } else {
+        // 没有图片
+        NSLog(@"发送文字微博");
+        [manager POST:@"https://upload.api.weibo.com/2/statuses/update.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"发表微博成功！";
+            [hud hide:YES afterDelay:2];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            //
+            NSLog(@"微博发送失败 %@", error);
+            MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
+            hud.mode = MBProgressHUDModeText;
+            hud.labelText = @"发表微博失败！";
+            [hud hide:YES afterDelay:2];
+        }];
+    }
+    
+    // 发送之后退出发微博控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
 
 /**
  *    通知
@@ -176,6 +227,7 @@
     self.textView.frameH -= -boardH;
 }
 - (void)textViewTextDidChange:(NSNotification *)notification {
+    NSLog(@"%s", __func__);
     self.navigationItem.rightBarButtonItem.enabled = self.textView.text.length != 0;
 }
 
@@ -223,5 +275,6 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     [self.pictureView addImage:image];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
