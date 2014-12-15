@@ -26,6 +26,11 @@
 #import "YCLStatusTool.h"
 #import "YCLStatusResponseResult.h"
 
+#import "YCLUserRequestTool.h"
+#import "YCLUserRequestParameter.h"
+#import "YCLUserResponseResult.h"
+
+
 // 微博数据请求连接
 //#define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
 
@@ -52,7 +57,7 @@
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
-    [self requestUserInfo];
+//    [self requestUserInfo];
     
     // 设置导航栏按钮
     [self setupNavigationBarItem];
@@ -76,7 +81,7 @@
     
     // 中间标题按钮
     YCLHomeTitleButton *titleButton = [[YCLHomeTitleButton alloc] init];
-//    titleButton.frameW = 150;
+    [self requestUserInfo];
     titleButton.frameH = 35;
     NSString *titleName = [YCLAccountTool readAccount].name ? [YCLAccountTool readAccount].name : @"首页";
     [titleButton setTitle:titleName forState:UIControlStateNormal];
@@ -111,23 +116,27 @@
  *    screen_name   false	string	需要查询的用户昵称。
  */
 - (void)requestUserInfo {
-    NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
+    YCLUserRequestParameter *requestParas = [[YCLUserRequestParameter alloc] init];
     YCLAccount *account = [YCLAccountTool readAccount];
-    requestParas[@"access_token"] = account.access_token;
-    requestParas[@"uid"] = account.uid;
+    requestParas.access_token = account.access_token;
+    requestParas.uid = @([account.uid longLongValue]);
     
-    [YCLHttpTool GET:kUser_show parameters:requestParas success:^(id responseObject) {
-        YCLUser *user = [YCLUser objectWithKeyValues:responseObject];
-        NSLog(@"%@", user.name);
+    [YCLUserRequestTool userWithParameters:requestParas success:^(YCLUserResponseResult *responseResult) {
+        NSLog(@"请求用户信息成功");
+        YCLUser *user = responseResult;
+        NSLog(@"请求到的 name = %@", user.name);
         // 保存用户名
         YCLAccount *account = [YCLAccountTool readAccount];
+        NSLog(@"之前保存的 name = %@", account.name);
         if (![account.name isEqualToString:user.name]) {
             // 保存用户信息
+            NSLog(@"不一样，更新");
             account.name = user.name;
             [YCLAccountTool saveAccount:account];
         }
+
     } failure:^(NSError *error) {
-        NSLog(@"%@", error);
+        NSLog(@"请求用户信息失败 - %@", error);
     }];
 }
 
