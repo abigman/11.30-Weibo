@@ -65,19 +65,19 @@
 		F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650691A2B63A30031325A /* YCLMessageCenterController.m */; };
 		F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506C1A2B641D0031325A /* YCLProfileController.m */; };
 		F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = F276506F1A2B64370031325A /* YCLDiscoverController.m */; };
-		F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */; };
 		F28DEFE61A2D9B11001124B8 /* YCLPopMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F28DEFE51A2D9B11001124B8 /* YCLPopMenu.m */; };
+		F2A077541A3F0E2700982552 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0774B1A3F0E2700982552 /* Foundation+Log.m */; };
+		F2A077551A3F0E2700982552 /* NSString+YCLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0774D1A3F0E2700982552 /* NSString+YCLTextSize.m */; };
+		F2A077561A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A0774F1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m */; };
+		F2A077571A3F0E2700982552 /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A077511A3F0E2700982552 /* UIImage+YCLImage.m */; };
+		F2A077581A3F0E2700982552 /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A077531A3F0E2700982552 /* UIView+YCLGeometry.m */; };
 		F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578311A3979AB00D70ACC /* YCLControllerTools.m */; };
 		F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578341A397E5700D70ACC /* YCLAccount.m */; };
 		F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A578371A3981BA00D70ACC /* YCLAccountTool.m */; };
 		F2A8A8001A3C10AC00ADE667 /* YCLToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2A8A7FF1A3C10AC00ADE667 /* YCLToolBar.m */; };
 		F2B2C9D91A3C7F4000A7E7C8 /* YCLPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B2C9D81A3C7F4000A7E7C8 /* YCLPictureView.m */; };
 		F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */; };
-		F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */; };
-		F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */; };
 		F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */; };
-		F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */; };
-		F2DA9CDB1A3D650400E76F7B /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */; };
 		F2F02ECB1A3EDE8200654E2E /* YCLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */; };
 /* End PBXBuildFile section */
 
@@ -210,10 +210,17 @@
 		F276506C1A2B641D0031325A /* YCLProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLProfileController.m; sourceTree = "<group>"; };
 		F276506E1A2B64370031325A /* YCLDiscoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLDiscoverController.h; sourceTree = "<group>"; };
 		F276506F1A2B64370031325A /* YCLDiscoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLDiscoverController.m; sourceTree = "<group>"; };
-		F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ItemByImage.h"; sourceTree = "<group>"; };
-		F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ItemByImage.m"; sourceTree = "<group>"; };
 		F28DEFE41A2D9B11001124B8 /* YCLPopMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLPopMenu.h; sourceTree = "<group>"; };
 		F28DEFE51A2D9B11001124B8 /* YCLPopMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLPopMenu.m; sourceTree = "<group>"; };
+		F2A0774B1A3F0E2700982552 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		F2A0774C1A3F0E2700982552 /* NSString+YCLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCLTextSize.h"; sourceTree = "<group>"; };
+		F2A0774D1A3F0E2700982552 /* NSString+YCLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCLTextSize.m"; sourceTree = "<group>"; };
+		F2A0774E1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ItemByImage.h"; sourceTree = "<group>"; };
+		F2A0774F1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ItemByImage.m"; sourceTree = "<group>"; };
+		F2A077501A3F0E2700982552 /* UIImage+YCLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YCLImage.h"; sourceTree = "<group>"; };
+		F2A077511A3F0E2700982552 /* UIImage+YCLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YCLImage.m"; sourceTree = "<group>"; };
+		F2A077521A3F0E2700982552 /* UIView+YCLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YCLGeometry.h"; sourceTree = "<group>"; };
+		F2A077531A3F0E2700982552 /* UIView+YCLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YCLGeometry.m"; sourceTree = "<group>"; };
 		F2A578301A3979AB00D70ACC /* YCLControllerTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLControllerTools.h; sourceTree = "<group>"; };
 		F2A578311A3979AB00D70ACC /* YCLControllerTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLControllerTools.m; sourceTree = "<group>"; };
 		F2A578331A397E5700D70ACC /* YCLAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLAccount.h; sourceTree = "<group>"; };
@@ -226,15 +233,8 @@
 		F2B2C9D81A3C7F4000A7E7C8 /* YCLPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLPictureView.m; sourceTree = "<group>"; };
 		F2B9E2251A2C3E8200A87B7A /* YCLSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLSearchBar.h; sourceTree = "<group>"; };
 		F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLSearchBar.m; sourceTree = "<group>"; };
-		F2B9E2281A2C416700A87B7A /* UIView+YCLGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YCLGeometry.h"; sourceTree = "<group>"; };
-		F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YCLGeometry.m"; sourceTree = "<group>"; };
-		F2B9E22E1A2C475F00A87B7A /* UIImage+YCLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YCLImage.h"; sourceTree = "<group>"; };
-		F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YCLImage.m"; sourceTree = "<group>"; };
 		F2B9E2311A2C59AE00A87B7A /* YCLHomeTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHomeTitleButton.h; sourceTree = "<group>"; };
 		F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHomeTitleButton.m; sourceTree = "<group>"; };
-		F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCLTextSize.h"; sourceTree = "<group>"; };
-		F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCLTextSize.m"; sourceTree = "<group>"; };
-		F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		F2F02EC91A3EDE8200654E2E /* YCLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHttpTool.h; sourceTree = "<group>"; };
 		F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHttpTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -502,7 +502,6 @@
 				F251454A1A36DFA300D3EB4E /* OAuth */,
 				F225BA671A35DFC60063AFB8 /* Newfeatrue */,
 				F225BA601A35D7920063AFB8 /* Compose */,
-				F27650711A2B7CEB0031325A /* Category */,
 				F27650551A2B609B0031325A /* Discover */,
 				F27650591A2B609B0031325A /* Home */,
 				F276505D1A2B609B0031325A /* MessageCenter */,
@@ -544,6 +543,7 @@
 		F276504A1A2B5E4A0031325A /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F2A0774A1A3F0E2700982552 /* Category */,
 				F2A5782F1A39797900D70ACC /* Tools */,
 				F25145511A36F0BF00D3EB4E /* Libs */,
 				F276504B1A2B5E4A0031325A /* Controller */,
@@ -737,18 +737,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		F27650711A2B7CEB0031325A /* Category */ = {
+		F2A0774A1A3F0E2700982552 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */,
-				F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */,
-				F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */,
-				F27650721A2B7D790031325A /* UIBarButtonItem+ItemByImage.h */,
-				F27650731A2B7D790031325A /* UIBarButtonItem+ItemByImage.m */,
-				F2B9E2281A2C416700A87B7A /* UIView+YCLGeometry.h */,
-				F2B9E2291A2C416700A87B7A /* UIView+YCLGeometry.m */,
-				F2B9E22E1A2C475F00A87B7A /* UIImage+YCLImage.h */,
-				F2B9E22F1A2C475F00A87B7A /* UIImage+YCLImage.m */,
+				F2A0774B1A3F0E2700982552 /* Foundation+Log.m */,
+				F2A0774C1A3F0E2700982552 /* NSString+YCLTextSize.h */,
+				F2A0774D1A3F0E2700982552 /* NSString+YCLTextSize.m */,
+				F2A0774E1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.h */,
+				F2A0774F1A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m */,
+				F2A077501A3F0E2700982552 /* UIImage+YCLImage.h */,
+				F2A077511A3F0E2700982552 /* UIImage+YCLImage.m */,
+				F2A077521A3F0E2700982552 /* UIView+YCLGeometry.h */,
+				F2A077531A3F0E2700982552 /* UIView+YCLGeometry.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -874,7 +874,7 @@
 				F23D06E41A39D6CE004628A5 /* NSObject+MJMember.m in Sources */,
 				F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */,
 				F27650241A2B5D5E0031325A /* AppDelegate.m in Sources */,
-				F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */,
+				F2A077581A3F0E2700982552 /* UIView+YCLGeometry.m in Sources */,
 				F2A578351A397E5700D70ACC /* YCLAccount.m in Sources */,
 				F251456B1A36F0E100D3EB4E /* AFURLConnectionOperation.m in Sources */,
 				F251456A1A36F0E100D3EB4E /* AFSecurityPolicy.m in Sources */,
@@ -888,19 +888,16 @@
 				F236689B1A3AD83D00D2B603 /* YCLTextView.m in Sources */,
 				F23D06C11A39D590004628A5 /* UIView+WebCacheOperation.m in Sources */,
 				F23668621A3AAFF600D2B603 /* YCLRefreshView.m in Sources */,
-				F27650741A2B7D790031325A /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F23D06B61A39D590004628A5 /* SDWebImageDecoder.m in Sources */,
 				F260D5F71A39C502008338C4 /* YCLPicture.m in Sources */,
 				F23D06B91A39D590004628A5 /* SDWebImageManager.m in Sources */,
 				F2A8A8001A3C10AC00ADE667 /* YCLToolBar.m in Sources */,
-				F2B9E22A1A2C416700A87B7A /* UIView+YCLGeometry.m in Sources */,
 				F276506D1A2B641D0031325A /* YCLProfileController.m in Sources */,
 				F23D06BF1A39D590004628A5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F23D06BC1A39D590004628A5 /* UIImage+GIF.m in Sources */,
 				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
 				F25145671A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m in Sources */,
 				F23D06B41A39D590004628A5 /* SDImageCache.m in Sources */,
-				F2DA9CDB1A3D650400E76F7B /* Foundation+Log.m in Sources */,
 				F23D06B21A39D590004628A5 /* MKAnnotationView+WebCache.m in Sources */,
 				F23D06E31A39D6CE004628A5 /* NSObject+MJKeyValue.m in Sources */,
 				F23D06B81A39D590004628A5 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -912,6 +909,8 @@
 				F23D06B31A39D590004628A5 /* NSData+ImageContentType.m in Sources */,
 				F251456E1A36F0E100D3EB4E /* AFURLSessionManager.m in Sources */,
 				F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */,
+				F2A077571A3F0E2700982552 /* UIImage+YCLImage.m in Sources */,
+				F2A077541A3F0E2700982552 /* Foundation+Log.m in Sources */,
 				F23D06DD1A39D6CE004628A5 /* MJIvar.m in Sources */,
 				F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */,
 				F23D06DE1A39D6CE004628A5 /* MJMember.m in Sources */,
@@ -925,11 +924,12 @@
 				F2F02ECB1A3EDE8200654E2E /* YCLHttpTool.m in Sources */,
 				F23D06DF1A39D6CE004628A5 /* MJMethod.m in Sources */,
 				F23D06B51A39D590004628A5 /* SDWebImageCompat.m in Sources */,
+				F2A077551A3F0E2700982552 /* NSString+YCLTextSize.m in Sources */,
 				F251456C1A36F0E100D3EB4E /* AFURLRequestSerialization.m in Sources */,
-				F2B9E2301A2C475F00A87B7A /* UIImage+YCLImage.m in Sources */,
 				F23D06E81A39EC0C004628A5 /* MBProgressHUD.m in Sources */,
 				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
 				F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */,
+				F2A077561A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F260D5F11A39BEB8008338C4 /* YCLStatus.m in Sources */,
 				F23D06E01A39D6CE004628A5 /* MJType.m in Sources */,
 				F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */,
