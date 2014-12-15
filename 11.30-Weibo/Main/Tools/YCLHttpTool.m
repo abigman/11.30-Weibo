@@ -52,4 +52,14 @@
         }
     }];
 }
+
++ (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block {
+    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
+    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        if (block) {
+            block(status);
+        }
+    }];
+    [manager startMonitoring];
+}
 @end

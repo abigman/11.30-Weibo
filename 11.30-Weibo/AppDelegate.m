@@ -11,7 +11,8 @@
 #import "YCLControllerTools.h"
 #import "YCLAccountTool.h"
 #import "YCLAccount.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "YCLHttpTool.h"
 #import "MBProgressHUD.h"
 
 
@@ -48,9 +49,7 @@
     }
     
     // 监控网络
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        
+    [YCLHttpTool setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.window animated:YES];
         hud.mode = MBProgressHUDModeText;
         hud.dimBackground = YES;
@@ -72,9 +71,10 @@
                 hud.labelText = @"未知网络";
                 break;
         }
-        [hud hide:YES afterDelay:1.5];
+        [hud hide:YES afterDelay:0.8];
     }];
-    [manager startMonitoring];
+    
+    
     return YES;
 }
 
