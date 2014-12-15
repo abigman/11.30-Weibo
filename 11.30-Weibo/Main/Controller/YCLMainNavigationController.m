@@ -83,7 +83,7 @@
     [appearance setTitleTextAttributes:disabledAttributes forState:UIControlStateDisabled];
 }
 
-#pragma mark - 自定义 UIBarButtonItem 外观
+#pragma mark - 自定义 UINavigationBar 外观
 + (void)customizeUINavigationBarAppearance {
     UINavigationBar *appearance = [UINavigationBar appearance];
 //    [appearance setBackgroundImage:[UIImage imageNamed:@"navigationbar_background_os7"] forBarMetrics:UIBarMetricsDefault];
