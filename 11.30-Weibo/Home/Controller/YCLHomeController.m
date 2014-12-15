@@ -12,7 +12,8 @@
 #import "UIView+YCLGeometry.h"
 #import "YCLHomeTitleButton.h"
 #import "YCLPopMenu.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "YCLHttpTool.h"
 #import "YCLAccount.h"
 #import "YCLAccountTool.h"
 #import "YCLStatus.h"
@@ -23,6 +24,8 @@
 
 // 微博数据请求连接
 #define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
+
+#define kUser_show @"https://api.weibo.com/2/users/show.json"
 
 @interface YCLHomeController ()<YCLPopMenuDelegate>
 /** 微博数据 */
@@ -104,15 +107,29 @@
  *    screen_name   false	string	需要查询的用户昵称。
  */
 - (void)requestUserInfo {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
-    
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
     requestParas[@"uid"] = account.uid;
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        //
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        //
+//        YCLUser *user = [YCLUser objectWithKeyValues:responseObject];
+//        NSLog(@"%@", user.name);
+//        // 保存用户名
+//        YCLAccount *account = [YCLAccountTool readAccount];
+//        if (![account.name isEqualToString:user.name]) {
+//            // 保存用户信息
+//            account.name = user.name;
+//            [YCLAccountTool saveAccount:account];
+//        }
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"%@", error);
+//    }];
+    
+    [YCLHttpTool GET:kUser_show parameters:requestParas success:^(id responseObject) {
         YCLUser *user = [YCLUser objectWithKeyValues:responseObject];
         NSLog(@"%@", user.name);
         // 保存用户名
@@ -122,8 +139,7 @@
             account.name = user.name;
             [YCLAccountTool saveAccount:account];
         }
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }
@@ -131,12 +147,11 @@
 
 
 /**
- *    加载微博数据
+ *    加载新微博数据
  */
 - (void)loadMoreNewerStatus:(UIRefreshControl *)refreshControl {
     NSLog(@"刷新微博");
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
@@ -147,7 +162,26 @@
     }
     requestParas[@"count"] = @20;
     
-    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    
+//    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        // 字典数组转换成模型数组
+//        NSArray *addedNewStatus = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+//        // 新微博应该添加到最前面
+//        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, addedNewStatus.count)];
+//        [self.statuses insertObjects:addedNewStatus atIndexes:indexSet];
+//        [self.tableView reloadData];
+//        // 停止刷新
+//        [refreshControl endRefreshing];
+////        NSLog(@"新增%lu条微博", addedNewStatus.count);
+//        [self showNewStatusCount:(int)addedNewStatus.count];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"请求失败  --- %@", error);
+//        // 停止刷新
+//        [refreshControl endRefreshing];
+//    }];
+    
+    [YCLHttpTool GET:kHome_timeline parameters:requestParas success:^(id responseObject) {
         // 字典数组转换成模型数组
         NSArray *addedNewStatus = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         // 新微博应该添加到最前面
@@ -156,15 +190,14 @@
         [self.tableView reloadData];
         // 停止刷新
         [refreshControl endRefreshing];
-//        NSLog(@"新增%lu条微博", addedNewStatus.count);
+        //        NSLog(@"新增%lu条微博", addedNewStatus.count);
         [self showNewStatusCount:(int)addedNewStatus.count];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"请求失败  --- %@", error);
         // 停止刷新
         [refreshControl endRefreshing];
     }];
 }
-
 
 
 /**
@@ -217,12 +250,10 @@
 
 
 /**
- *    加载微博数据
+ *    加载旧微博数据
  */
 - (void)loadMoreOlderStatus:(UIRefreshControl *)refreshControl {
     NSLog(@"刷新微博");
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
@@ -233,7 +264,25 @@
     }
     requestParas[@"count"] = @20;
     
-    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    
+//    [manager GET:kHome_timeline parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        // 字典数组转换成模型数组
+//        NSArray *addedOldStatuses = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+//        // 新微博应该添加到最后面
+//        [self.statuses addObjectsFromArray:addedOldStatuses];
+//        [self.tableView reloadData];
+//        // 停止刷新
+//        [refreshControl endRefreshing];
+//        //        NSLog(@"新增%lu条微博", addedNewStatus.count);
+//        [self showOldStatusCount:(int)addedOldStatuses.count];
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"请求失败  --- %@", error);
+//        // 停止刷新
+//        [refreshControl endRefreshing];
+//    }];
+    
+    [YCLHttpTool GET:kHome_timeline parameters:requestParas success:^(id responseObject) {
         // 字典数组转换成模型数组
         NSArray *addedOldStatuses = [YCLStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
         // 新微博应该添加到最后面
@@ -243,7 +292,7 @@
         [refreshControl endRefreshing];
         //        NSLog(@"新增%lu条微博", addedNewStatus.count);
         [self showOldStatusCount:(int)addedOldStatuses.count];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         NSLog(@"请求失败  --- %@", error);
         // 停止刷新
         [refreshControl endRefreshing];

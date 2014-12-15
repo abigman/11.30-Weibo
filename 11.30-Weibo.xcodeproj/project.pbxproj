@@ -78,6 +78,7 @@
 		F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */; };
 		F2B9E2361A2C5D4200A87B7A /* NSString+YCLTextSize.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */; };
 		F2DA9CDB1A3D650400E76F7B /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */; };
+		F2F02ECB1A3EDE8200654E2E /* YCLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,6 +235,8 @@
 		F2B9E2341A2C5D4200A87B7A /* NSString+YCLTextSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YCLTextSize.h"; sourceTree = "<group>"; };
 		F2B9E2351A2C5D4200A87B7A /* NSString+YCLTextSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YCLTextSize.m"; sourceTree = "<group>"; };
 		F2DA9CDA1A3D650400E76F7B /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		F2F02EC91A3EDE8200654E2E /* YCLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHttpTool.h; sourceTree = "<group>"; };
+		F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHttpTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -759,6 +762,8 @@
 				F2A578341A397E5700D70ACC /* YCLAccount.m */,
 				F2A578361A3981BA00D70ACC /* YCLAccountTool.h */,
 				F2A578371A3981BA00D70ACC /* YCLAccountTool.m */,
+				F2F02EC91A3EDE8200654E2E /* YCLHttpTool.h */,
+				F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -917,6 +922,7 @@
 				F251456D1A36F0E100D3EB4E /* AFURLResponseSerialization.m in Sources */,
 				F23D06BA1A39D590004628A5 /* SDWebImagePrefetcher.m in Sources */,
 				F23D06BD1A39D590004628A5 /* UIImage+MultiFormat.m in Sources */,
+				F2F02ECB1A3EDE8200654E2E /* YCLHttpTool.m in Sources */,
 				F23D06DF1A39D6CE004628A5 /* MJMethod.m in Sources */,
 				F23D06B51A39D590004628A5 /* SDWebImageCompat.m in Sources */,
 				F251456C1A36F0E100D3EB4E /* AFURLRequestSerialization.m in Sources */,

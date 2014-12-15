@@ -7,7 +7,8 @@
 //
 
 #import "YCLOAuthController.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "YCLHttpTool.h"
 //#import "YCLMainTabBarController.h"
 //#import "YCLNewfeatureController.h"
 #import "YCLControllerTools.h"
@@ -83,27 +84,6 @@
     return YES;
 }
 
-
-
-/**
- URL
- https://api.weibo.com/oauth2/access_token
- HTTP请求方式
- POST
- 请求参数
- 必选	类型及范围	说明
- client_id	true	string	申请应用时分配的AppKey。
- client_secret	true	string	申请应用时分配的AppSecret。
- grant_type	true	string	请求的类型，填写authorization_code
- 
- grant_type为authorization_code时
- 必选	类型及范围	说明
- code	true	string	调用authorize获得的code值。
- redirect_uri	true	string	回调地址，需需与注册应用里的回调地址一致。
- 
- */
-
-
 /**
  *  通过 AuthorizationCode 获取 accessToken
  *
@@ -117,9 +97,8 @@
     paramateters[@"grant_type"] = @"authorization_code";
     paramateters[@"code"] = code;
     paramateters[@"redirect_uri"] = kRedirect_uri;
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:kAccessToken_url parameters:paramateters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+    [YCLHttpTool POST:kAccessToken_url parameters:paramateters success:^(id responseObject) {
         // 请求成功
         NSLog(@"成功 --- %@", responseObject);
         // 账号信息
@@ -131,11 +110,9 @@
         
         /* 判断是否展示新特性 */
         [YCLControllerTools choseController];
-
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         // 请求失败
         NSLog(@"失败 --- %@", error);
-        
     }];
 }
 

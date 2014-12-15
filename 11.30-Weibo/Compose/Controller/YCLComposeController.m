@@ -11,10 +11,14 @@
 #import "YCLToolBar.h"
 #import "YCLPictureView.h"
 #import "UIView+YCLGeometry.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#include "YCLHttpTool.h"
 #import "YCLAccount.h"
 #import "YCLAccountTool.h"
 #import "MBProgressHUD.h"
+
+#define kStatus_upload @"https://upload.api.weibo.com/2/statuses/upload.json"
+#define kStatus_update @"https://upload.api.weibo.com/2/statuses/update.json"
 
 @interface YCLComposeController () <YCLToolBarDelegate, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** textView */
@@ -103,12 +107,6 @@
     self.pictureView = pictureView;
 }
 
-//- (void)viewWillAppear:(BOOL)animated {
-//    NSLog(@"%s", __func__);
-//    [super viewWillAppear:animated];
-////    [self setupNavagationBarItem];
-//}
-
 
 /**
  *    取消发送微博
@@ -124,46 +122,43 @@
 - (void)send {
     // 先收回键盘
     [self.view endEditing:YES];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSMutableDictionary *requestParas = [NSMutableDictionary dictionary];
     
     YCLAccount *account = [YCLAccountTool readAccount];
     requestParas[@"access_token"] = account.access_token;
     requestParas[@"status"] = self.textView.text;
-//    requestParas[@"visible"] = @1; // 自己可见
-    
+    //    requestParas[@"visible"] = @1; // 自己可见
+
     if (self.pictureView.images.count) {
         // 有图片
         NSLog(@"发送有图片微博");
-        [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:requestParas constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [YCLHttpTool POST:kStatus_upload parameters:requestParas constructingBodyWithBlock:^(id formData) {
             // 拼接图片
             NSData *imageData = UIImageJPEGRepresentation([self.pictureView.images firstObject], 1.0);
             [formData appendPartWithFileData:imageData name:@"pic" fileName:@"pic.jpg" mimeType:@"image/jpg"];
-        } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        } success:^(id responseObject) {
             NSLog(@"发送成功");
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
             hud.mode = MBProgressHUDModeText;
             hud.labelText = @"发表微博成功！";
             [hud hide:YES afterDelay:2];
-            
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        } failure:^(NSError *error) {
             NSLog(@"发送失败 %@", error);
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
             hud.mode = MBProgressHUDModeText;
             hud.labelText = @"发表微博失败！";
             [hud hide:YES afterDelay:2];
         }];
+        
     } else {
         // 没有图片
         NSLog(@"发送文字微博");
-        [manager POST:@"https://upload.api.weibo.com/2/statuses/update.json" parameters:requestParas success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [YCLHttpTool POST:kStatus_update parameters:requestParas success:^(id responseObject) {
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
             hud.mode = MBProgressHUDModeText;
             hud.labelText = @"发表微博成功！";
             [hud hide:YES afterDelay:2];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            //
+        } failure:^(NSError *error) {
             NSLog(@"微博发送失败 %@", error);
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].keyWindow animated:YES];
             hud.mode = MBProgressHUDModeText;
@@ -175,8 +170,6 @@
     // 发送之后退出发微博控制器
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 /**
  *    通知
