@@ -30,6 +30,9 @@
 #import "YCLUserRequestParameter.h"
 #import "YCLUserResponseResult.h"
 
+#import "YCLStatusFrame.h"
+#import "YCLStatusCell.h"
+
 
 // 微博数据请求连接
 //#define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
@@ -37,19 +40,20 @@
 #define kUser_show @"https://api.weibo.com/2/users/show.json"
 
 @interface YCLHomeController ()<YCLPopMenuDelegate>
-/** 微博数据 */
-@property (strong, nonatomic) NSMutableArray *statuses;
+/** statusFrame数据 */
+@property (strong, nonatomic) NSMutableArray *statusFrames;
+
 /** 标题按钮 */
 @property (weak, nonatomic) YCLHomeTitleButton *titleButton;
 @end
 
 @implementation YCLHomeController
 
-- (NSMutableArray *)statuses {
-    if (!_statuses) {
-        _statuses = [NSMutableArray arrayWithCapacity:0];
+- (NSMutableArray *)statusFrames {
+    if (!_statusFrames) {
+        _statusFrames = [NSMutableArray arrayWithCapacity:0];
     }
-    return _statuses;
+    return _statusFrames;
 }
 
 - (void)viewDidLoad {
@@ -67,6 +71,9 @@
     
     // 添加footerView, 提示上拉可加载微博
     [self addFooterView];
+    
+    // 先加载一次微博数据
+    [self loadMoreNewerStatus:nil];
 }
 
 /**
@@ -147,28 +154,38 @@
     NSLog(@"加载新微博");
     YCLStatusRequestParameter *requestParas = [[YCLStatusRequestParameter alloc] init];
     requestParas.access_token = [YCLAccountTool readAccount].access_token;
-    YCLStatus *firstStatus = [self.statuses firstObject];
-    if (firstStatus) {
+    YCLStatusFrame *firstStatusFrame = [self.statusFrames firstObject];
+    if (firstStatusFrame.status) {
         // 只获取比上一条微博 id 大的微博
-        requestParas.since_id = @([firstStatus.idstr longLongValue]);
+        requestParas.since_id = @([firstStatusFrame.status.idstr longLongValue]);
     }
     requestParas.count = @20;
 
     [YCLStatusTool statusWithParameters:requestParas success:^(YCLStatusResponseResult *responseResult) {
         NSLog(@"微博请求成功");
-        NSArray *addedNewStatus = responseResult.statuses;
+        NSArray *addedNewStatusFrames = [self statusFramesWithStatuses:responseResult.statuses];
         // 新微博应该添加到最前面
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, addedNewStatus.count)];
-        [self.statuses insertObjects:addedNewStatus atIndexes:indexSet];
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, addedNewStatusFrames.count)];
+        [self.statusFrames insertObjects:addedNewStatusFrames atIndexes:indexSet];
         [self.tableView reloadData];
         // 停止刷新
         [refreshControl endRefreshing];
-        [self showNewStatusCount:(int)addedNewStatus.count];
+        [self showNewStatusCount:(int)addedNewStatusFrames.count];
     } failure:^(NSError *error) {
         NSLog(@"微博请求失败  --- %@", error);
         // 停止刷新
         [refreshControl endRefreshing];
     }];
+}
+
+- (NSArray *)statusFramesWithStatuses:(NSArray *)statuses {
+    NSMutableArray *statusFramesM = [NSMutableArray arrayWithCapacity:0];
+    for (YCLStatus *status in statuses) {
+        YCLStatusFrame *statusFrame = [[YCLStatusFrame alloc] init];
+        statusFrame.status = status;
+        [statusFramesM addObject:statusFrame];
+    }
+    return [statusFramesM copy];
 }
 
 
@@ -226,22 +243,22 @@
     NSLog(@"加载旧微博");
     YCLStatusRequestParameter *requestParas = [[YCLStatusRequestParameter alloc] init];
     requestParas.access_token = [YCLAccountTool readAccount].access_token;
-    YCLStatus *lastStatus = [self.statuses lastObject];
-    if (lastStatus) {
+    YCLStatusFrame *lastStatusFrame = [self.statusFrames lastObject];
+    if (lastStatusFrame) {
         // 只获取比上一条微博的 id 大的微博
-        requestParas.max_id = @([lastStatus.idstr longLongValue] - 1);
+        requestParas.max_id = @([lastStatusFrame.status.idstr longLongValue] - 1);
     }
-    requestParas.count = @1;
+    requestParas.count = @10;
     
     [YCLStatusTool statusWithParameters:requestParas success:^(YCLStatusResponseResult *responseResult) {
         NSLog(@"微博请求成功");
-        NSArray *addedOldStatuses = responseResult.statuses;
+        NSArray *addedOldStatusFrames = [self statusFramesWithStatuses:responseResult.statuses];
         // 旧微博应该添加到最后面
-        [self.statuses addObjectsFromArray:addedOldStatuses];
+        [self.statusFrames addObjectsFromArray:addedOldStatusFrames];
         [self.tableView reloadData];
         // 停止刷新
         [refreshControl endRefreshing];
-        [self showOldStatusCount:(int)addedOldStatuses.count];
+        [self showOldStatusCount:(int)addedOldStatusFrames.count];
     } failure:^(NSError *error) {
         NSLog(@"微博请求失败  --- %@", error);
         // 停止刷新
@@ -304,7 +321,7 @@
 
     NSLog(@"%.0f", y1 - y2);
     
-    if (y1 - y2 == 0) {
+    if (y1 - y2 == -0) {
         [self loadMoreOlderStatus:nil];
     }
 }
@@ -334,25 +351,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // 当微博数据为空的时候，隐藏；有数据的时候，显示
-    self.tableView.tableFooterView.hidden = (self.statuses.count == 0);
-    return self.statuses.count;
+    self.tableView.tableFooterView.hidden = (self.statusFrames.count == 0);
+    return self.statusFrames.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *identifier = @"HomeCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
-    }
-
-    YCLStatus *status = self.statuses[indexPath.row];
-    YCLUser *user = status.user;
-    
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"navigationbar_account_check"]];
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = status.text;
-    
+    YCLStatusCell *cell = [YCLStatusCell cellWithTableView:tableView];
+    cell.statusFrame = self.statusFrames[indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    YCLStatusFrame *statusFrame = self.statusFrames[indexPath.row];
+    return statusFrame.cellHeight;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -364,48 +375,5 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
