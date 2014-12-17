@@ -46,10 +46,6 @@
 		F24C317F1A402274009CC546 /* YCLStatusCellDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C317E1A402274009CC546 /* YCLStatusCellDetail.m */; };
 		F24C31821A402289009CC546 /* YCLStatusCellDetailOriginal.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C31811A402289009CC546 /* YCLStatusCellDetailOriginal.m */; };
 		F24C31851A4022A0009CC546 /* YCLStatusCellDetailRetweeted.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C31841A4022A0009CC546 /* YCLStatusCellDetailRetweeted.m */; };
-		F24C31881A402FA5009CC546 /* YCLStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C31871A402FA5009CC546 /* YCLStatusFrame.m */; };
-		F24C318B1A40363D009CC546 /* YCLStatusOriginalFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C318A1A40363D009CC546 /* YCLStatusOriginalFrame.m */; };
-		F24C318E1A403654009CC546 /* YCLStatusRetweetedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C318D1A403654009CC546 /* YCLStatusRetweetedFrame.m */; };
-		F24C31911A406FD1009CC546 /* YCLStatusDetailFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F24C31901A406FD1009CC546 /* YCLStatusDetailFrame.m */; };
 		F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */ = {isa = PBXBuildFile; fileRef = F251454F1A36DFC100D3EB4E /* YCLOAuthController.m */; };
 		F25145661A36F0E100D3EB4E /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F25145541A36F0E100D3EB4E /* AFHTTPRequestOperation.m */; };
 		F25145671A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F25145561A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m */; };
@@ -94,6 +90,10 @@
 		F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2261A2C3E8200A87B7A /* YCLSearchBar.m */; };
 		F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */; };
 		F2F02ECB1A3EDE8200654E2E /* YCLHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */; };
+		F2FDC42E1A41E1BA002169AC /* YCLStatusDetailFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC4261A41E1BA002169AC /* YCLStatusDetailFrame.m */; };
+		F2FDC42F1A41E1BA002169AC /* YCLStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC4281A41E1BA002169AC /* YCLStatusFrame.m */; };
+		F2FDC4301A41E1BA002169AC /* YCLStatusOriginalFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC42A1A41E1BA002169AC /* YCLStatusOriginalFrame.m */; };
+		F2FDC4311A41E1BA002169AC /* YCLStatusRetweetedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC42C1A41E1BA002169AC /* YCLStatusRetweetedFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,14 +186,6 @@
 		F24C31811A402289009CC546 /* YCLStatusCellDetailOriginal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusCellDetailOriginal.m; sourceTree = "<group>"; };
 		F24C31831A4022A0009CC546 /* YCLStatusCellDetailRetweeted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusCellDetailRetweeted.h; sourceTree = "<group>"; };
 		F24C31841A4022A0009CC546 /* YCLStatusCellDetailRetweeted.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusCellDetailRetweeted.m; sourceTree = "<group>"; };
-		F24C31861A402FA5009CC546 /* YCLStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusFrame.h; sourceTree = "<group>"; };
-		F24C31871A402FA5009CC546 /* YCLStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusFrame.m; sourceTree = "<group>"; };
-		F24C31891A40363D009CC546 /* YCLStatusOriginalFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusOriginalFrame.h; sourceTree = "<group>"; };
-		F24C318A1A40363D009CC546 /* YCLStatusOriginalFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusOriginalFrame.m; sourceTree = "<group>"; };
-		F24C318C1A403654009CC546 /* YCLStatusRetweetedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusRetweetedFrame.h; sourceTree = "<group>"; };
-		F24C318D1A403654009CC546 /* YCLStatusRetweetedFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusRetweetedFrame.m; sourceTree = "<group>"; };
-		F24C318F1A406FD1009CC546 /* YCLStatusDetailFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusDetailFrame.h; sourceTree = "<group>"; };
-		F24C31901A406FD1009CC546 /* YCLStatusDetailFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusDetailFrame.m; sourceTree = "<group>"; };
 		F251454E1A36DFC100D3EB4E /* YCLOAuthController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLOAuthController.h; sourceTree = "<group>"; };
 		F251454F1A36DFC100D3EB4E /* YCLOAuthController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLOAuthController.m; sourceTree = "<group>"; };
 		F25145531A36F0E100D3EB4E /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -282,7 +274,15 @@
 		F2B9E2321A2C59AE00A87B7A /* YCLHomeTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHomeTitleButton.m; sourceTree = "<group>"; };
 		F2F02EC91A3EDE8200654E2E /* YCLHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLHttpTool.h; sourceTree = "<group>"; };
 		F2F02ECA1A3EDE8200654E2E /* YCLHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLHttpTool.m; sourceTree = "<group>"; };
-		F2FDC4231A414FD4002169AC /* YCLStatusStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YCLStatusStyle.h; sourceTree = "<group>"; };
+		F2FDC4251A41E1BA002169AC /* YCLStatusDetailFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusDetailFrame.h; sourceTree = "<group>"; };
+		F2FDC4261A41E1BA002169AC /* YCLStatusDetailFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusDetailFrame.m; sourceTree = "<group>"; };
+		F2FDC4271A41E1BA002169AC /* YCLStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusFrame.h; sourceTree = "<group>"; };
+		F2FDC4281A41E1BA002169AC /* YCLStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusFrame.m; sourceTree = "<group>"; };
+		F2FDC4291A41E1BA002169AC /* YCLStatusOriginalFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusOriginalFrame.h; sourceTree = "<group>"; };
+		F2FDC42A1A41E1BA002169AC /* YCLStatusOriginalFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusOriginalFrame.m; sourceTree = "<group>"; };
+		F2FDC42B1A41E1BA002169AC /* YCLStatusRetweetedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusRetweetedFrame.h; sourceTree = "<group>"; };
+		F2FDC42C1A41E1BA002169AC /* YCLStatusRetweetedFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusRetweetedFrame.m; sourceTree = "<group>"; };
+		F2FDC42D1A41E1BA002169AC /* YCLStatusStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusStyle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -710,6 +710,7 @@
 		F276505B1A2B609B0031325A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F2FDC4241A41E1BA002169AC /* Cell */,
 				F260D5EC1A39BC6C008338C4 /* YCLUser.h */,
 				F260D5ED1A39BC6C008338C4 /* YCLUser.m */,
 				F260D5EF1A39BEB8008338C4 /* YCLStatus.h */,
@@ -724,15 +725,6 @@
 				F2A077631A3F38BE00982552 /* YCLUserRequestParameter.m */,
 				F2A077681A3F3B3400982552 /* YCLUserResponseResult.h */,
 				F2A077691A3F3B3400982552 /* YCLUserResponseResult.m */,
-				F24C31861A402FA5009CC546 /* YCLStatusFrame.h */,
-				F24C31871A402FA5009CC546 /* YCLStatusFrame.m */,
-				F24C318F1A406FD1009CC546 /* YCLStatusDetailFrame.h */,
-				F24C31901A406FD1009CC546 /* YCLStatusDetailFrame.m */,
-				F24C31891A40363D009CC546 /* YCLStatusOriginalFrame.h */,
-				F24C318A1A40363D009CC546 /* YCLStatusOriginalFrame.m */,
-				F24C318C1A403654009CC546 /* YCLStatusRetweetedFrame.h */,
-				F24C318D1A403654009CC546 /* YCLStatusRetweetedFrame.m */,
-				F2FDC4231A414FD4002169AC /* YCLStatusStyle.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -853,6 +845,22 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		F2FDC4241A41E1BA002169AC /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				F2FDC4251A41E1BA002169AC /* YCLStatusDetailFrame.h */,
+				F2FDC4261A41E1BA002169AC /* YCLStatusDetailFrame.m */,
+				F2FDC4271A41E1BA002169AC /* YCLStatusFrame.h */,
+				F2FDC4281A41E1BA002169AC /* YCLStatusFrame.m */,
+				F2FDC4291A41E1BA002169AC /* YCLStatusOriginalFrame.h */,
+				F2FDC42A1A41E1BA002169AC /* YCLStatusOriginalFrame.m */,
+				F2FDC42B1A41E1BA002169AC /* YCLStatusRetweetedFrame.h */,
+				F2FDC42C1A41E1BA002169AC /* YCLStatusRetweetedFrame.m */,
+				F2FDC42D1A41E1BA002169AC /* YCLStatusStyle.h */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -956,6 +964,7 @@
 				F24C31851A4022A0009CC546 /* YCLStatusCellDetailRetweeted.m in Sources */,
 				F276506A1A2B63A30031325A /* YCLMessageCenterController.m in Sources */,
 				F23D06DA1A39D6CE004628A5 /* MJArgument.m in Sources */,
+				F2FDC42E1A41E1BA002169AC /* YCLStatusDetailFrame.m in Sources */,
 				F23D06DC1A39D6CE004628A5 /* MJFoundation.m in Sources */,
 				F23D06E41A39D6CE004628A5 /* NSObject+MJMember.m in Sources */,
 				F24C317C1A40223E009CC546 /* YCLStatusCellToolBar.m in Sources */,
@@ -971,6 +980,7 @@
 				F25145681A36F0E100D3EB4E /* AFHTTPSessionManager.m in Sources */,
 				F2A077641A3F38BE00982552 /* YCLUserRequestParameter.m in Sources */,
 				F2B2C9D91A3C7F4000A7E7C8 /* YCLPictureView.m in Sources */,
+				F2FDC4311A41E1BA002169AC /* YCLStatusRetweetedFrame.m in Sources */,
 				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
 				F23D06E11A39D6CE004628A5 /* MJTypeEncoding.m in Sources */,
@@ -987,10 +997,10 @@
 				F23D06BF1A39D590004628A5 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F2A0775B1A3F1F2600982552 /* YCLStatusRequestParameter.m in Sources */,
 				F23D06BC1A39D590004628A5 /* UIImage+GIF.m in Sources */,
-				F24C31881A402FA5009CC546 /* YCLStatusFrame.m in Sources */,
 				F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */,
 				F25145671A36F0E100D3EB4E /* AFHTTPRequestOperationManager.m in Sources */,
 				F24C31821A402289009CC546 /* YCLStatusCellDetailOriginal.m in Sources */,
+				F2FDC42F1A41E1BA002169AC /* YCLStatusFrame.m in Sources */,
 				F24C317F1A402274009CC546 /* YCLStatusCellDetail.m in Sources */,
 				F23D06B41A39D590004628A5 /* SDImageCache.m in Sources */,
 				F23D06B21A39D590004628A5 /* MKAnnotationView+WebCache.m in Sources */,
@@ -1006,11 +1016,9 @@
 				F251456E1A36F0E100D3EB4E /* AFURLSessionManager.m in Sources */,
 				F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */,
 				F2A077571A3F0E2700982552 /* UIImage+YCLImage.m in Sources */,
-				F24C31911A406FD1009CC546 /* YCLStatusDetailFrame.m in Sources */,
 				F2A077541A3F0E2700982552 /* Foundation+Log.m in Sources */,
 				F23D06DD1A39D6CE004628A5 /* MJIvar.m in Sources */,
 				F2A578381A3981BA00D70ACC /* YCLAccountTool.m in Sources */,
-				F24C318E1A403654009CC546 /* YCLStatusRetweetedFrame.m in Sources */,
 				F23D06DE1A39D6CE004628A5 /* MJMember.m in Sources */,
 				F23D06BE1A39D590004628A5 /* UIImage+WebP.m in Sources */,
 				F25145691A36F0E100D3EB4E /* AFNetworkReachabilityManager.m in Sources */,
@@ -1025,9 +1033,9 @@
 				F23D06B51A39D590004628A5 /* SDWebImageCompat.m in Sources */,
 				F2A077551A3F0E2700982552 /* NSString+YCLTextSize.m in Sources */,
 				F251456C1A36F0E100D3EB4E /* AFURLRequestSerialization.m in Sources */,
-				F24C318B1A40363D009CC546 /* YCLStatusOriginalFrame.m in Sources */,
 				F23D06E81A39EC0C004628A5 /* MBProgressHUD.m in Sources */,
 				F27650531A2B5E7C0031325A /* YCLMainTabBarController.m in Sources */,
+				F2FDC4301A41E1BA002169AC /* YCLStatusOriginalFrame.m in Sources */,
 				F2B9E2331A2C59AE00A87B7A /* YCLHomeTitleButton.m in Sources */,
 				F2A077561A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F260D5F11A39BEB8008338C4 /* YCLStatus.m in Sources */,
