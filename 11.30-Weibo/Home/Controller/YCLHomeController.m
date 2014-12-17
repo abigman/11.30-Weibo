@@ -74,6 +74,11 @@
     
     // 先加载一次微博数据
     [self loadMoreNewerStatus:nil];
+    
+    // 去掉分隔线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.tableView.backgroundColor = [UIColor grayColor];
 }
 
 /**
@@ -129,15 +134,15 @@
     requestParas.uid = @([account.uid longLongValue]);
     
     [YCLUserRequestTool userWithParameters:requestParas success:^(YCLUserResponseResult *responseResult) {
-        NSLog(@"请求用户信息成功");
+//        NSLog(@"请求用户信息成功 %@", responseResult);
         YCLUser *user = responseResult;
-        NSLog(@"请求到的 name = %@", user.name);
+//        NSLog(@"请求到的 name = %@", user.name);
         // 保存用户名
         YCLAccount *account = [YCLAccountTool readAccount];
-        NSLog(@"之前保存的 name = %@", account.name);
+//        NSLog(@"之前保存的 name = %@", account.name);
         if (![account.name isEqualToString:user.name]) {
             // 保存用户信息
-            NSLog(@"不一样，更新");
+//            NSLog(@"不一样，更新");
             account.name = user.name;
             [YCLAccountTool saveAccount:account];
         }

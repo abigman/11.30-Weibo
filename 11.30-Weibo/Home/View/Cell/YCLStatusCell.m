@@ -23,6 +23,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        //
+        self.backgroundColor = [UIColor clearColor];
+        
         // 添加 微博详情
         YCLStatusCellDetail *statusDetail = [[YCLStatusCellDetail alloc] init];
         [self.contentView addSubview:statusDetail];

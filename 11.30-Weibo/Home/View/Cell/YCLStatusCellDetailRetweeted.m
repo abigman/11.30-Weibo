@@ -50,7 +50,7 @@
     // 设置内容
     YCLStatus *status = _retweetedFrame.status;
     
-    self.nameLabel.text = status.user.name;
+    self.nameLabel.text = [NSString stringWithFormat:@"@%@", status.user.name];
     self.textLabel.text = status.text;
     
     // 设置frame

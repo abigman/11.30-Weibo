@@ -23,7 +23,7 @@
     // 授权信息有过期日期， 需要判断是否过期
     
     if (NSOrderedAscending == [[NSDate date] compare:account.expires_at]) {
-        NSLog(@"很好，账户授权还没有过期哦 过期日期：%@", account.expires_at);
+//        NSLog(@"很好，账户授权还没有过期哦 过期日期：%@", account.expires_at);
         return account;
     } else {
         NSLog(@"账户授权已经过期 过期日期：%@", account.expires_at);

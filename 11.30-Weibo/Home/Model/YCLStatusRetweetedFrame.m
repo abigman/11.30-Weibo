@@ -22,7 +22,7 @@
     // 昵称
     CGFloat nameX = kCellMargin;
     CGFloat nameY = kCellMargin;
-    CGSize nameSize = [_status.user.name sizeWithFont:kStatusNameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGSize nameSize = [[NSString stringWithFormat:@"@%@", _status.user.name] sizeWithFont:kStatusNameFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
     CGFloat nameW = nameSize.width;
     CGFloat nameH = nameSize.height;
     self.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);

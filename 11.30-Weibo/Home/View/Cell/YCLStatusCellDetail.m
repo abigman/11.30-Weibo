@@ -26,13 +26,13 @@
     if (self) {
         // 添加原创微博
         YCLStatusCellDetailOriginal *detailOriginal = [[YCLStatusCellDetailOriginal alloc] init];
-        detailOriginal.backgroundColor = [UIColor grayColor];
+        detailOriginal.backgroundColor = [UIColor whiteColor];
         [self addSubview:detailOriginal];
         self.detailOriginal = detailOriginal;
         
         // 添加转发微博
         YCLStatusCellDetailRetweeted *detailRetweeted = [[YCLStatusCellDetailRetweeted alloc] init];
-        detailRetweeted.backgroundColor = [UIColor cyanColor];
+        detailRetweeted.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_retweet_background_highlighted"]];
         [self addSubview:detailRetweeted];
         self.detailRetweeted = detailRetweeted;
     }

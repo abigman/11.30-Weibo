@@ -24,7 +24,7 @@
     
     // 总体
     CGFloat frameX = 0;
-    CGFloat frameY = 0;
+    CGFloat frameY = kCellMargin;
     CGFloat frameW = [UIScreen mainScreen].bounds.size.width;
     CGFloat frameH = 0;
     if (status.retweeted_status) {

@@ -55,32 +55,16 @@
 
 #pragma mark - UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"request = %@", request);
     NSString *requestURLString = request.URL.absoluteString;
-    
     NSRange range = [requestURLString rangeOfString:kRedirect_uri];
-//    NSLog(@"requestURLString = %@", requestURLString);
-//    
-//    NSLog(@"range = %@", NSStringFromRange(range));
-    
-    
     if (range.location == 0) {
         NSString *urlWithoutCode = [kRedirect_uri stringByAppendingString:@"/?code="];
-        
         NSRange urlWithoutCodeRange = [requestURLString rangeOfString:urlWithoutCode];
-        
         NSRange codeRange = NSMakeRange(urlWithoutCode.length, urlWithoutCodeRange.length + 1);
-        
         NSString *code = [requestURLString substringWithRange:codeRange];
-        
-        NSLog(@"code = %@", code);
-        
         [self accessTokenWithAuthorizationCode:code];
-        
         return NO;
     }
-    
-    
     return YES;
 }
 
@@ -100,12 +84,7 @@
 
     [YCLHttpTool POST:kAccessToken_url parameters:paramateters success:^(id responseObject) {
         // 请求成功
-        NSLog(@"成功 --- %@", responseObject);
-        // 账号信息
         YCLAccount *account = [YCLAccount accountWithDictionary:responseObject];
-        NSLog(@"access_token = %@", account.access_token);
-        
-        // 保存授权信息
         [YCLAccountTool saveAccount:account];
         
         /* 判断是否展示新特性 */
