@@ -53,7 +53,7 @@
         
         // 来源
         UILabel *sourceLabel = [[UILabel alloc] init];
-        sourceLabel.backgroundColor = [UIColor redColor];
+        sourceLabel.backgroundColor = [UIColor greenColor];
         sourceLabel.font = kStatusSourceFont;
         [self addSubview:sourceLabel];
         self.sourceLabel = sourceLabel;

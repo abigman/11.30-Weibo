@@ -14,9 +14,9 @@
 // 微博昵称字体
 #define kStatusNameFont [UIFont systemFontOfSize:14]
 // 微博时间字体
-#define kStatusTimeFont [UIFont systemFontOfSize:10]
+#define kStatusTimeFont [UIFont systemFontOfSize:11]
 // 微博来源字体
-#define kStatusSourceFont [UIFont systemFontOfSize:10]
+#define kStatusSourceFont [UIFont systemFontOfSize:11]
 // 微博正文字体
 #define kStatusTextFont [UIFont systemFontOfSize:14]
 
