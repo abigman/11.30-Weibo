@@ -34,4 +34,59 @@
 - (NSDictionary *)objectClassInArray {
     return @{@"pic_ids" : [YCLPicture class]};
 }
+
+- (NSString *)created_at {
+    // 微博创建日期: 时间标签的尺寸需要获取 _created_at 来计算，所以应该在 getter 中设置
+    //  _created_at 原始格式： Thu Dec 18 00:10:57 +0800 2014
+    // _created_at(NSString) -> NSDate -> NSString
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"EEE MM dd HH:mm:ss Z yyyy";
+    NSDate *createDate = [dateFormatter dateFromString:_created_at];
+    
+    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    NSString *createDateFormatted = [dateFormatter stringFromDate:createDate];
+    
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    // 获取微博创建日期的元素
+    NSDateComponents *createDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:createDate];
+    // 获取当前日期的元素
+    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:[NSDate date]];
+
+    if (createDateComponents.year == currentDateComponents.year) {
+        // 说明是今年
+        if (createDateComponents.month == currentDateComponents.month && createDateComponents.day == currentDateComponents.day) {
+            // 说明是今天
+            if (currentDateComponents.hour - createDateComponents.hour >= 1) {
+                // 说明是几个小时前
+                createDateFormatted = [NSString stringWithFormat:@"%ld小时前", currentDateComponents.hour - createDateComponents.hour];
+            } else if (currentDateComponents.minute - createDateComponents.minute > 1) {
+                // 说明是几分钟前
+                createDateFormatted = [NSString stringWithFormat:@"%ld分钟前", currentDateComponents.minute - createDateComponents.minute];
+            } else {
+                // 说明是刚刚
+                createDateFormatted = @"刚刚";
+            }
+        } else {
+            // 说明不是今天
+            if (createDateComponents.month == currentDateComponents.month && currentDateComponents.day - createDateComponents.day == 1) {
+                // 昨天
+                dateFormatter.dateFormat = @"昨天 HH:mm";
+                createDateFormatted = [dateFormatter stringFromDate:createDate];
+            } else {
+                // 前天或者更久
+                dateFormatter.dateFormat = @"MM-dd HH:mm";
+                createDateFormatted = [dateFormatter stringFromDate:createDate];
+            }
+        }
+    } else {
+        // 非今年
+        dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        createDateFormatted = [dateFormatter stringFromDate:createDate] ;
+    }
+
+    
+    return createDateFormatted;
+}
 @end
