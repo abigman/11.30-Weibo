@@ -315,18 +315,13 @@
 }
 
 #pragma mark - UITableViewS
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    CGFloat currentY = scrollView.contentOffset.y;scrollView.contentSize.height + RefreshViewHight
-//    if (currentY >= 64) {
-//        [self loadMoreOlderStatus:nil];
-//    }
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    NSLog(@"%s", __func__);
     
     CGFloat y1 = scrollView.contentOffset.y + scrollView.frame.size.height;
     CGFloat y2 = scrollView.contentSize.height + 49;
-
-    NSLog(@"%.0f", y1 - y2);
     
-    if (y1 - y2 == -0) {
+    if (y1 - y2 >= 100) {
         [self loadMoreOlderStatus:nil];
     }
 }

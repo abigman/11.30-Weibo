@@ -72,7 +72,7 @@
 
 - (void)setOriginalFrame:(YCLStatusOriginalFrame *)originalFrame {
     _originalFrame = originalFrame;
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
     
     YCLStatus *status = _originalFrame.status;
 

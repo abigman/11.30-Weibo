@@ -56,7 +56,7 @@
         // 说明是今年
         if (createDateComponents.month == currentDateComponents.month && createDateComponents.day == currentDateComponents.day) {
             // 说明是今天(同年同月同日)
-            if (currentDateComponents.hour - createDateComponents.hour >= 1) {
+            if (currentDateComponents.hour - createDateComponents.hour > 1) {
                 // 说明是至少一个小时前
                 createDateFormatted = [NSString stringWithFormat:@"%ld小时前", currentDateComponents.hour - createDateComponents.hour];
             } else if (currentDateComponents.minute - createDateComponents.minute >= 1) {
@@ -69,7 +69,7 @@
         } else {
             // 说明不是今天
             if (createDateComponents.month == currentDateComponents.month && currentDateComponents.day - createDateComponents.day == 1) {
-                // 昨天（同年同月）
+                // 昨天（）
                 dateFormatter.dateFormat = @"昨天 HH:mm";
                 createDateFormatted = [dateFormatter stringFromDate:createDate];
             } else {
@@ -94,7 +94,7 @@
     NSRange range3 = NSMakeRange(range1.location + 1, range2.location - 1 - range1.location);
     NSString *sourceString = [source substringWithRange:range3];
     sourceString = [NSString stringWithFormat:@"来自%@", sourceString];
-    NSLog(@"%@", sourceString);
+//    NSLog(@"%@", sourceString);
     _source = sourceString;
 }
 
