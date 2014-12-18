@@ -50,21 +50,32 @@
     // 获取微博创建日期的元素
     NSDateComponents *createDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:createDate];
     // 获取当前日期的元素
-    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:[NSDate date]];
+    NSDateComponents *currentDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond fromDate:[NSDate date]];
 
     if (createDateComponents.year == currentDateComponents.year) {
         // 说明是今年
         if (createDateComponents.month == currentDateComponents.month && createDateComponents.day == currentDateComponents.day) {
             // 说明是今天(同年同月同日)
-            if (currentDateComponents.hour - createDateComponents.hour > 1) {
+
+            if ((currentDateComponents.hour - createDateComponents.hour > 1) || (currentDateComponents.hour - createDateComponents.hour == 1 && currentDateComponents.minute >= createDateComponents.minute)) {
                 // 说明是至少一个小时前
-                createDateFormatted = [NSString stringWithFormat:@"%ld小时前", currentDateComponents.hour - createDateComponents.hour];
-            } else if (currentDateComponents.minute - createDateComponents.minute >= 1) {
+                createDateFormatted = [NSString stringWithFormat:@"%ld小时前 ", currentDateComponents.hour - createDateComponents.hour];
+                dateFormatter.dateFormat = @"HH:mm:ss";
+                createDateFormatted = [createDateFormatted stringByAppendingString:[dateFormatter stringFromDate:createDate]];
+            } else if ((currentDateComponents.hour - createDateComponents.hour == 1 && currentDateComponents.minute < createDateComponents.minute) || (currentDateComponents.minute - createDateComponents.minute > 1) || (currentDateComponents.minute - createDateComponents.minute == 1 && currentDateComponents.second >= createDateComponents.second)) {
                 // 说明是至少一分钟前
-                createDateFormatted = [NSString stringWithFormat:@"%ld分钟前", currentDateComponents.minute - createDateComponents.minute];
+                long deltaMinute = currentDateComponents.minute - createDateComponents.minute;
+                if (currentDateComponents.hour - createDateComponents.hour == 1 && currentDateComponents.minute < createDateComponents.minute) {
+                    deltaMinute += 60;
+                }
+                createDateFormatted = [NSString stringWithFormat:@"%ld分钟前 ", deltaMinute];
+                dateFormatter.dateFormat = @"HH:mm:ss";
+                createDateFormatted = [createDateFormatted stringByAppendingString:[dateFormatter stringFromDate:createDate]];
             } else {
                 // 说明是一分钟內
-                createDateFormatted = @"刚刚";
+                createDateFormatted = @"刚刚 ";
+                dateFormatter.dateFormat = @"HH:mm:ss";
+                createDateFormatted = [createDateFormatted stringByAppendingString:[dateFormatter stringFromDate:createDate]];
             }
         } else {
             // 说明不是今天
