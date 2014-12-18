@@ -43,11 +43,9 @@
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"EEE MM dd HH:mm:ss Z yyyy";
     NSDate *createDate = [dateFormatter dateFromString:_created_at];
-    
-    dateFormatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-    NSString *createDateFormatted = [dateFormatter stringFromDate:createDate];
-    
-    
+
+    NSString *createDateFormatted = nil;
+
     NSCalendar *calendar = [NSCalendar currentCalendar];
     // 获取微博创建日期的元素
     NSDateComponents *createDateComponents = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute fromDate:createDate];
@@ -57,21 +55,21 @@
     if (createDateComponents.year == currentDateComponents.year) {
         // 说明是今年
         if (createDateComponents.month == currentDateComponents.month && createDateComponents.day == currentDateComponents.day) {
-            // 说明是今天
+            // 说明是今天(同年同月同日)
             if (currentDateComponents.hour - createDateComponents.hour >= 1) {
-                // 说明是几个小时前
+                // 说明是至少一个小时前
                 createDateFormatted = [NSString stringWithFormat:@"%ld小时前", currentDateComponents.hour - createDateComponents.hour];
-            } else if (currentDateComponents.minute - createDateComponents.minute > 1) {
-                // 说明是几分钟前
+            } else if (currentDateComponents.minute - createDateComponents.minute >= 1) {
+                // 说明是至少一分钟前
                 createDateFormatted = [NSString stringWithFormat:@"%ld分钟前", currentDateComponents.minute - createDateComponents.minute];
             } else {
-                // 说明是刚刚
+                // 说明是一分钟內
                 createDateFormatted = @"刚刚";
             }
         } else {
             // 说明不是今天
             if (createDateComponents.month == currentDateComponents.month && currentDateComponents.day - createDateComponents.day == 1) {
-                // 昨天
+                // 昨天（同年同月）
                 dateFormatter.dateFormat = @"昨天 HH:mm";
                 createDateFormatted = [dateFormatter stringFromDate:createDate];
             } else {

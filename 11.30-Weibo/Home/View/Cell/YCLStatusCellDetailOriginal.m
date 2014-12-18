@@ -12,6 +12,7 @@
 #import "YCLUser.h"
 #import "UIImageView+WebCache.h"
 #import "YCLStatusStyle.h"
+#import "NSString+YCLTextSize.h"
 
 @interface YCLStatusCellDetailOriginal ()
 /** 头像视图 */
@@ -71,6 +72,7 @@
 
 - (void)setOriginalFrame:(YCLStatusOriginalFrame *)originalFrame {
     _originalFrame = originalFrame;
+    NSLog(@"%s", __func__);
     
     YCLStatus *status = _originalFrame.status;
 
@@ -85,8 +87,23 @@
     self.frame = _originalFrame.frame;
     self.avatarView.frame = _originalFrame.avatarFrame;
     self.nameLabel.frame = _originalFrame.nameFrame;
-    self.timeLabel.frame = _originalFrame.timeFrame;
-    self.sourceLabel.frame = _originalFrame.sourceFrame;
+    
+    // 时间 （时间会变化，变化后需要重写计算）
+    CGFloat timeX = CGRectGetMaxX(self.avatarView.frame) + kCellMargin;
+    CGSize timeSize = [_originalFrame.status.created_at sizeWithFont:kStatusTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGFloat timeW = timeSize.width;
+    CGFloat timeH = timeSize.height;
+    CGFloat timeY = CGRectGetMaxY(self.avatarView.frame) - timeH;
+    self.timeLabel.frame = CGRectMake(timeX, timeY, timeW, timeH);
+    
+    // 来源 （来源虽然不会变，但是位置依赖于时间标签，所以应该放在这个位置）
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + kCellMargin;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [_originalFrame.status.source sizeWithFont:kStatusSourceFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+    CGFloat sourceW = sourceSize.width;
+    CGFloat sourceH = sourceSize.height;
+    self.sourceLabel.frame = CGRectMake(sourceX, sourceY, sourceW, sourceH);
+
     self.textLabel.frame = _originalFrame.textFrame;
 }
 

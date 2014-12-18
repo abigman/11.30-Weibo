@@ -18,10 +18,10 @@
 @property (assign, nonatomic) CGRect avatarFrame;
 /** 昵称 */
 @property (assign, nonatomic) CGRect nameFrame;
-/** 时间 */
-@property (assign, nonatomic) CGRect timeFrame;
-/** 来源 */
-@property (assign, nonatomic) CGRect sourceFrame;
+///** 时间 */
+//@property (assign, nonatomic) CGRect timeFrame;
+///** 来源 */
+//@property (assign, nonatomic) CGRect sourceFrame;
 /** 正文 */
 @property (assign, nonatomic) CGRect textFrame;
 

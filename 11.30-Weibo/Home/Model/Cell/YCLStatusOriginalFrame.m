@@ -33,21 +33,21 @@
     CGFloat nameH = nameSize.height;
     self.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);
     
-    // 时间
-    CGFloat timeX = nameX;
-    CGSize timeSize = [_status.created_at sizeWithFont:kStatusTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-    CGFloat timeW = timeSize.width;
-    CGFloat timeH = timeSize.height;
-    CGFloat timeY = CGRectGetMaxY(self.avatarFrame) - timeH;
-    self.timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
-    
-    // 来源
-    CGFloat sourceX = CGRectGetMaxX(self.timeFrame) + kCellMargin;
-    CGFloat sourceY = timeY;
-    CGSize sourceSize = [_status.source sizeWithFont:kStatusSourceFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-    CGFloat sourceW = sourceSize.width;
-    CGFloat sourceH = sourceSize.height;
-    self.sourceFrame = CGRectMake(sourceX, sourceY, sourceW, sourceH);
+    // 时间 （时间会变化，变化后需要重写计算，在此处计算只会计算一次）
+//    CGFloat timeX = nameX;
+//    CGSize timeSize = [_status.created_at sizeWithFont:kStatusTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+//    CGFloat timeW = timeSize.width;
+//    CGFloat timeH = timeSize.height;
+//    CGFloat timeY = CGRectGetMaxY(self.avatarFrame) - timeH;
+//    self.timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
+//    
+//    // 来源
+//    CGFloat sourceX = CGRectGetMaxX(self.timeFrame) + kCellMargin;
+//    CGFloat sourceY = timeY;
+//    CGSize sourceSize = [_status.source sizeWithFont:kStatusSourceFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
+//    CGFloat sourceW = sourceSize.width;
+//    CGFloat sourceH = sourceSize.height;
+//    self.sourceFrame = CGRectMake(sourceX, sourceY, sourceW, sourceH);
     
     // 正文
     CGFloat textX = kCellMargin;
