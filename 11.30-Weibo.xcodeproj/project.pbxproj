@@ -848,10 +848,10 @@
 		F2FDC4241A41E1BA002169AC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				F2FDC4251A41E1BA002169AC /* YCLStatusDetailFrame.h */,
-				F2FDC4261A41E1BA002169AC /* YCLStatusDetailFrame.m */,
 				F2FDC4271A41E1BA002169AC /* YCLStatusFrame.h */,
 				F2FDC4281A41E1BA002169AC /* YCLStatusFrame.m */,
+				F2FDC4251A41E1BA002169AC /* YCLStatusDetailFrame.h */,
+				F2FDC4261A41E1BA002169AC /* YCLStatusDetailFrame.m */,
 				F2FDC4291A41E1BA002169AC /* YCLStatusOriginalFrame.h */,
 				F2FDC42A1A41E1BA002169AC /* YCLStatusOriginalFrame.m */,
 				F2FDC42B1A41E1BA002169AC /* YCLStatusRetweetedFrame.h */,

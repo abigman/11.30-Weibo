@@ -40,28 +40,25 @@
         
         // 昵称
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.backgroundColor = [UIColor greenColor];
         nameLabel.font = kStatusNameFont;
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
         
         // 时间
         UILabel *timeLabel = [[UILabel alloc] init];
-        timeLabel.backgroundColor = [UIColor greenColor];
+        timeLabel.textColor = [UIColor orangeColor];
         timeLabel.font = kStatusTimeFont;
         [self addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
         // 来源
         UILabel *sourceLabel = [[UILabel alloc] init];
-        sourceLabel.backgroundColor = [UIColor greenColor];
         sourceLabel.font = kStatusSourceFont;
         [self addSubview:sourceLabel];
         self.sourceLabel = sourceLabel;
         
         // 正文
         UILabel *textLabel = [[UILabel alloc] init];
-        textLabel.backgroundColor = [UIColor greenColor];
         textLabel.numberOfLines = 0;
         textLabel.font = kStatusTextFont;
         [self addSubview:textLabel];

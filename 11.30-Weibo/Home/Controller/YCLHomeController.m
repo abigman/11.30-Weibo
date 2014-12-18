@@ -33,6 +33,8 @@
 #import "YCLStatusFrame.h"
 #import "YCLStatusCell.h"
 
+#import "YCLStatusStyle.h"
+
 
 // 微博数据请求连接
 //#define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
@@ -78,7 +80,7 @@
     // 去掉分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    self.tableView.backgroundColor = [UIColor grayColor];
+    self.tableView.backgroundColor = kBackgroudColor;
 }
 
 /**
@@ -316,7 +318,7 @@
 
 #pragma mark - UITableViewS
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
     
     CGFloat y1 = scrollView.contentOffset.y + scrollView.frame.size.height;
     CGFloat y2 = scrollView.contentSize.height + 49;

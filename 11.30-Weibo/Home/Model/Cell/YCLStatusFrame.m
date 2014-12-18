@@ -23,12 +23,12 @@
     
     // 总体
     CGFloat frameX = 0;
-    CGFloat frameY = CGRectGetMaxY(self.toolBarFrame);
+    CGFloat frameY = 0;
     CGFloat frameW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat frameH = 22;
+    CGFloat frameH = CGRectGetMaxY(self.toolBarFrame);
     self.frame = CGRectMake(frameX, frameY, frameW, frameH);
     
-    self.cellHeight = CGRectGetMaxY(self.toolBarFrame);
+    self.cellHeight = CGRectGetMaxY(self.frame);
 }
 
 /**
@@ -48,7 +48,7 @@
     CGFloat toolBarX = 0;
     CGFloat toolBarY = CGRectGetMaxY(self.detailFrame.frame);
     CGFloat toolBarW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat toolBarH = 22;
+    CGFloat toolBarH = 35;
     self.toolBarFrame = CGRectMake(toolBarX, toolBarY, toolBarW, toolBarH);
 }
 

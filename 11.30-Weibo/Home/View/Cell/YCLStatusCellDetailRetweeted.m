@@ -26,16 +26,12 @@
     if (self) {
         // 昵称
         UILabel *nameLabel = [[UILabel alloc] init];
-        nameLabel.backgroundColor = [UIColor blackColor];
-        nameLabel.textColor = [UIColor whiteColor];
         nameLabel.font = kStatusNameFont;
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
 
         // 正文
         UILabel *textLabel = [[UILabel alloc] init];
-        textLabel.backgroundColor = [UIColor blackColor];
-        textLabel.textColor = [UIColor whiteColor];
         textLabel.font = kStatusTextFont;
         textLabel.numberOfLines = 0;
         [self addSubview:textLabel];
