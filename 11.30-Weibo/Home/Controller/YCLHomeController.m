@@ -6,40 +6,33 @@
 //  Copyright (c) 2014年 yclzone. All rights reserved.
 //
 
+// 控制器相关
 #import "YCLHomeController.h"
 #import "UIBarButtonItem+ItemByImage.h"
 #import "UIImage+YCLImage.h"
 #import "UIView+YCLGeometry.h"
 #import "YCLHomeTitleButton.h"
 #import "YCLPopMenu.h"
-//#import "AFNetworking.h"
-#import "YCLHttpTool.h"
+#import "UIImageView+WebCache.h"
+#import "YCLRefreshView.h"
+// 微博、用户数据相关
 #import "YCLAccount.h"
 #import "YCLAccountTool.h"
 #import "YCLStatus.h"
 #import "YCLUser.h"
-#import "UIImageView+WebCache.h"
-#import "MJExtension.h"
-#import "YCLRefreshView.h"
-
-#import "YCLStatusRequestParameter.h"
+// 微博数据获取
 #import "YCLStatusTool.h"
+#import "YCLStatusRequestParameter.h"
 #import "YCLStatusResponseResult.h"
-
+// 用户数据获取
 #import "YCLUserRequestTool.h"
 #import "YCLUserRequestParameter.h"
 #import "YCLUserResponseResult.h"
-
+// 微博cell相关
 #import "YCLStatusFrame.h"
 #import "YCLStatusCell.h"
-
 #import "YCLStatusStyle.h"
 
-
-// 微博数据请求连接
-//#define kHome_timeline @"https://api.weibo.com/2/statuses/home_timeline.json"
-
-#define kUser_show @"https://api.weibo.com/2/users/show.json"
 
 @interface YCLHomeController ()<YCLPopMenuDelegate>
 /** statusFrame数据 */
@@ -61,12 +54,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-//    [self requestUserInfo];
-    
     // 设置导航栏按钮
     [self setupNavigationBarItem];
+    
+    // 获取用户信息
+    [self requestUserInfo];
 
     // 添加下拉刷新
     [self addRefreshControl];
@@ -95,13 +87,11 @@
     
     // 中间标题按钮
     YCLHomeTitleButton *titleButton = [[YCLHomeTitleButton alloc] init];
-    [self requestUserInfo];
     titleButton.frameH = 35;
     NSString *titleName = [YCLAccountTool readAccount].name ? [YCLAccountTool readAccount].name : @"首页";
     [titleButton setTitle:titleName forState:UIControlStateNormal];
     [titleButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
     [titleButton setBackgroundImage:[UIImage resizableImageNamed:@"navigationbar_title_highlighted"] forState:UIControlStateHighlighted];
-    
     [titleButton addTarget:self action:@selector(titleButtonOnClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleButton;
     self.titleButton = titleButton;
@@ -125,9 +115,7 @@
 }
 
 /**
- *    access_token  false	string	采用OAuth授权方式为必填参数，其他授权方式不需要此参数，OAuth授权后获得。
- *    uid           false	int64	需要查询的用户ID。
- *    screen_name   false	string	需要查询的用户昵称。
+ *    获取授权用户信息
  */
 - (void)requestUserInfo {
     YCLUserRequestParameter *requestParas = [[YCLUserRequestParameter alloc] init];
@@ -136,19 +124,15 @@
     requestParas.uid = @([account.uid longLongValue]);
     
     [YCLUserRequestTool userWithParameters:requestParas success:^(YCLUserResponseResult *responseResult) {
-//        NSLog(@"请求用户信息成功 %@", responseResult);
         YCLUser *user = responseResult;
-//        NSLog(@"请求到的 name = %@", user.name);
         // 保存用户名
         YCLAccount *account = [YCLAccountTool readAccount];
-//        NSLog(@"之前保存的 name = %@", account.name);
         if (![account.name isEqualToString:user.name]) {
             // 保存用户信息
-//            NSLog(@"不一样，更新");
             account.name = user.name;
             [YCLAccountTool saveAccount:account];
         }
-
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
     } failure:^(NSError *error) {
         NSLog(@"请求用户信息失败 - %@", error);
     }];
@@ -228,12 +212,12 @@
     label.backgroundColor = [UIColor orangeColor];
     label.alpha = 0;
     [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         label.alpha = 1;
         label.frameY += 22;
     } completion:^(BOOL finished) {
         
-        [UIView animateWithDuration:1 delay:3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionCurveEaseIn animations:^{
             label.frameY -= 22;
             label.alpha = 0;
         } completion:^(BOOL finished) {
@@ -296,12 +280,12 @@
     label.backgroundColor = [UIColor orangeColor];
     label.alpha = 0;
     [self.tabBarController.view insertSubview:label belowSubview:self.tabBarController.tabBar];
-    [UIView animateWithDuration:1 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         label.alpha = 1;
         label.frameY -= 22;
     } completion:^(BOOL finished) {
         
-        [UIView animateWithDuration:1 delay:3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        [UIView animateWithDuration:0.5 delay:1 options:UIViewAnimationOptionCurveEaseIn animations:^{
             label.frameY += 22;
             label.alpha = 0;
         } completion:^(BOOL finished) {
