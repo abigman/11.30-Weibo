@@ -19,6 +19,8 @@
 @property (weak, nonatomic) UIImageView *avatarView;
 /** 昵称视图 */
 @property (weak, nonatomic) UILabel *nameLabel;
+/** 会员等级 */
+@property (weak, nonatomic) UIImageView *vipImageView;
 /** 时间视图 */
 @property (weak, nonatomic) UILabel *timeLabel;
 /** 来源视图 */
@@ -43,6 +45,13 @@
         nameLabel.font = kStatusNameFont;
         [self addSubview:nameLabel];
         self.nameLabel = nameLabel;
+        
+        // VIP
+        UIImageView *vipImageView = [[UIImageView alloc] init];
+        vipImageView.contentMode = UIViewContentModeCenter;
+        [self addSubview:vipImageView];
+        self.vipImageView = vipImageView;
+        
         
         // 时间
         UILabel *timeLabel = [[UILabel alloc] init];
@@ -76,14 +85,29 @@
     // 设置内容
     [self.avatarView sd_setImageWithURL:[NSURL URLWithString:status.user.profile_image_url] placeholderImage:[UIImage imageNamed:@"tabbar_compose_music"]];
     self.nameLabel.text = status.user.name;
+    if (status.user.mbtype  > 2) {
+        // 是会员
+        self.nameLabel.textColor = [UIColor redColor];
+        self.vipImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"common_icon_membership_level%d", status.user.mbrank]];
+    } else {
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
     self.timeLabel.text = status.created_at;
     self.sourceLabel.text = status.source;
     self.textLabel.text = status.text;
+    
     
     // 设置frame
     self.frame = _originalFrame.frame;
     self.avatarView.frame = _originalFrame.avatarFrame;
     self.nameLabel.frame = _originalFrame.nameFrame;
+    if (status.user.mbtype > 2) {
+        self.vipImageView.hidden = NO;
+        self.vipImageView.frame = _originalFrame.vipImageViewFrame;
+    } else {
+        self.vipImageView.hidden = YES;
+        
+    }
     
     // 时间 （时间会变化，变化后需要重写计算）
     CGFloat timeX = CGRectGetMaxX(self.avatarView.frame) + kCellMargin;

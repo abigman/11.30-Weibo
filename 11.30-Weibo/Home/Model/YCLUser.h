@@ -57,6 +57,10 @@
 @property (copy, nonatomic) NSString *name;
 /** 用户头像地址（中图），50×50像素 */
 @property (copy, nonatomic) NSString *profile_image_url;
+/** VIP类型 */
+@property (assign, nonatomic) int mbtype;  // > 2 是会员
+/** VIP等级 */
+@property (assign, nonatomic) int mbrank;
 
 + (instancetype)userWithDictionary:(NSDictionary *)dict;
 @end

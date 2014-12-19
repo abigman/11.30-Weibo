@@ -33,6 +33,14 @@
     CGFloat nameH = nameSize.height;
     self.nameFrame = CGRectMake(nameX, nameY, nameW, nameH);
     
+    // VIP
+    CGFloat vipImageViewW = 14;
+    CGFloat vipImageViewH = 14;
+    CGFloat vipImageViewX = CGRectGetMaxX(self.nameFrame) + kCellMargin;
+    CGFloat vipImageViewY = CGRectGetMaxY(self.nameFrame) - vipImageViewH - 2;
+    
+    self.vipImageViewFrame = CGRectMake(vipImageViewX, vipImageViewY, vipImageViewW, vipImageViewH);
+    
     // 时间 （时间会变化，变化后需要重写计算，在此处计算只会计算一次）
 //    CGFloat timeX = nameX;
 //    CGSize timeSize = [_status.created_at sizeWithFont:kStatusTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];

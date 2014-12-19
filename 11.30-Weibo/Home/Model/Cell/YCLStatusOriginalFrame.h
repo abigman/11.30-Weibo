@@ -18,6 +18,8 @@
 @property (assign, nonatomic) CGRect avatarFrame;
 /** 昵称 */
 @property (assign, nonatomic) CGRect nameFrame;
+/** VIP */
+@property (assign, nonatomic) CGRect vipImageViewFrame;
 ///** 时间 */
 //@property (assign, nonatomic) CGRect timeFrame;
 ///** 来源 */
