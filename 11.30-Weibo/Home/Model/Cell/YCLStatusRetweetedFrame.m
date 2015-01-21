@@ -35,11 +35,38 @@
     CGFloat textH = textSize.height;
     self.textFrame = CGRectMake(textX, textY, textW, textH);
     
+    // 配图 九宫格
+    if (status.pic_urls.count > 0) {
+        // 显示几行
+        int showColumns = 3;
+        CGFloat viewWH = 80;
+        
+        // 需要显示的行数
+        NSUInteger picCount = status.pic_urls.count;
+        NSUInteger maxRow = (picCount + showColumns - 1) / showColumns;
+        NSUInteger maxColumn = picCount < showColumns ? picCount : showColumns;
+        CGFloat maxWidth = (kCellMargin + viewWH) * maxColumn - kCellMargin;
+        CGFloat maxHeight = (kCellMargin + viewWH) * maxRow - kCellMargin;
+        
+        CGFloat pictureViewX = kCellMargin;
+        CGFloat pictureViewY = CGRectGetMaxY(self.textFrame) + kCellMargin;
+        CGFloat pictureViewW = maxWidth;
+        CGFloat pictureViewH = maxHeight;
+        self.pictureViewFrame = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
+        
+    }
+    
+    
     // 总体
     CGFloat frameX = 0;
     CGFloat frameY = 0;
-    CGFloat frameW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat frameH = CGRectGetMaxY(self.textFrame) + kCellMargin;
+    CGFloat frameW = kScreenWidth;
+    CGFloat frameH = 0;
+    if (status.pic_urls.count > 0) {
+        frameH = CGRectGetMaxY(self.pictureViewFrame) + kCellMargin;
+    } else {
+        frameH = CGRectGetMaxY(self.textFrame) + kCellMargin;
+    }
     self.frame = CGRectMake(frameX, frameY, frameW, frameH);
  
 }

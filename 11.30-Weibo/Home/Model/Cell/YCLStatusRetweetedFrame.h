@@ -18,6 +18,9 @@
 @property (assign, nonatomic) CGRect nameFrame;
 /** 正文frame */
 @property (assign, nonatomic) CGRect textFrame;
+/** 配图 */
+@property (assign, nonatomic) CGRect pictureViewFrame;
+
 
 /** 总体frame */
 @property (assign, nonatomic) CGRect frame;

@@ -11,12 +11,16 @@
 #import "YCLStatus.h"
 #import "YCLUser.h"
 #import "YCLStatusStyle.h"
+#import "YCLStatusPicturesView.h"
 
 @interface YCLStatusCellDetailRetweeted ()
 /** 昵称视图 */
 @property (weak, nonatomic) UILabel *nameLabel;
 /** 正文视图 */
 @property (weak, nonatomic) UILabel *textLabel;
+/** 配图视图 */
+@property (weak, nonatomic) YCLStatusPicturesView *picturesView;
+
 @end
 
 @implementation YCLStatusCellDetailRetweeted
@@ -36,6 +40,12 @@
         textLabel.numberOfLines = 0;
         [self addSubview:textLabel];
         self.textLabel = textLabel;
+        
+        // 配图
+        YCLStatusPicturesView *picturesView = [[YCLStatusPicturesView alloc] init];
+        picturesView.backgroundColor = [UIColor redColor];
+        [self addSubview:picturesView];
+        self.picturesView = picturesView;
     }
     return self;
 }
@@ -53,5 +63,18 @@
     self.frame = _retweetedFrame.frame;
     self.nameLabel.frame = _retweetedFrame.nameFrame;
     self.textLabel.frame = _retweetedFrame.textFrame;
+    
+    // 配图
+    if (status.pic_urls.count > 0) {
+        self.picturesView.hidden = NO;
+        
+        //  status.pic_urls 保存 YCLPicture对象（其thumbnail_pic属性 保存着图片地址）
+        
+        self.picturesView.pictures = status.pic_urls;  // 提供数据后 计算出了 frame
+        self.picturesView.frame = retweetedFrame.pictureViewFrame;
+    } else {
+        
+        self.picturesView.hidden = YES;
+    }
 }
 @end
