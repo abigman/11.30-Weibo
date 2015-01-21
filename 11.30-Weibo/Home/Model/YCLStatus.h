@@ -66,7 +66,7 @@
 /** 表态数 */
 @property (assign, nonatomic) int attitudes_count;
 /** 微博配图ID  保存 YCLPicture 对象 */
-@property (strong, nonatomic) NSArray *pic_ids;
+@property (strong, nonatomic) NSArray *pic_urls;
 
 
 //+ (instancetype)statusWithDictionary:(NSDictionary *)dict;

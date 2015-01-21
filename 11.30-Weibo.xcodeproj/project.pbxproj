@@ -94,6 +94,8 @@
 		F2FDC42F1A41E1BA002169AC /* YCLStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC4281A41E1BA002169AC /* YCLStatusFrame.m */; };
 		F2FDC4301A41E1BA002169AC /* YCLStatusOriginalFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC42A1A41E1BA002169AC /* YCLStatusOriginalFrame.m */; };
 		F2FDC4311A41E1BA002169AC /* YCLStatusRetweetedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FDC42C1A41E1BA002169AC /* YCLStatusRetweetedFrame.m */; };
+		F2FFCA4F1A44636C000813BE /* YCLStatusPicturesView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FFCA4E1A44636C000813BE /* YCLStatusPicturesView.m */; };
+		F2FFCA521A446659000813BE /* YCLStatusPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = F2FFCA511A446659000813BE /* YCLStatusPictureView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -283,6 +285,10 @@
 		F2FDC42B1A41E1BA002169AC /* YCLStatusRetweetedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusRetweetedFrame.h; sourceTree = "<group>"; };
 		F2FDC42C1A41E1BA002169AC /* YCLStatusRetweetedFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusRetweetedFrame.m; sourceTree = "<group>"; };
 		F2FDC42D1A41E1BA002169AC /* YCLStatusStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusStyle.h; sourceTree = "<group>"; };
+		F2FFCA4D1A44636C000813BE /* YCLStatusPicturesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusPicturesView.h; sourceTree = "<group>"; };
+		F2FFCA4E1A44636C000813BE /* YCLStatusPicturesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusPicturesView.m; sourceTree = "<group>"; };
+		F2FFCA501A446659000813BE /* YCLStatusPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLStatusPictureView.h; sourceTree = "<group>"; };
+		F2FFCA511A446659000813BE /* YCLStatusPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLStatusPictureView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -467,6 +473,10 @@
 				F24C31841A4022A0009CC546 /* YCLStatusCellDetailRetweeted.m */,
 				F24C317A1A40223E009CC546 /* YCLStatusCellToolBar.h */,
 				F24C317B1A40223E009CC546 /* YCLStatusCellToolBar.m */,
+				F2FFCA4D1A44636C000813BE /* YCLStatusPicturesView.h */,
+				F2FFCA4E1A44636C000813BE /* YCLStatusPicturesView.m */,
+				F2FFCA501A446659000813BE /* YCLStatusPictureView.h */,
+				F2FFCA511A446659000813BE /* YCLStatusPictureView.m */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -978,6 +988,7 @@
 				F27650701A2B64370031325A /* YCLDiscoverController.m in Sources */,
 				F2A0776A1A3F3B3400982552 /* YCLUserResponseResult.m in Sources */,
 				F25145681A36F0E100D3EB4E /* AFHTTPSessionManager.m in Sources */,
+				F2FFCA521A446659000813BE /* YCLStatusPictureView.m in Sources */,
 				F2A077641A3F38BE00982552 /* YCLUserRequestParameter.m in Sources */,
 				F2B2C9D91A3C7F4000A7E7C8 /* YCLPictureView.m in Sources */,
 				F2FDC4311A41E1BA002169AC /* YCLStatusRetweetedFrame.m in Sources */,
@@ -985,6 +996,7 @@
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
 				F23D06E11A39D6CE004628A5 /* MJTypeEncoding.m in Sources */,
 				F2A0775E1A3F218100982552 /* YCLStatusResponseResult.m in Sources */,
+				F2FFCA4F1A44636C000813BE /* YCLStatusPicturesView.m in Sources */,
 				F260D5EE1A39BC6C008338C4 /* YCLUser.m in Sources */,
 				F236689B1A3AD83D00D2B603 /* YCLTextView.m in Sources */,
 				F23D06C11A39D590004628A5 /* UIView+WebCacheOperation.m in Sources */,

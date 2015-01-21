@@ -11,6 +11,8 @@
 
 // 微博边距
 #define kCellMargin 10
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
 // 微博昵称字体
 #define kStatusNameFont [UIFont systemFontOfSize:15]
 // 微博时间字体

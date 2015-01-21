@@ -32,7 +32,7 @@
  *    通知框架 pic_ids 属性保存的是 YCLPicture 类型的对象
  */
 - (NSDictionary *)objectClassInArray {
-    return @{@"pic_ids" : [YCLPicture class]};
+    return @{@"pic_urls" : [YCLPicture class]};
 }
 
 - (NSString *)created_at {

@@ -352,14 +352,14 @@
     return statusFrame.cellHeight;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIViewController *vc = [[UIViewController alloc] init];
-    vc.view.backgroundColor = [UIColor redColor];
-    vc.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
-    // push 时，隐藏底部bar
-//    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    UIViewController *vc = [[UIViewController alloc] init];
+//    vc.view.backgroundColor = [UIColor redColor];
+//    vc.title = [tableView cellForRowAtIndexPath:indexPath].textLabel.text;
+//    // push 时，隐藏底部bar
+////    vc.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:vc animated:YES];
+//}
 
 
 @end

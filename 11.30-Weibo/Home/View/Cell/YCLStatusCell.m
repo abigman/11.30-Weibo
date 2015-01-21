@@ -53,8 +53,12 @@
     static NSString *identifier = @"HomeCell";
     YCLStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+        NSLog(@"新建 ----");
+        cell = [[YCLStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+    } else {
+        NSLog(@"---- 缓存");
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -20,12 +20,10 @@
 @property (assign, nonatomic) CGRect nameFrame;
 /** VIP */
 @property (assign, nonatomic) CGRect vipImageViewFrame;
-///** 时间 */
-//@property (assign, nonatomic) CGRect timeFrame;
-///** 来源 */
-//@property (assign, nonatomic) CGRect sourceFrame;
 /** 正文 */
 @property (assign, nonatomic) CGRect textFrame;
+/** 配图 */
+@property (assign, nonatomic) CGRect pictureViewFrame;
 
 /** 总体frame */
 @property (assign, nonatomic) CGRect frame;

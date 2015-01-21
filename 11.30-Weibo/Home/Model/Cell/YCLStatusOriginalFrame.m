@@ -41,35 +41,47 @@
     
     self.vipImageViewFrame = CGRectMake(vipImageViewX, vipImageViewY, vipImageViewW, vipImageViewH);
     
-    // 时间 （时间会变化，变化后需要重写计算，在此处计算只会计算一次）
-//    CGFloat timeX = nameX;
-//    CGSize timeSize = [_status.created_at sizeWithFont:kStatusTimeFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-//    CGFloat timeW = timeSize.width;
-//    CGFloat timeH = timeSize.height;
-//    CGFloat timeY = CGRectGetMaxY(self.avatarFrame) - timeH;
-//    self.timeFrame = CGRectMake(timeX, timeY, timeW, timeH);
-//    
-//    // 来源
-//    CGFloat sourceX = CGRectGetMaxX(self.timeFrame) + kCellMargin;
-//    CGFloat sourceY = timeY;
-//    CGSize sourceSize = [_status.source sizeWithFont:kStatusSourceFont maxSize:CGSizeMake(MAXFLOAT, MAXFLOAT)];
-//    CGFloat sourceW = sourceSize.width;
-//    CGFloat sourceH = sourceSize.height;
-//    self.sourceFrame = CGRectMake(sourceX, sourceY, sourceW, sourceH);
-    
     // 正文
     CGFloat textX = kCellMargin;
     CGFloat textY = CGRectGetMaxY(self.avatarFrame) + kCellMargin;
-    CGSize textSize = [_status.text sizeWithFont:kStatusTextFont maxSize:CGSizeMake([UIScreen mainScreen].bounds.size.width - 2 * kCellMargin, MAXFLOAT)];
+    CGSize textSize = [_status.text sizeWithFont:kStatusTextFont maxSize:CGSizeMake(kScreenWidth - 2 * kCellMargin, MAXFLOAT)];
     CGFloat textW = textSize.width;
     CGFloat textH = textSize.height;
     self.textFrame = CGRectMake(textX, textY, textW, textH);
     
+    
+    // 配图 九宫格
+    if (status.pic_urls.count > 0) {
+        // 显示几行
+        int showColumns = 3;
+        CGFloat viewWH = 80;
+        
+        // 需要显示的行数
+        NSUInteger picCount = status.pic_urls.count;
+        NSUInteger maxRow = (picCount + showColumns - 1) / showColumns;
+        NSUInteger maxColumn = picCount < showColumns ? picCount : showColumns;
+        CGFloat maxWidth = (kCellMargin + viewWH) * maxColumn - kCellMargin;
+        CGFloat maxHeight = (kCellMargin + viewWH) * maxRow - kCellMargin;
+        
+        CGFloat pictureViewX = kCellMargin;
+        CGFloat pictureViewY = CGRectGetMaxY(self.textFrame) + kCellMargin;
+        CGFloat pictureViewW = maxWidth;
+        CGFloat pictureViewH = maxHeight;
+        self.pictureViewFrame = CGRectMake(pictureViewX, pictureViewY, pictureViewW, pictureViewH);
+
+    }
+    
+    
     // 总体
     CGFloat frameX = 0;
     CGFloat frameY = 0;
-    CGFloat frameW = [UIScreen mainScreen].bounds.size.width;
-    CGFloat frameH = CGRectGetMaxY(self.textFrame) + kCellMargin;
+    CGFloat frameW = kScreenWidth;
+    CGFloat frameH = 0;
+    if (status.pic_urls.count > 0) {
+        frameH = CGRectGetMaxY(self.pictureViewFrame) + kCellMargin;
+    } else {
+        frameH = CGRectGetMaxY(self.textFrame) + kCellMargin;
+    }
     self.frame = CGRectMake(frameX, frameY, frameW, frameH);
 }
 
