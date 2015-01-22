@@ -41,7 +41,7 @@
     // 显示几行
     int showColumns = kImageColumns;
     CGFloat padding = kImageMargin;
-    CGFloat viewWH = kImageWH;
+    CGFloat viewWH = pictures.count == 1 ? kImageWH*2 : kImageWH;
     
     // 根据图片数，添加对应数量的view
     // 先清空之前的视图
@@ -55,11 +55,7 @@
         int column = i % showColumns;
         CGFloat viewX = (viewWH + padding) * column;
         CGFloat viewY =(viewWH + padding) * row;
-        if (1 == pictures.count) {
-            pictureView.frame = CGRectMake(viewX, viewY, viewWH*2+kImageMargin , viewWH*2+kImageMargin);
-        } else {
-            pictureView.frame = CGRectMake(viewX, viewY, viewWH, viewWH);
-        }
+        pictureView.frame = CGRectMake(viewX, viewY, viewWH, viewWH);
         
         [pictureView sd_setImageWithURL:[NSURL URLWithString:[pictures[i] thumbnail_pic]] placeholderImage:[UIImage imageNamed:@"common_loading"]];
         pictureView.contentMode = UIViewContentModeScaleAspectFill;

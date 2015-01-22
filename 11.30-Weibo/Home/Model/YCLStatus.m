@@ -100,13 +100,16 @@
 }
 
 - (void)setSource:(NSString *)source {
-    NSRange range1 = [source rangeOfString:@">"];
-    NSRange range2 = [source rangeOfString:@"</"];
-    NSRange range3 = NSMakeRange(range1.location + 1, range2.location - 1 - range1.location);
-    NSString *sourceString = [source substringWithRange:range3];
-    sourceString = [NSString stringWithFormat:@"来自%@", sourceString];
-//    NSLog(@"%@", sourceString);
-    _source = sourceString;
+    // 微博来源可能为空
+    if (source.length > 0) {
+        NSRange range1 = [source rangeOfString:@">"];
+        NSRange range2 = [source rangeOfString:@"</"];
+        NSRange range3 = NSMakeRange(range1.location + 1, range2.location - 1 - range1.location);
+        NSString *sourceString = [source substringWithRange:range3];
+        sourceString = [NSString stringWithFormat:@"来自%@", sourceString];
+        //    NSLog(@"%@", sourceString);
+        _source = sourceString;
+    }
 }
 
 @end
