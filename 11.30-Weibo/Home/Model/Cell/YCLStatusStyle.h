@@ -9,9 +9,15 @@
 #ifndef _1_30_Weibo_YCLStatusStyle_h
 #define _1_30_Weibo_YCLStatusStyle_h
 
+// 屏幕宽度
+#define kScreenWidth [UIScreen mainScreen].bounds.size.width
 // 微博边距
 #define kCellMargin 10
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+
+// 微博配图
+#define kImageMargin 5
+#define kImageWH 80
+#define kImageColumns 3
 
 // 微博昵称字体
 #define kStatusNameFont [UIFont systemFontOfSize:15]

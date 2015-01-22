@@ -11,6 +11,7 @@
 #import "YCLStatusPictureView.h"
 #import "YCLPicture.h"
 #import "UIImageView+WebCache.h"
+#import "YCLStatusStyle.h"
 
 @interface YCLStatusPicturesView ()
 /** 图片视图数组 */
@@ -38,9 +39,9 @@
     _pictures = pictures;
     
     // 显示几行
-    int showColumns = 3;
-    CGFloat padding = 10;
-    CGFloat viewWH = 80;
+    int showColumns = kImageColumns;
+    CGFloat padding = kImageMargin;
+    CGFloat viewWH = kImageWH;
     
     // 根据图片数，添加对应数量的view
     // 先清空之前的视图
@@ -50,14 +51,19 @@
     
     for (int i = 0; i<pictures.count; i++) {
         YCLStatusPictureView *pictureView = [[YCLStatusPictureView alloc] init];
-        pictureView.backgroundColor = [UIColor blackColor];
         int row = i / showColumns;
         int column = i % showColumns;
         CGFloat viewX = (viewWH + padding) * column;
         CGFloat viewY =(viewWH + padding) * row;
-        pictureView.frame = CGRectMake(viewX, viewY, viewWH, viewWH);
+        if (1 == pictures.count) {
+            pictureView.frame = CGRectMake(viewX, viewY, viewWH*2+kImageMargin , viewWH*2+kImageMargin);
+        } else {
+            pictureView.frame = CGRectMake(viewX, viewY, viewWH, viewWH);
+        }
         
         [pictureView sd_setImageWithURL:[NSURL URLWithString:[pictures[i] thumbnail_pic]] placeholderImage:[UIImage imageNamed:@"common_loading"]];
+        pictureView.contentMode = UIViewContentModeScaleAspectFill;
+        pictureView.clipsToBounds = YES;
         
         [self addSubview:pictureView];
         

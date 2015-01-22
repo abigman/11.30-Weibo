@@ -81,7 +81,7 @@
         
         // 配图
         YCLStatusPicturesView *picturesView = [[YCLStatusPicturesView alloc] init];
-        picturesView.backgroundColor = [UIColor redColor];
+//        picturesView.backgroundColor = [UIColor redColor];
         [self addSubview:picturesView];
         self.picturesView = picturesView;
         

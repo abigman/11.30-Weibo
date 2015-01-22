@@ -53,15 +53,21 @@
     // 配图 九宫格
     if (status.pic_urls.count > 0) {
         // 显示几行
-        int showColumns = 3;
-        CGFloat viewWH = 80;
+        int showColumns = kImageColumns;
+        CGFloat viewWH = kImageWH;
+        CGFloat padding = kImageMargin;
         
         // 需要显示的行数
         NSUInteger picCount = status.pic_urls.count;
         NSUInteger maxRow = (picCount + showColumns - 1) / showColumns;
         NSUInteger maxColumn = picCount < showColumns ? picCount : showColumns;
-        CGFloat maxWidth = (kCellMargin + viewWH) * maxColumn - kCellMargin;
-        CGFloat maxHeight = (kCellMargin + viewWH) * maxRow - kCellMargin;
+        if (1 == picCount) {
+            maxRow = 2;
+            maxColumn = 2;
+            NSLog(@"Only One ---");
+        }
+        CGFloat maxWidth = (padding + viewWH) * maxColumn - padding;
+        CGFloat maxHeight = (padding + viewWH) * maxRow - padding;
         
         CGFloat pictureViewX = kCellMargin;
         CGFloat pictureViewY = CGRectGetMaxY(self.textFrame) + kCellMargin;
