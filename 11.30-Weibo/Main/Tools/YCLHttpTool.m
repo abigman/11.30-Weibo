@@ -10,56 +10,82 @@
 //#import "AFNetworking.h"
 
 @implementation YCLHttpTool
-+ (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
++ (void)GET:(NSString *)URLString
+    parameters:(id)parameters
+       success:(void (^)(id))success
+       failure:(void (^)(NSError *))failure {
+  AFHTTPRequestOperationManager *manager =
+      [AFHTTPRequestOperationManager manager];
+  [manager GET:URLString
+      parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
-            success(responseObject);
+          success(responseObject);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
-            failure(error);
+          failure(error);
         }
-    }];
+      }];
 }
 
-+ (void)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
++ (void)POST:(NSString *)URLString
+    parameters:(id)parameters
+       success:(void (^)(id))success
+       failure:(void (^)(NSError *))failure {
+  AFHTTPRequestOperationManager *manager =
+      [AFHTTPRequestOperationManager manager];
+  [manager POST:URLString
+      parameters:parameters
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
-            success(responseObject);
+          success(responseObject);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
-            failure(error);
+          failure(error);
         }
-    }];
+      }];
 }
 
-+ (void)POST:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))block success:(void (^)(id))success failure:(void (^)(NSError *))failure {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
++ (void)POST:(NSString *)URLString
+                   parameters:(id)parameters
+    constructingBodyWithBlock:(void (^)(id<AFMultipartFormData>))block
+                      success:(void (^)(id))success
+                      failure:(void (^)(NSError *))failure {
+  AFHTTPRequestOperationManager *manager =
+      [AFHTTPRequestOperationManager manager];
+  [manager POST:URLString
+      parameters:parameters
+      constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         if (block) {
-            block(formData);
+          block(formData);
         }
-    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+      }
+      success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (success) {
-            success(responseObject);
+          success(responseObject);
         }
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+      }
+      failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         if (failure) {
-            failure(error);
+          failure(error);
         }
-    }];
+      }];
 }
 
-+ (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block {
-    AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
-    [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
++ (void)setReachabilityStatusChangeBlock:
+        (void (^)(AFNetworkReachabilityStatus status))block {
+  AFNetworkReachabilityManager *manager =
+      [AFNetworkReachabilityManager sharedManager];
+  [manager
+      setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         if (block) {
-            block(status);
+          block(status);
         }
-    }];
-    [manager startMonitoring];
+      }];
+  [manager startMonitoring];
 }
 @end

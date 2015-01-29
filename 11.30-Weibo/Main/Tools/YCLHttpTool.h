@@ -18,7 +18,10 @@
  *    @param success    请求成功回调
  *    @param failure    请求失败回调
  */
-+ (void)GET:(NSString *)URLString parameters:(id)parameters success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)GET:(NSString *)URLString
+    parameters:(id)parameters
+       success:(void (^)(id responseObject))success
+       failure:(void (^)(NSError *error))failure;
 
 /**
  *    发送POST请求
@@ -28,7 +31,10 @@
  *    @param success    请求成功回调
  *    @param failure    请求失败回调
  */
-+ (void)POST:(NSString *)URLString parameters:(id)parameters success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)POST:(NSString *)URLString
+    parameters:(id)parameters
+       success:(void (^)(id responseObject))success
+       failure:(void (^)(NSError *error))failure;
 
 /**
  *    发送POST请求
@@ -39,12 +45,17 @@
  *    @param success    请求成功回调
  *    @param failure    请求失败回调
  */
-+ (void)POST:(NSString *)URLString parameters:(id)parameters constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))block success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)POST:(NSString *)URLString
+                   parameters:(id)parameters
+    constructingBodyWithBlock:(void (^)(id<AFMultipartFormData> formData))block
+                      success:(void (^)(id responseObject))success
+                      failure:(void (^)(NSError *error))failure;
 
 /**
  *    监控网络访问状态
  *
  *    @param block 回调代码块
  */
-+ (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block;
++ (void)setReachabilityStatusChangeBlock:
+        (void (^)(AFNetworkReachabilityStatus status))block;
 @end
