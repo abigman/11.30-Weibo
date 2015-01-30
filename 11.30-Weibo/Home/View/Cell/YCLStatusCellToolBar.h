@@ -11,5 +11,6 @@
 @class YCLStatusFrame;
 
 @interface YCLStatusCellToolBar : UIView
-
+/** 微博模型 */
+@property (strong, nonatomic) YCLStatusFrame *statusFrame;
 @end
