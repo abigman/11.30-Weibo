@@ -81,6 +81,7 @@ static FMDatabase *_db = nil;
   }
 
   while (statusesSet.next) {
+    // 数据库保存的时候，微博字典已经归档为NSData数据，查询后需要解档
     NSData *statusDictData = [statusesSet objectForColumnName:@"status"];
     NSDictionary *statusDict =
         [NSKeyedUnarchiver unarchiveObjectWithData:statusDictData];
@@ -97,6 +98,9 @@ static FMDatabase *_db = nil;
 }
 
 // 保存网络请求的微博到数据库
+/** 
+  把请求结果中的微博字典数组转归档成NSData数据来存储
+ */
 + (void)saveResponseResult:(id)result
                  parameter:(YCLStatusRequestParameter *)param {
   NSArray *statuses = result[@"statuses"];
