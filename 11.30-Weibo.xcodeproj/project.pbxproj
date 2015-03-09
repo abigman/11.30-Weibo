@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F218F2091AAD98CE00121A79 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = F218F1FF1AAD98CE00121A79 /* FMDatabase.m */; };
+		F218F20A1AAD98CE00121A79 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F218F2011AAD98CE00121A79 /* FMDatabaseAdditions.m */; };
+		F218F20B1AAD98CE00121A79 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = F218F2031AAD98CE00121A79 /* FMDatabasePool.m */; };
+		F218F20C1AAD98CE00121A79 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F218F2051AAD98CE00121A79 /* FMDatabaseQueue.m */; };
+		F218F20D1AAD98CE00121A79 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F218F2081AAD98CE00121A79 /* FMResultSet.m */; };
+		F218F20F1AAD9AA300121A79 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F218F20E1AAD9AA300121A79 /* libsqlite3.0.dylib */; };
 		F225BA5F1A35C83F0063AFB8 /* YCLTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */; };
 		F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA651A35D7C80063AFB8 /* YCLComposeController.m */; };
 		F225BA6D1A35DFE80063AFB8 /* YCLNewfeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F225BA6C1A35DFE80063AFB8 /* YCLNewfeatureController.m */; };
@@ -109,6 +115,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F218F1FE1AAD98CE00121A79 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		F218F1FF1AAD98CE00121A79 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		F218F2001AAD98CE00121A79 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		F218F2011AAD98CE00121A79 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		F218F2021AAD98CE00121A79 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		F218F2031AAD98CE00121A79 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		F218F2041AAD98CE00121A79 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		F218F2051AAD98CE00121A79 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		F218F2061AAD98CE00121A79 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		F218F2071AAD98CE00121A79 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		F218F2081AAD98CE00121A79 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		F218F20E1AAD9AA300121A79 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		F225BA5D1A35C83F0063AFB8 /* YCLTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLTabBar.h; sourceTree = "<group>"; };
 		F225BA5E1A35C83F0063AFB8 /* YCLTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YCLTabBar.m; sourceTree = "<group>"; };
 		F225BA641A35D7C80063AFB8 /* YCLComposeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YCLComposeController.h; sourceTree = "<group>"; };
@@ -296,6 +314,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F218F20F1AAD9AA300121A79 /* libsqlite3.0.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +328,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F218F1FD1AAD98CE00121A79 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				F218F1FE1AAD98CE00121A79 /* FMDatabase.h */,
+				F218F1FF1AAD98CE00121A79 /* FMDatabase.m */,
+				F218F2001AAD98CE00121A79 /* FMDatabaseAdditions.h */,
+				F218F2011AAD98CE00121A79 /* FMDatabaseAdditions.m */,
+				F218F2021AAD98CE00121A79 /* FMDatabasePool.h */,
+				F218F2031AAD98CE00121A79 /* FMDatabasePool.m */,
+				F218F2041AAD98CE00121A79 /* FMDatabaseQueue.h */,
+				F218F2051AAD98CE00121A79 /* FMDatabaseQueue.m */,
+				F218F2061AAD98CE00121A79 /* FMDB.h */,
+				F218F2071AAD98CE00121A79 /* FMResultSet.h */,
+				F218F2081AAD98CE00121A79 /* FMResultSet.m */,
+			);
+			path = fmdb;
+			sourceTree = "<group>";
+		};
 		F225BA601A35D7920063AFB8 /* Compose */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,6 +554,7 @@
 		F25145511A36F0BF00D3EB4E /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				F218F1FD1AAD98CE00121A79 /* fmdb */,
 				F23D06E51A39EC0C004628A5 /* MBProgressHUD */,
 				F23D06C21A39D6CE004628A5 /* MJExtension */,
 				F23D06901A39D590004628A5 /* SDWebImage */,
@@ -554,6 +592,7 @@
 		F27650121A2B5D5E0031325A = {
 			isa = PBXGroup;
 			children = (
+				F218F20E1AAD9AA300121A79 /* libsqlite3.0.dylib */,
 				F276501D1A2B5D5E0031325A /* 11.30-Weibo */,
 				F27650371A2B5D5E0031325A /* 11.30-WeiboTests */,
 				F276501C1A2B5D5E0031325A /* Products */,
@@ -976,6 +1015,7 @@
 				F23D06DA1A39D6CE004628A5 /* MJArgument.m in Sources */,
 				F2FDC42E1A41E1BA002169AC /* YCLStatusDetailFrame.m in Sources */,
 				F23D06DC1A39D6CE004628A5 /* MJFoundation.m in Sources */,
+				F218F20B1AAD98CE00121A79 /* FMDatabasePool.m in Sources */,
 				F23D06E41A39D6CE004628A5 /* NSObject+MJMember.m in Sources */,
 				F24C317C1A40223E009CC546 /* YCLStatusCellToolBar.m in Sources */,
 				F225BA661A35D7C80063AFB8 /* YCLComposeController.m in Sources */,
@@ -994,6 +1034,7 @@
 				F2FDC4311A41E1BA002169AC /* YCLStatusRetweetedFrame.m in Sources */,
 				F27650671A2B60B70031325A /* YCLHomeController.m in Sources */,
 				F27650211A2B5D5E0031325A /* main.m in Sources */,
+				F218F20D1AAD98CE00121A79 /* FMResultSet.m in Sources */,
 				F23D06E11A39D6CE004628A5 /* MJTypeEncoding.m in Sources */,
 				F2A0775E1A3F218100982552 /* YCLStatusResponseResult.m in Sources */,
 				F2FFCA4F1A44636C000813BE /* YCLStatusPicturesView.m in Sources */,
@@ -1021,7 +1062,9 @@
 				F28DEFE61A2D9B11001124B8 /* YCLPopMenu.m in Sources */,
 				F2A0776D1A3F3BB000982552 /* YCLUserRequestTool.m in Sources */,
 				F25145661A36F0E100D3EB4E /* AFHTTPRequestOperation.m in Sources */,
+				F218F20A1AAD98CE00121A79 /* FMDatabaseAdditions.m in Sources */,
 				F23D06BB1A39D590004628A5 /* UIButton+WebCache.m in Sources */,
+				F218F2091AAD98CE00121A79 /* FMDatabase.m in Sources */,
 				F2A578321A3979AB00D70ACC /* YCLControllerTools.m in Sources */,
 				F23D06B71A39D590004628A5 /* SDWebImageDownloader.m in Sources */,
 				F23D06B31A39D590004628A5 /* NSData+ImageContentType.m in Sources */,
@@ -1052,6 +1095,7 @@
 				F2A077561A3F0E2700982552 /* UIBarButtonItem+ItemByImage.m in Sources */,
 				F260D5F11A39BEB8008338C4 /* YCLStatus.m in Sources */,
 				F23D06E01A39D6CE004628A5 /* MJType.m in Sources */,
+				F218F20C1AAD98CE00121A79 /* FMDatabaseQueue.m in Sources */,
 				F25145501A36DFC100D3EB4E /* YCLOAuthController.m in Sources */,
 				F23D06C01A39D590004628A5 /* UIImageView+WebCache.m in Sources */,
 				F2B9E2271A2C3E8200A87B7A /* YCLSearchBar.m in Sources */,

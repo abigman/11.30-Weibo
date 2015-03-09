@@ -9,5 +9,10 @@
 #import "YCLStatusRequestParameter.h"
 
 @implementation YCLStatusRequestParameter
-
+- (NSNumber *)count {
+  if (!_count) {
+    _count = @20;
+  }
+  return _count;
+}
 @end
